@@ -6456,7 +6456,7 @@
                   "        checkStatus = checkStatus || (data.getListingInitialPayment[0][i].hasOwnProperty(\"status\"));",
                   "   }",
                   "    for(var i=0; i<json.data.getListingInitialPayment[0][i].length; i++){",
-                  "data.getListingInitialPayment[0][i].hasOwnProperty(\"type\"));",
+                  "        checkType = checkUpdatedAt || (data.getListingInitialPayment[0][i].hasOwnProperty(\"type\"));",
                   "   }",
                   "    tests[\"'getListingInitialPayment.initialAmount' should be exist in every iteration\"] = checkInitialAmount;",
                   "    tests[\"'getListingInitialPayment.status' should be exist in every iteration\"] = checkStatus;",
