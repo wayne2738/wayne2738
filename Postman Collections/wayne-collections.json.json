@@ -6433,11 +6433,11 @@
               "script": {
                 "id": "22ce9793-9eb3-42e1-bc51-8732e6a36918",
                 "exec": [
-                  "tests[\"Filter draft listing by supplier type\"] = true",
+                  "tests[\"getListingInitialPayment by input promo code, listing Id and Move In Date\"] = true",
                   "",
                   "var json = JSON.parse(responseBody);",
                   "",
-                  "tests[\"status code is 2ii\"] = responseCode.code === 200;",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
                   "",
                   "function checkGetAdminListingSupplierInfo(){",
                   "    var data = json.data.getListingInitialPayment;",
