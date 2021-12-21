@@ -6441,7 +6441,7 @@
                   "",
                   "tests[\"Searching page size should be within pageSize '6' only\"] = json.getListingInitialPayment.items.length <= 6;",
                   "",
-                  "tests[\"Should have 'name' exist under the owner\"] = json.getListingInitialPayment.items[0].owner.hasOwnProperty('initialAmount');",
+                  "tests[\"Should have 'initialAmount' exist under the owner\"] = json.getListingInitialPayment[0].owner.hasOwnProperty('initialAmount');",
                   "",
                   "function checkGetAdminListingSupplierInfo(){",
                   "    var data = json.data.getAdminDraftListings;",
