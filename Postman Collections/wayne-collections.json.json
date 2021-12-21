@@ -6440,7 +6440,7 @@
                   "tests[\"status code is 200\"] = responseCode.code === 200;",
                   "",
                   "function checkGetAdminListingSupplierInfo(){",
-                  "    var data = json.data.getListingInitialPayment;",
+                  "    var data = json.data.getListingInitialPayment[i];",
                   "    var checkInitialAmount = false;",
                   "    var checkStatus = false;",
                   "    var checkType = false;",
