@@ -6443,7 +6443,7 @@
                   "",
                   "tests[\"status code is 200\"] = responseCode.code === 200;",
                   "",
-                  "function checkGetAdminListingSupplierInfo(){",
+                  "function checkListingInitialPayment(){",
                   "    var data = json.data;",
                   "    var checkInitialAmount = false;",
                   "    var checkStatus = false;",
@@ -6462,7 +6462,7 @@
                   "    tests[\"'getListingInitialPayment.status' should be exist in every iteration\"] = checkStatus;",
                   "    tests[\"'getListingInitialPayment.type' should be exist in every iteration\"] = checkType;",
                   "}",
-                  "checkGetAdminListingSupplierInfo();",
+                  "checkListingInitialPayment();",
                   "",
                   ""
                 ],
