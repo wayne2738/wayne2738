@@ -6444,7 +6444,7 @@
                   "tests[\"status code is 200\"] = responseCode.code === 200;",
                   "",
                   "function checkListingInitialPayment(){",
-                  "    //var data = json.data.getListingInitialPayment[0][i];",
+                  "    var data = json.data.getListingInitialPayment[0][i];",
                   "    var checkInitialAmount = false;",
                   "    var checkStatus = false;",
                   "    var checkType = false;",
