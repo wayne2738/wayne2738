@@ -6724,7 +6724,7 @@
                   "        checkTenantName = checkTenantName || (data.items[i].booking.hasOwnProperty(\"fullName\"));",
                   "        data.items[0].booking.fullName.has(\"pending\") == true;",
                   "   }",
-                  "    tests[\"'getAdminPaymentRecords.items[i].booking.name' should be exist in every iteration\"] = checkTenantName;",
+                  "    tests[\"'getAdminPaymentRecords.items[i].booking.name=ihmy' should be exist in every iteration\"] = checkTenantName;",
                   "}",
                   "checkAdminPaymentRecords();",
                   "",
