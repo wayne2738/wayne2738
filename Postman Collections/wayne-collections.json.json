@@ -6877,7 +6877,10 @@
                   "",
                   "tests[\"'createOrUpdateBooking.contractEnd' should be exist in the response\"] = json.data.createOrUpdateBooking.hasOwnProperty('contractEnd');",
                   "",
-                  "tests['Move In End Date is' + \" \" +  pm.environment.get(\"MoveOutDate\")] = true;"
+                  "tests['Move In End Date is' + \" \" +  pm.environment.get(\"MoveOutDate\")] = true;",
+                  "",
+                  "",
+                  "tests[\"Rental Deposit PromotionCode returned is '500OFFRENTDEP'\"] = json.data.createOrUpdateBooking.promotionCode.code.has(\"500OFFRENTDEP\")"
                 ],
                 "type": "text/javascript"
               }
