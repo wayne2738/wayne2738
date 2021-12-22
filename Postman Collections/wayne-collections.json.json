@@ -6710,6 +6710,23 @@
               "script": {
                 "id": "a6917efc-ddb2-4be1-adde-b0788d6f59fb",
                 "exec": [
+                  "tests[\"getAdminPaymentRecords by tenant name\"] = true",
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "function checkAdminPaymentRecords(){",
+                  "    var data = json.data;",
+                  "    var checkTenantName = false;",
+                  "",
+                  "    for(var i=0; i< data.getAdminPaymentRecords.items.length; i++){  ",
+                  "        checkTenantName = checkTenantName || (data.getAdminPaymentRecords.items[i].booking.hasOwnProperty(\"fullName\"));",
+                  "   }",
+                  "    tests[\"'getAdminPaymentRecords.items[i].booking.name' should be exist in every iteration\"] = checkTenantName;",
+                  "}",
+                  "checkAdminPaymentRecords();",
+                  "",
                   "",
                   ""
                 ],
