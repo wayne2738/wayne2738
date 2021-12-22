@@ -6435,8 +6435,6 @@
                 "exec": [
                   "tests[\"getListingInitialPayment by input promo code, listing Id and Move In Date\"] = true",
                   "",
-                  "",
-                  "",
                   "var json = JSON.parse(responseBody);",
                   "",
                   "tests[\"test\"] = json.data.getListingInitialPayment[0].hasOwnProperty(\"initialAmount\");",
