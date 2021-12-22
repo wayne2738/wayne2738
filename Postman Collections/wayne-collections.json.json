@@ -6580,7 +6580,7 @@
             "body": {
               "mode": "graphql",
               "graphql": {
-                "query": "query getBookingDepositPayment {\n  getBookingDepositPayment(bookingId:{{BookingId}}, promotionCode:\"StayHome21\") {\n    paymentId\n    status\n    dueDate\n    amount\n    toDisplayAmount\n    initialAmount\n    toDisplayInitialAmount\n    paymentAdjustments {\n      id\n      remarks\n      operations  \n      amount\n      type\n      toDisplayAmount\n      toDisplayAlteration\n      remarks\n      createdAt\n    }\n    paymentStep\n    lateCharge\n    lateChargeAmount\n    discountAmount\n    \n  }\n}",
+                "query": "query getBookingDepositPayment {\n  getBookingDepositPayment(bookingId:{{BookingId}}, promotionCode:\"{{PromotionCode}}\") {\n    paymentId\n    status\n    dueDate\n    amount\n    toDisplayAmount\n    initialAmount\n    toDisplayInitialAmount\n    paymentAdjustments {\n      id\n      remarks\n      operations  \n      amount\n      type\n      toDisplayAmount\n      toDisplayAlteration\n      remarks\n      createdAt\n    }\n    paymentStep\n    lateCharge\n    lateChargeAmount\n    discountAmount\n    \n  }\n}",
                 "variables": ""
               }
             },
