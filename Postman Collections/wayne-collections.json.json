@@ -6769,7 +6769,7 @@
           "response": []
         },
         {
-          "name": "CreateOrUpdateBooking(WithPromo)OffAdvancedDeposit Copy",
+          "name": "CreateOrUpdateBooking(WithPromo)OffAdvancedDeposit",
           "event": [
             {
               "listen": "test",
