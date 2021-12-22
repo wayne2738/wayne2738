@@ -6722,6 +6722,7 @@
                   "",
                   "    for(var i=0; i< data.items.length; i++){  ",
                   "        checkTenantName = checkTenantName || (data.items[i].booking.hasOwnProperty(\"fullName\"));",
+                  "        json.data.getAdminPaymentRecords.items[0].booking.fullName.has(\"pending\") == true;",
                   "   }",
                   "    tests[\"'getAdminPaymentRecords.items[i].booking.name' should be exist in every iteration\"] = checkTenantName;",
                   "}",
