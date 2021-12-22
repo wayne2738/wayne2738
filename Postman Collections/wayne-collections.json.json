@@ -6811,7 +6811,7 @@
                   "tests['Move In End Date is' + \" \" +  pm.environment.get(\"MoveOutDate\")] = true;",
                   "",
                   "",
-                  "tests[\"Advanced Deposit PromotionCode returned is '100OFFSECDEP'\"] = json.data.createOrUpdateBooking.promotionCode.code.has(\"100OFFSECDEP\")"
+                  "tests[\"Advanced Deposit PromotionCode returned is '200OFFADVDEP'\"] = json.data.createOrUpdateBooking.promotionCode.code.has(\"200OFFADVDEP\")"
                 ],
                 "type": "text/javascript"
               }
