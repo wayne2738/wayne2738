@@ -6703,7 +6703,7 @@
           "response": []
         },
         {
-          "name": "CreateOrUpdateBooking(WithPromo)OffSecurityDeposit Copy",
+          "name": "CreateOrUpdateBooking(WithPromo)OffUtilityDeposit",
           "event": [
             {
               "listen": "test",
