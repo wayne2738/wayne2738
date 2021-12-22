@@ -6703,72 +6703,6 @@
           "response": []
         },
         {
-          "name": "CreateOrUpdateBooking(WithPromo)OffSecurityDeposit Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "0d8a5b4b-ad82-4708-a085-5b348ba99236",
-                "exec": [
-                  "",
-                  "var json = JSON.parse(responseBody);",
-                  "",
-                  "tests[\"Get booking id\" + \" \" + json.data.createOrUpdateBooking.id] = true;",
-                  "",
-                  "tests[\"status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "postman.setEnvironmentVariable(\"BookingId\", json.data.createOrUpdateBooking.id);",
-                  "",
-                  "tests['BookingId:' + \" \" +  pm.environment.get(\"BookingId\") + \" \" + 'is stored'] = true;",
-                  "",
-                  "postman.setEnvironmentVariable(\"promotionCode\", json.data.createOrUpdateBooking.promotionCode.code);",
-                  "",
-                  "tests['promotionCode:' + \" \" +  pm.environment.get(\"promotionCode\") + \" \" + 'is stored'] = true;",
-                  "",
-                  "tests[\"'createOrUpdateBooking.movedInEndDate' should be exist in the response\"] = json.data.createOrUpdateBooking.hasOwnProperty('movedInEndDate');",
-                  "/*",
-                  "var dateObj = new Date();",
-                  "tests[\"movedInEndDate returned 'YYYY-MM-DDThh:mm:ss.AAAZ'\"] = pm.expect(json.data.createOrUpdateBooking.movedInEndDate).to.include(dateObj.toISOString('YYYY-MM-DD 00:00:00.000Z\"'));",
-                  "",
-                  "console.log(moment.format(\"YYYY-MM-DDT00:00:00.000Z'\"));",
-                  "*/",
-                  "tests[\"'createOrUpdateBooking.movedInEndDate' should end with 'Z'\"] = json.data.createOrUpdateBooking.movedInEndDate.indexOf(\"Z\");",
-                  "",
-                  "",
-                  "tests[\"'createOrUpdateBooking.contractEnd' should be exist in the response\"] = json.data.createOrUpdateBooking.hasOwnProperty('contractEnd');",
-                  "",
-                  "tests['Move In End Date is' + \" \" +  pm.environment.get(\"MoveOutDate\")] = true;"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "d5e965b6-a67f-453a-bdd0-071ecbd766a6",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "token": "{{accessTokenTenant}}"
-              }
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "graphql",
-              "graphql": {
-                "query": "mutation {\n createOrUpdateBooking(\n  data: {\n    listingId:{{ListingId1}},\n    price:1500,\n    rentalDeposit:150,\n    movedInDate: \"{{MoveInDate}}\",\n    companyInstitution: \"Loan Shark Enterprise\",\n    contractEnd: \"{{MoveOutDate}}\",\n    fullName: \"Michael Tan\",\n    tenancyMonths: 12,\n    movedInStartDate: \"{{MoveInDate}}\",\n    nationality: \"my\",\n    noOfResidents: 1,\n    occupation: \"loan shark\",\n    otherRelationship: \"none\",\n    promotionCode:{\n        code: \"{{promotionCode}}\"\n    }\n    relationship: \"none\",\n    identificationDocuments: {\n      type: \"document\",\n      url: \"https://google.com\"\n    },\n    additionalDocuments: {\n      type: \"document\",\n      url: \"https://google.com\"\n    }\n  }\n) {\n  id\n  fullName\n  movedInEndDate\n  contractEnd\n  promotionCode{\n      code\n  }\n}\n}",
-                "variables": ""
-              }
-            },
-            "url": "{{base_url}}/graphql",
-            "description": "#### \\[API\\]Bookings already rejected/deleted but yet still failed to createOrUpdateBooking\n\n[https://instahome.atlassian.net/browse/ENG-2139](https://instahome.atlassian.net/browse/ENG-2139)"
-          },
-          "response": []
-        },
-        {
           "name": "getAdminPaymentsByTenantName",
           "event": [
             {
@@ -7170,6 +7104,72 @@
               }
             },
             "url": "{{base_url}}/graphql"
+          },
+          "response": []
+        },
+        {
+          "name": "CreateOrUpdateBooking(WithPromo)OffSecurityDeposit Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0d8a5b4b-ad82-4708-a085-5b348ba99236",
+                "exec": [
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"Get booking id\" + \" \" + json.data.createOrUpdateBooking.id] = true;",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "postman.setEnvironmentVariable(\"BookingId\", json.data.createOrUpdateBooking.id);",
+                  "",
+                  "tests['BookingId:' + \" \" +  pm.environment.get(\"BookingId\") + \" \" + 'is stored'] = true;",
+                  "",
+                  "postman.setEnvironmentVariable(\"promotionCode\", json.data.createOrUpdateBooking.promotionCode.code);",
+                  "",
+                  "tests['promotionCode:' + \" \" +  pm.environment.get(\"promotionCode\") + \" \" + 'is stored'] = true;",
+                  "",
+                  "tests[\"'createOrUpdateBooking.movedInEndDate' should be exist in the response\"] = json.data.createOrUpdateBooking.hasOwnProperty('movedInEndDate');",
+                  "/*",
+                  "var dateObj = new Date();",
+                  "tests[\"movedInEndDate returned 'YYYY-MM-DDThh:mm:ss.AAAZ'\"] = pm.expect(json.data.createOrUpdateBooking.movedInEndDate).to.include(dateObj.toISOString('YYYY-MM-DD 00:00:00.000Z\"'));",
+                  "",
+                  "console.log(moment.format(\"YYYY-MM-DDT00:00:00.000Z'\"));",
+                  "*/",
+                  "tests[\"'createOrUpdateBooking.movedInEndDate' should end with 'Z'\"] = json.data.createOrUpdateBooking.movedInEndDate.indexOf(\"Z\");",
+                  "",
+                  "",
+                  "tests[\"'createOrUpdateBooking.contractEnd' should be exist in the response\"] = json.data.createOrUpdateBooking.hasOwnProperty('contractEnd');",
+                  "",
+                  "tests['Move In End Date is' + \" \" +  pm.environment.get(\"MoveOutDate\")] = true;"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "d5e965b6-a67f-453a-bdd0-071ecbd766a6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenTenant}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\n createOrUpdateBooking(\n  data: {\n    listingId:{{ListingId1}},\n    price:1500,\n    rentalDeposit:150,\n    movedInDate: \"{{MoveInDate}}\",\n    companyInstitution: \"Loan Shark Enterprise\",\n    contractEnd: \"{{MoveOutDate}}\",\n    fullName: \"Michael Tan\",\n    tenancyMonths: 12,\n    movedInStartDate: \"{{MoveInDate}}\",\n    nationality: \"my\",\n    noOfResidents: 1,\n    occupation: \"loan shark\",\n    otherRelationship: \"none\",\n    promotionCode:{\n        code: \"{{promotionCode}}\"\n    }\n    relationship: \"none\",\n    identificationDocuments: {\n      type: \"document\",\n      url: \"https://google.com\"\n    },\n    additionalDocuments: {\n      type: \"document\",\n      url: \"https://google.com\"\n    }\n  }\n) {\n  id\n  fullName\n  movedInEndDate\n  contractEnd\n  promotionCode{\n      code\n  }\n}\n}",
+                "variables": ""
+              }
+            },
+            "url": "{{base_url}}/graphql",
+            "description": "#### \\[API\\]Bookings already rejected/deleted but yet still failed to createOrUpdateBooking\n\n[https://instahome.atlassian.net/browse/ENG-2139](https://instahome.atlassian.net/browse/ENG-2139)"
           },
           "response": []
         }
