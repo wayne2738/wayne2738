@@ -9856,7 +9856,7 @@
                   "script": {
                     "id": "c1f4df1d-c4cf-455d-b09a-ad80f649a7c2",
                     "exec": [
-                      "",
+                      "postman.setNextRequest(null)",
                       "var json = JSON.parse(responseBody);",
                       "",
                       "",
