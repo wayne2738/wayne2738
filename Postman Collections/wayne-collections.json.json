@@ -6767,7 +6767,25 @@
               "script": {
                 "id": "bfb604a3-da8c-4e61-afc4-f4628e9cdced",
                 "exec": [
-                  "//postman.setNextRequest(\"generateSignedUrl\");",
+                  "tests[\"getAdminPaymentRecords by BookingId\"] = true",
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "function checkAdminPaymentRecords(){",
+                  "    var data = json.data.getAdminPaymentRecords;",
+                  "    var checkTenantName = false;",
+                  "",
+                  "    for(var i=0; i< data.items.length; i++){  ",
+                  "        checkTenantName = checkTenantName || (data.items[i].booking.hasOwnProperty(\"fullName\"));",
+                  "        data.items[i].booking.fullName.has(\"pending\") == true;",
+                  "   }",
+                  "    tests[\"'getAdminPaymentRecords.items[i].booking.name=ihmy' should be exist in every iteration\"] = checkTenantName;",
+                  "}",
+                  "checkAdminPaymentRecords();",
+                  "",
+                  "",
                   ""
                 ],
                 "type": "text/javascript"
