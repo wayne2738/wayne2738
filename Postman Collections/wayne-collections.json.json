@@ -6637,7 +6637,7 @@
           "response": []
         },
         {
-          "name": "CreateOrUpdateBooking",
+          "name": "CreateOrUpdateBooking(WithPromo)OffSecurityDeposit",
           "event": [
             {
               "listen": "test",
