@@ -1878,6 +1878,64 @@
             "url": "{{base_url}}/graphql"
           },
           "response": []
+        },
+        {
+          "name": "PublishDraftListingSuccess_prod",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "38acbe94-9ade-4021-984e-84d843e9c4d8",
+                "exec": [
+                  "postman.setNextRequest(\"GetMoveOutDate\");",
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"Publish draft listing success with listing id\" + \" \" + json.data.publishDraftListing.listingId ] = true",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "tests[\"'publishDraftListing.listingId' should be exist in the response\"] = json.data.publishDraftListing.hasOwnProperty('listingId');",
+                  "",
+                  "postman.setEnvironmentVariable(\"ListingId1\", json.data.publishDraftListing.listingId);"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "43d311a0-c0c2-406a-a8ed-c6e1100d632f",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "7851c5d6-d2a2-4681-8165-ceddc64aa9a0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenAdmin}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\npublishDraftListing(id:{{DraftListingId2}}) \n  {\n    listingId\n\taddress{\n      area\n      block\n\t\t\tbuildingName\n      country\n      countryCode\n      floor\n      fullUnitNumber\n      postcode\n      state\n    \tstreetLine1\n      streetLine2\n      subArea\n      unitNo\n    },\n\t\tavailableAt\n    \tbathroom\n    \tbathroomType\n    \tbedroom\n    \tcarpark\n      createdAt\n    \tcurrency\n    \tdepositMonth\n    \tdepositValue\n  \t\telectricityBill\n    \tfloorLevel\n    \tfurnishing\n    \tfurnishType\n    \tgenderRule\n    \thouseRules\n    \tsquareFeet\n    \tstampingFee\n    \tstatus\n    \tunitPropertyType\n    \tunitType\n    \tutilities\n    \tutilityDeposit\n    \tutilityDepositValue\n    \twaterBill\n    \twifi\n  }\n\n}",
+                "variables": ""
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
         }
       ],
       "id": "b2448f64-7046-4277-8c52-8cecc544e5c7"
