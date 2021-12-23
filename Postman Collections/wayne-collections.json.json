@@ -7629,6 +7629,74 @@
             "url": "{{base_url}}/graphql"
           },
           "response": []
+        },
+        {
+          "name": "CreateOrUpdateBooking(WithPromo)OffSecurityDeposit_prod",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c98a5d8c-ccf6-48eb-91b5-01c721d1871c",
+                "exec": [
+                  "postman.setNextRequest(null);",
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"Get booking id\" + \" \" + json.data.createOrUpdateBooking.id] = true;",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "postman.setEnvironmentVariable(\"BookingId\", json.data.createOrUpdateBooking.id);",
+                  "",
+                  "tests['BookingId:' + \" \" +  pm.environment.get(\"BookingId\") + \" \" + 'is stored'] = true;",
+                  "",
+                  "postman.setEnvironmentVariable(\"promotionCode\", json.data.createOrUpdateBooking.promotionCode.code);",
+                  "",
+                  "tests['promotionCode:' + \" \" +  pm.environment.get(\"promotionCode\") + \" \" + 'is stored'] = true;",
+                  "",
+                  "tests[\"'createOrUpdateBooking.movedInEndDate' should be exist in the response\"] = json.data.createOrUpdateBooking.hasOwnProperty('movedInEndDate');",
+                  "/*",
+                  "var dateObj = new Date();",
+                  "tests[\"movedInEndDate returned 'YYYY-MM-DDThh:mm:ss.AAAZ'\"] = pm.expect(json.data.createOrUpdateBooking.movedInEndDate).to.include(dateObj.toISOString('YYYY-MM-DD 00:00:00.000Z\"'));",
+                  "",
+                  "console.log(moment.format(\"YYYY-MM-DDT00:00:00.000Z'\"));",
+                  "*/",
+                  "tests[\"'createOrUpdateBooking.movedInEndDate' should end with 'Z'\"] = json.data.createOrUpdateBooking.movedInEndDate.indexOf(\"Z\");",
+                  "",
+                  "",
+                  "tests[\"'createOrUpdateBooking.contractEnd' should be exist in the response\"] = json.data.createOrUpdateBooking.hasOwnProperty('contractEnd');",
+                  "",
+                  "tests['Move In End Date is' + \" \" +  pm.environment.get(\"MoveOutDate\")] = true;",
+                  "",
+                  "tests[\"Security Deposit PromotionCode returned is '100OFFSECDEP'\"] = json.data.createOrUpdateBooking.promotionCode.code.has(\"100OFFSECDEP\")"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "4824cb07-0463-41a3-90bf-dd6e1fab9c62",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenTenant2}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\n createOrUpdateBooking(\n  data: {\n    listingId:{{ListingId1}},\n    price:1500,\n    rentalDeposit:150,\n    movedInDate: \"{{MoveInDate}}\",\n    companyInstitution: \"Loan Shark Enterprise\",\n    contractEnd: \"{{MoveOutDate}}\",\n    fullName: \"Michael Tan\",\n    tenancyMonths: 12,\n    movedInStartDate: \"{{MoveInDate}}\",\n    nationality: \"my\",\n    noOfResidents: 1,\n    occupation: \"loan shark\",\n    otherRelationship: \"none\",\n\n    relationship: \"none\",\n    identificationDocuments: {\n      type: \"document\",\n      url: \"https://google.com\"\n    },\n    additionalDocuments: {\n      type: \"document\",\n      url: \"https://google.com\"\n    }\n  }\n) {\n  id\n  fullName\n  movedInEndDate\n  contractEnd\n  promotionCode{\n      code\n  }\n}\n}",
+                "variables": ""
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
         }
       ],
       "id": "fdb28a83-381e-4b9a-8cc2-c93ce80179cb"
