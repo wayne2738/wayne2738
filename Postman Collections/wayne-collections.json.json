@@ -8007,6 +8007,32 @@
             "url": "{{base_url}}/graphql"
           },
           "response": []
+        },
+        {
+          "name": "bulkUpdate_prod",
+          "id": "539eca3c-b335-4fe5-9541-ebcaf6cfbf9e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenAdmin}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\nbulkUpdate(\n  ids: [6911,6912]\n  data:\n  {\n    unitType: EntireUnit,\n    unitPropertyType: Duplex,\n    status: ProcessingComplete,\n  \twifi: InclusiveOnRent\n  }\n) \n  {\n    unitType\n    unitPropertyType\n    status\n    wifi\n  }\n\n}",
+                "variables": ""
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
         }
       ],
       "id": "fdb28a83-381e-4b9a-8cc2-c93ce80179cb"
