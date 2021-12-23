@@ -1439,13 +1439,98 @@
             "body": {
               "mode": "graphql",
               "graphql": {
-                "query": "mutation {\n  createAdminDraftListing(data: {\n    minRentalAmount: 9999,\n    address: {\n      fullUnitNumber:\"C-13A-03A\"\n      block: \"13\"\n      buildingName:\"test Block Crest\"\n    }\n    propertyId: \"2281\"\n    status:ProcessingComplete\n    unitType:EntireUnit\n  }) \n  {\n    id\n    status\n    listingId\n    unitType\n    tenancyMonth\n  }\n}",
+                "query": "mutation {\n  createAdminDraftListing(data: {\n    minRentalAmount: 9999,\n    address: {\n      fullUnitNumber:\"C-13A-03A\"\n      block: \"Crest\"\n      buildingName:\"The Henge Residence-Block Crest\"\n    }\n    propertyId: \"2281\"\n    status:ProcessingComplete\n    unitType:EntireUnit\n  }) \n  {\n    id\n    status\n    listingId\n    unitType\n    tenancyMonth\n  }\n}",
                 "variables": ""
               }
             },
             "url": "{{base_url}}/graphql"
           },
-          "response": []
+          "response": [
+            {
+              "id": "f98b13cc-8e7f-458f-8d39-1c0e535909fb",
+              "name": "CreateDraftListingByAdmin",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation {\n  createAdminDraftListing(data: {\n    minRentalAmount: 9999,\n    address: {\n      fullUnitNumber:\"C-13A-03A\"\n      block: \"Crest\"\n      buildingName:\"The Henge Residence-Block Crest\"\n    }\n    propertyId: \"2281\"\n    status:ProcessingComplete\n    unitType:EntireUnit\n  }) \n  {\n    id\n    status\n    listingId\n    unitType\n    tenancyMonth\n  }\n}",
+                    "variables": ""
+                  }
+                },
+                "url": "{{base_url}}/graphql"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Expose-Headers",
+                  "value": "x-pagination-page-count,x-pagination-total,x-pagination-page,x-pagination-count"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 23 Dec 2021 04:32:57 GMT"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"8f-5bC46ixH29Pfaf0CDmp2zei0Wus\""
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "143"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"createAdminDraftListing\": {\n            \"id\": \"6912\",\n            \"status\": \"ProcessingComplete\",\n            \"listingId\": 20961,\n            \"unitType\": \"EntireUnit\",\n            \"tenancyMonth\": null\n        }\n    }\n}"
+            }
+          ]
         },
         {
           "name": "UpdateAdminDraftListing (complete)",
