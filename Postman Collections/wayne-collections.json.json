@@ -1439,7 +1439,7 @@
             "body": {
               "mode": "graphql",
               "graphql": {
-                "query": "mutation {\n  createAdminDraftListing(data: {\n    minRentalAmount: 100,\n    address: {\n      fullUnitNumber:\"A-09-09\"\n      block: \"13\"\n      buildingName:\"test building name\"\n    }\n    propertyId: \"1\"\n    status:ProcessingComplete\n    unitType:EntireUnit\n  }) \n  {\n    id\n    status\n    listingId\n    unitType\n    tenancyMonth\n  }\n}",
+                "query": "mutation {\n  createAdminDraftListing(data: {\n    minRentalAmount: 9999,\n    address: {\n      fullUnitNumber:\"Test A-09-09\"\n      block: \"13\"\n      buildingName:\"test building name\"\n    }\n    propertyId: \"2281\"\n    status:ProcessingComplete\n    unitType:EntireUnit\n  }) \n  {\n    id\n    status\n    listingId\n    unitType\n    tenancyMonth\n  }\n}",
                 "variables": ""
               }
             },
