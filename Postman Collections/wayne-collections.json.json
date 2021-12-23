@@ -2759,6 +2759,7 @@
               "script": {
                 "id": "ba5d31c7-e3a2-4946-9a18-f7ed54ca1909",
                 "exec": [
+                  "postman.setNextRequest(null);",
                   "",
                   "",
                   "var json = JSON.parse(responseBody);",
@@ -2781,7 +2782,7 @@
               "script": {
                 "id": "eac51cef-84af-4185-a080-e5cda7b4c841",
                 "exec": [
-                  "postman.setNextRequest(\"GetBookingByTenant\");",
+                  "",
                   ""
                 ],
                 "type": "text/javascript"
