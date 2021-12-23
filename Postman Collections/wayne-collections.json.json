@@ -1414,9 +1414,9 @@
                   "tests[\"created draft listing successfully with draft listing id\" + \" \" + json.data.createAdminDraftListing.id + \" \" + \"returned\"] = true",
                   "tests[\"status code is 200\"] = responseCode.code === 200;",
                   "",
-                  "postman.setEnvironmentVariable(\"ListingId1\", json.data.createAdminDraftListing.listingId);",
-                  "postman.setEnvironmentVariable(\"DraftListingId1\", json.data.createAdminDraftListing.id);",
-                  "postman.setEnvironmentVariable(\"UnitType1\", json.data.createAdminDraftListing.unitType);",
+                  "postman.setEnvironmentVariable(\"ListingId2\", json.data.createAdminDraftListing.listingId);",
+                  "postman.setEnvironmentVariable(\"DraftListingId2\", json.data.createAdminDraftListing.id);",
+                  "postman.setEnvironmentVariable(\"UnitType2\", json.data.createAdminDraftListing.unitType);",
                   "postman.setEnvironmentVariable(\"MoveInDate\", '2022-01-01');"
                 ],
                 "type": "text/javascript"
@@ -1439,7 +1439,7 @@
             "body": {
               "mode": "graphql",
               "graphql": {
-                "query": "mutation {\n  createAdminDraftListing(data: {\n    minRentalAmount: 9999,\n    address: {\n      fullUnitNumber:\"Test A-09-09\"\n      block: \"13\"\n      buildingName:\"test building name\"\n    }\n    propertyId: \"2281\"\n    status:ProcessingComplete\n    unitType:EntireUnit\n  }) \n  {\n    id\n    status\n    listingId\n    unitType\n    tenancyMonth\n  }\n}",
+                "query": "mutation {\n  createAdminDraftListing(data: {\n    minRentalAmount: 9999,\n    address: {\n      fullUnitNumber:\"C-13A-03A\"\n      block: \"Crest\"\n      buildingName:\"The Henge Residence-Block Crest\"\n    }\n    propertyId: \"2281\"\n    status:ProcessingComplete\n    unitType:EntireUnit\n  }) \n  {\n    id\n    status\n    listingId\n    unitType\n    tenancyMonth\n  }\n}",
                 "variables": ""
               }
             },
