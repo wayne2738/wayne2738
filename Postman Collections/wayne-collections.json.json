@@ -2273,7 +2273,7 @@
             "auth": {
               "type": "bearer",
               "bearer": {
-                "token": "{{accessTokenTenant2}}"
+                "token": "{{accessTokenTenant}}"
               }
             },
             "method": "POST",
