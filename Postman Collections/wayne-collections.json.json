@@ -8468,7 +8468,92 @@
                 },
                 "url": "{{base_url}}/graphql"
               },
-              "response": []
+              "response": [
+                {
+                  "id": "947ecdd9-d0fd-4c2a-8f86-65ed8a4a68ea",
+                  "name": "PublishDraftListing",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "graphql",
+                      "graphql": {
+                        "query": "mutation {\npublishDraftListing(id:{{DraftListingId1}}) \n  {\n    listingId\n\taddress{\n      area\n      block\n\t\t\tbuildingName\n      country\n      countryCode\n      floor\n      fullUnitNumber\n      postcode\n      state\n    \tstreetLine1\n      streetLine2\n      subArea\n      unitNo\n    },\n\t\tavailableAt\n    \tbathroom\n    \tbathroomType\n    \tbedroom\n    \tcarpark\n      createdAt\n    \tcurrency\n    \tdepositMonth\n    \tdepositValue\n  \t\telectricityBill\n    \tfloorLevel\n    \tfurnishing\n    \tfurnishType\n    \tgenderRule\n    \thouseRules\n    \tsquareFeet\n    \tstampingFee\n    \tstatus\n    \tunitPropertyType\n    \tunitType\n    \tutilities\n    \tutilityDeposit\n    \tutilityDepositValue\n    \twaterBill\n    \twifi\n  }\n\n}",
+                        "variables": ""
+                      }
+                    },
+                    "url": "{{base_url}}/graphql"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Access-Control-Allow-Credentials",
+                      "value": "true"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "Access-Control-Expose-Headers",
+                      "value": "x-pagination-page-count,x-pagination-total,x-pagination-page,x-pagination-count"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 23 Dec 2021 03:32:46 GMT"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"38d-aLW7GphXBnYCqz81acD9dRJMxFI\""
+                    },
+                    {
+                      "key": "Strict-Transport-Security",
+                      "value": "max-age=15552000; includeSubDomains"
+                    },
+                    {
+                      "key": "Vary",
+                      "value": "Origin"
+                    },
+                    {
+                      "key": "X-Content-Type-Options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "X-DNS-Prefetch-Control",
+                      "value": "off"
+                    },
+                    {
+                      "key": "X-Download-Options",
+                      "value": "noopen"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "X-XSS-Protection",
+                      "value": "1; mode=block"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "909"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"publishDraftListing\": {\n            \"listingId\": 20960,\n            \"address\": {\n                \"area\": \"kl city\",\n                \"block\": \"13\",\n                \"buildingName\": \"The Robertson\",\n                \"country\": \"malaysia\",\n                \"countryCode\": \"MY\",\n                \"floor\": \"\",\n                \"fullUnitNumber\": \"A-08-08\",\n                \"postcode\": \"50150\",\n                \"state\": \"kuala lumpur\",\n                \"streetLine1\": \"Jalan Robertson, 50150 Kuala Lumpur, The Robertson, Bukit Bintang, KL City, Kuala Lumpur, Malaysia\",\n                \"streetLine2\": null,\n                \"subArea\": \"bukit bintang\",\n                \"unitNo\": \"\"\n            },\n            \"availableAt\": null,\n            \"bathroom\": 0,\n            \"bathroomType\": null,\n            \"bedroom\": 0,\n            \"carpark\": null,\n            \"createdAt\": \"2021-12-23T03:25:39.602Z\",\n            \"currency\": null,\n            \"depositMonth\": null,\n            \"depositValue\": null,\n            \"electricityBill\": null,\n            \"floorLevel\": null,\n            \"furnishing\": [],\n            \"furnishType\": null,\n            \"genderRule\": null,\n            \"houseRules\": [],\n            \"squareFeet\": null,\n            \"stampingFee\": 0,\n            \"status\": \"ProcessingComplete\",\n            \"unitPropertyType\": null,\n            \"unitType\": \"EntireUnit\",\n            \"utilities\": null,\n            \"utilityDeposit\": null,\n            \"utilityDepositValue\": null,\n            \"waterBill\": null,\n            \"wifi\": null\n        }\n    }\n}"
+                }
+              ]
             },
             {
               "name": "AfterPublished",
