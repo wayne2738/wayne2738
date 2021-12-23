@@ -7531,6 +7531,53 @@
             "url": "{{base_url}}/graphql"
           },
           "response": []
+        },
+        {
+          "name": "SearchBanks Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "7eb8fe3f-99a4-4bc8-a369-4c0f7520bc12",
+                "exec": [
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"Get bank id\" + \" \" + json.data.getBanks[17].id] = true",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "postman.setEnvironmentVariable(\"BankId\", json.data.getBanks[17].id);",
+                  "",
+                  "tests[\"Bank id of SBI Bank A ->\" + \" \" + json.data.getBanks[17].id + \" \" + \"is generated and stored.\"] = true",
+                  "",
+                  "tests[\"Get bank code\" + \" \" + json.data.getBanks[17].code] = true",
+                  "",
+                  "postman.setEnvironmentVariable(\"BankCode\", json.data.getBanks[17].code);",
+                  "",
+                  "tests[\"Bank code of SBI Bank A ->\" + \" \" + json.data.getBanks[17].code + \" \" + \"is generated and stored.\"] = true"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "01a05fd8-aacb-4128-9499-04bf39d4f502",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query getBanks ($method: BankMethod!) {\n    getBanks (method: $method) {\n        code\n        displayName\n        id\n        logo\n        name\n    }\n}",
+                "variables": "{\n  \"method\": \"instantPay\"\n}"
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
         }
       ],
       "id": "fdb28a83-381e-4b9a-8cc2-c93ce80179cb"
