@@ -1826,6 +1826,57 @@
             "url": "{{base_url}}/graphql"
           },
           "response": []
+        },
+        {
+          "name": "UpdateAdminDraftListing_prod_DraftListingId2",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "5712ec22-f95f-44ed-b4b3-c26192906f12",
+                "exec": [
+                  "postman.setNextRequest(null);",
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"updated draft listing successfully with draft listing id\" + \" \" + json.data.updateAdminDraftListing.id + \" \" + \"returned\"] = true",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "postman.setEnvironmentVariable(\"ListingId1\", json.data.updateAdminDraftListing.listingId);",
+                  "",
+                  "postman.setEnvironmentVariable(\"DraftListingId1\", json.data.updateAdminDraftListing.id);",
+                  "postman.setEnvironmentVariable(\"UnitType\", json.data.updateAdminDraftListing.unitType);",
+                  "postman.setEnvironmentVariable(\"UnitPropertyType\", json.data.updateAdminDraftListing.unitPropertyType);",
+                  "postman.setEnvironmentVariable(\"TenancyPeriod\", json.data.updateAdminDraftListing.tenancyMonth);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "7da44eca-272d-464a-befb-b00cdc1b05ea",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenAdmin}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\n  updateAdminDraftListing(id: {{DraftListingId2}}, data: {\n    listingStatus: Live\n    unitType:Room\n    unitPropertyType:Studio\n    tenancyMonth: {{TenancyPeriod}}\n    ownerId: \"7150a7b5-5db0-464b-9dd4-9440d24533cb\"\n    photoUrls: [{\n      label: \"adsad\",\n      url: \"https://google.com\"\n    }],\n    videoUrls: [{\n      label: \"adsad\",\n      url: \"https://google.com\"\n    }],\n      rawVideosUrls: [{\n      label: \"adsad\",\n      url: \"https://instahome.atlassian.net/l/c/pE1XzMyf\"\n    }],\n      rawVirtualTourUrls: [{\n      label: \"adsad\",\n      url: \"https://instahome.atlassian.net/l/c/pE1XzMyf\"\n    }],\n      supplierPhotos: [{\n      label: \"adsad\",\n      url: \"https://instahome.atlassian.net/l/c/pE1XzMyf\"\n    }],\n      supplierVideos: [{\n      label: \"adsad\",\n      url: \"https://instahome.atlassian.net/l/c/pE1XzMyf\"\n    }],\n  }) \n  {\n    id\n    unitType\n    unitPropertyType\n    tenancyMonth\n    ownerId\n    photoUrls {\n        url\n        label\n      }\n      videoUrls{\n        url\n        label\n      }\n      rawVideosUrls{\n        url\n        label\n      }\n      rawVirtualTourUrls{\n        url\n        label\n      }\n      supplierPhotos{\n        url\n        label\n      }\n      supplierVideos{\n        url\n        label\n      }\n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
         }
       ],
       "id": "b2448f64-7046-4277-8c52-8cecc544e5c7"
