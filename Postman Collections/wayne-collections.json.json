@@ -10416,6 +10416,62 @@
             "url": "{{base_url}}/graphql"
           },
           "response": []
+        },
+        {
+          "name": "GetPromotionWithCode_prod",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "94cae2bc-7343-412e-ada1-d245f2fe4b74",
+                "exec": [
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"Get promotion code\" + \" \" + json.data.getPromotionWithCode.name] = true",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "postman.setEnvironmentVariable(\"promotionCode\", json.data.getPromotionWithCode.name);",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f56aa846-8ba0-404b-883f-7596cee4a913",
+                "exec": [
+                  "",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "e7a8fb73-9000-4cb6-b01d-daf316f7b5c9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenTenant}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query GetPromotionWithCode($code: String!) {\n  getPromotionWithCode(code: $code) {\n    id\n    name\n    promoCodesUrls{\n        key\n        name\n        url\n    }\n    description\n    discounts {\n      discount\n      discountType\n      __typename\n    }\n    __typename\n  }\n}\n",
+                "variables": "{\n  \"code\": \"TAKECARE21\"\n}"
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
         }
       ],
       "id": "f7bc0949-7e9d-437d-ae75-8f0edab19e17"
