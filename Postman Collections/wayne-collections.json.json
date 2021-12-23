@@ -6474,19 +6474,19 @@
                   "",
                   "var json = JSON.parse(responseBody);",
                   "",
-                  "tests[\"Get bank id\" + \" \" + json.data.getBanks[17].id] = true",
+                  "tests[\"Get bank id\" + \" \" + json.data.getBanks[11].id] = true",
                   "",
                   "tests[\"status code is 200\"] = responseCode.code === 200;",
                   "",
-                  "postman.setEnvironmentVariable(\"BankId\", json.data.getBanks[17].id);",
+                  "postman.setEnvironmentVariable(\"BankId\", json.data.getBanks[11].id);",
                   "",
-                  "tests[\"Bank id of SBI Bank A ->\" + \" \" + json.data.getBanks[17].id + \" \" + \"is generated and stored.\"] = true",
+                  "tests[\"Bank id of SBI Bank A ->\" + \" \" + json.data.getBanks[11].id + \" \" + \"is generated and stored.\"] = true",
                   "",
-                  "tests[\"Get bank code\" + \" \" + json.data.getBanks[17].code] = true",
+                  "tests[\"Get bank code\" + \" \" + json.data.getBanks[11].code] = true",
                   "",
-                  "postman.setEnvironmentVariable(\"BankCode\", json.data.getBanks[17].code);",
+                  "postman.setEnvironmentVariable(\"BankCode\", json.data.getBanks[11].code);",
                   "",
-                  "tests[\"Bank code of SBI Bank A ->\" + \" \" + json.data.getBanks[17].code + \" \" + \"is generated and stored.\"] = true"
+                  "tests[\"Bank code of SBI Bank A ->\" + \" \" + json.data.getBanks[11].code + \" \" + \"is generated and stored.\"] = true"
                 ],
                 "type": "text/javascript"
               }
