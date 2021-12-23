@@ -1887,7 +1887,7 @@
               "script": {
                 "id": "38acbe94-9ade-4021-984e-84d843e9c4d8",
                 "exec": [
-                  "postman.setNextRequest(\"GetMoveOutDate\");",
+                  "postman.setNextRequest(null);",
                   "",
                   "var json = JSON.parse(responseBody);",
                   "",
