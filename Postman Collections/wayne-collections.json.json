@@ -2783,6 +2783,7 @@
                 "id": "eac51cef-84af-4185-a080-e5cda7b4c841",
                 "exec": [
                   "",
+                  "postman.setNextRequest(null);",
                   ""
                 ],
                 "type": "text/javascript"
