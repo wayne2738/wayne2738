@@ -11259,11 +11259,6 @@
           "description": "#### \\[API\\] User Story 1: Admin User can create and edit Landlord Account through Admin Pane\n\n[https://instahome.atlassian.net/browse/ENG-2168](https://instahome.atlassian.net/browse/ENG-2168)"
         },
         {
-          "name": "New Folder",
-          "item": [],
-          "id": "4f767e39-0854-4b1f-893c-3a8a889b7608"
-        },
-        {
           "name": "New Request",
           "id": "ebb4ddfa-ec30-42c6-9a68-6182fc1af421",
           "protocolProfileBehavior": {
