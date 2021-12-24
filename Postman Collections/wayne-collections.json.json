@@ -11215,7 +11215,7 @@
               "response": []
             },
             {
-              "name": "CreateNewLandlord Copy",
+              "name": "UpdateLandlordAcc",
               "id": "a7be7405-f1b2-413b-9a5f-c30034e63fa4",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
