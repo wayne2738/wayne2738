@@ -9260,9 +9260,22 @@
                 "disableBodyPruning": true
               },
               "request": {
-                "method": "GET",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{accessTokenAdmin}}"
+                  }
+                },
+                "method": "POST",
                 "header": [],
-                "url": null
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query getAdminBookings {\n  getAdminBookings (\n    bookingType: RENTAL_THROUGH_INSTAHOME\n    page: 1    \n  ) {\n    items {\n      id\n    }\n  }\n}",
+                    "variables": ""
+                  }
+                },
+                "url": "{{base_url}}/graphql"
               },
               "response": []
             }
