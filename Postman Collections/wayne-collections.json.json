@@ -11201,8 +11201,15 @@
                 "disableBodyPruning": true
               },
               "request": {
-                "method": "GET",
+                "method": "POST",
                 "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation createUser($input: CreateUserInput!) {\n  createUser(data: $input) {\n    id\n    role\n  }\n}",
+                    "variables": "{\n  \"input\": {\n     \"role\": \"Landlord\",\n     \"firstName\": \"ih\",\n     \"lastName\": \"my\",\n     \"email\": \"ihmy2021@gmail.com\",\n     \"phoneNumber\": \"01234567890\",\n     \"whatsappLink\": \"www.watsapp.com\",\n     \"businessDevelopmentPIC\": \"Gin\",\n     \"isOtherBusinessDevelopmentPIC\": false,\n     \"source\": \"Facebook\",\n     \"approach\": \"Platform\",\n     \"medium\": \"iRent\",\n     \"isOthermedium\": false,\n     \"campaign\": \"campaign string\",\n     \"area\":  [1,3,4,123,3],\n     \"notes\": \"Testing Landlord Account\",\n     \"landlordBankName\": \"SME test bank\",\n     \"isOtherLandlordBankName\": true,\n     \"landlordPayeeName\": \"testman\",\n     \"landlordBankAccountNumber\": \"12345678\",\n     \"password\": \"pwd123\",\n     \"isTmpPassword\": true\n  }\n}"
+                  }
+                },
                 "url": null
               },
               "response": []
