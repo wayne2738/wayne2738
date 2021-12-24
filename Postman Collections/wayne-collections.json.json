@@ -8160,6 +8160,11 @@
       "id": "0a711249-c8b8-4ea6-b0f6-60c861dec9df"
     },
     {
+      "name": "BookingCollections",
+      "item": [],
+      "id": "7f529004-9066-452e-b709-07d65d1a6be3"
+    },
+    {
       "name": "updateBookingCollectionType&Status",
       "item": [
         {
@@ -11019,11 +11024,6 @@
         }
       ],
       "id": "312431c0-7ced-4a4a-8d7a-e32d35f855fd"
-    },
-    {
-      "name": "BookingCollections",
-      "item": [],
-      "id": "7f529004-9066-452e-b709-07d65d1a6be3"
     }
   ]
 }
