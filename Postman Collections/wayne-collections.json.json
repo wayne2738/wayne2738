@@ -11255,7 +11255,8 @@
               "response": []
             }
           ],
-          "id": "41aaac3a-41ea-4ef0-919f-f6193092ef84"
+          "id": "41aaac3a-41ea-4ef0-919f-f6193092ef84",
+          "description": "#### \\[API\\] User Story 1: Admin User can create and edit Landlord Account through Admin Pane\n\n[https://instahome.atlassian.net/browse/ENG-2168](https://instahome.atlassian.net/browse/ENG-2168)"
         }
       ],
       "id": "6af403b9-4412-4307-b56c-c8497eb95c26"
