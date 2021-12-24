@@ -8161,30 +8161,313 @@
     },
     {
       "name": "BookingCollections",
-      "item": [],
-      "id": "7f529004-9066-452e-b709-07d65d1a6be3"
-    },
-    {
-      "name": "updateBookingCollectionType&Status",
       "item": [
         {
-          "name": "True:re-add all previous payment record",
+          "name": "updateBookingCollectionType&Status",
           "item": [
             {
-              "name": "ErrorException",
+              "name": "True:re-add all previous payment record",
               "item": [
                 {
-                  "name": "RoomRental",
+                  "name": "ErrorException",
+                  "item": [
+                    {
+                      "name": "RoomRental",
+                      "event": [
+                        {
+                          "listen": "test",
+                          "script": {
+                            "id": "2d05f70f-99b8-4155-bdec-6131ca42f795",
+                            "exec": [
+                              "var json = JSON.parse(responseBody);",
+                              "",
+                              "tests[\"Error message:\" + \" \" + json.errors[0].message] = true",
+                              "tests[\"status code is 400\"] =  json.errors[0].extensions.exception.status === 400;",
+                              "",
+                              ""
+                            ],
+                            "type": "text/javascript"
+                          }
+                        },
+                        {
+                          "listen": "prerequest",
+                          "script": {
+                            "id": "14dad436-0fd1-4456-8381-e84d4ccf95c8",
+                            "exec": [
+                              "",
+                              ""
+                            ],
+                            "type": "text/javascript"
+                          }
+                        }
+                      ],
+                      "id": "ae5122e7-8cef-4b8f-8717-52e9712a4225",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": {
+                            "token": "{{accessTokenAdmin}}"
+                          }
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "graphql",
+                          "graphql": {
+                            "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: ROOM_RENTAL,\n  collectionStatus: true\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
+                            "variables": ""
+                          }
+                        },
+                        "url": "{{base_url}}/graphql"
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Defaulted",
+                      "event": [
+                        {
+                          "listen": "test",
+                          "script": {
+                            "id": "0ac3177a-57c8-4d6a-b481-02218aff2900",
+                            "exec": [
+                              "",
+                              "",
+                              "var json = JSON.parse(responseBody);",
+                              "",
+                              "tests[\"Error message:\" + \" \" + json.errors[0].message] = true;",
+                              "tests[\"status code is 400\"] =  json.errors[0].extensions.exception.status === 400;",
+                              "",
+                              ""
+                            ],
+                            "type": "text/javascript"
+                          }
+                        },
+                        {
+                          "listen": "prerequest",
+                          "script": {
+                            "id": "a8c8053f-eb68-4c6e-85fa-ed3d37c9e35b",
+                            "exec": [
+                              "",
+                              ""
+                            ],
+                            "type": "text/javascript"
+                          }
+                        }
+                      ],
+                      "id": "21a69a29-5527-4641-98dc-1a01d3ef1830",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": {
+                            "token": "{{accessTokenAdmin}}"
+                          }
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "graphql",
+                          "graphql": {
+                            "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: DEFAULTED,\n  collectionStatus: true\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
+                            "variables": ""
+                          }
+                        },
+                        "url": "{{base_url}}/graphql"
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "EarlyTermination",
+                      "event": [
+                        {
+                          "listen": "test",
+                          "script": {
+                            "id": "0b131569-b5bc-4d72-a9a4-7e4b4994c1fc",
+                            "exec": [
+                              "",
+                              "",
+                              "var json = JSON.parse(responseBody);",
+                              "",
+                              "tests[\"Error message:\" + \" \" + json.errors[0].message] = true;",
+                              "tests[\"status code is 400\"] =  json.errors[0].extensions.exception.status === 400;",
+                              ""
+                            ],
+                            "type": "text/javascript"
+                          }
+                        },
+                        {
+                          "listen": "prerequest",
+                          "script": {
+                            "id": "0b65aab3-9a4a-4e80-a992-493ccd7ed4b3",
+                            "exec": [
+                              "",
+                              ""
+                            ],
+                            "type": "text/javascript"
+                          }
+                        }
+                      ],
+                      "id": "4dee5222-cf5e-470f-8cea-0a4f2c03a1dd",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": {
+                            "token": "{{accessTokenAdmin}}"
+                          }
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "graphql",
+                          "graphql": {
+                            "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: EARLY_TERMINATION,\n  collectionStatus: true\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
+                            "variables": ""
+                          }
+                        },
+                        "url": "{{base_url}}/graphql"
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "PassLead",
+                      "event": [
+                        {
+                          "listen": "test",
+                          "script": {
+                            "id": "5d16ef0a-2868-4813-bd28-e2f9030af1b0",
+                            "exec": [
+                              "",
+                              "",
+                              "var json = JSON.parse(responseBody);",
+                              "",
+                              "tests[\"Error message:\" + \" \" + json.errors[0].message] = true;",
+                              "tests[\"status code is 400\"] =  json.errors[0].extensions.exception.status === 400;",
+                              ""
+                            ],
+                            "type": "text/javascript"
+                          }
+                        },
+                        {
+                          "listen": "prerequest",
+                          "script": {
+                            "id": "2a69e215-b0c2-446a-a9dd-91d5e4b027a5",
+                            "exec": [
+                              "",
+                              ""
+                            ],
+                            "type": "text/javascript"
+                          }
+                        }
+                      ],
+                      "id": "2252f931-1723-49df-8bb2-2fae9491b859",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": {
+                            "token": "{{accessTokenAdmin}}"
+                          }
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "graphql",
+                          "graphql": {
+                            "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: PASS_LEAD,\n  collectionStatus: true\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
+                            "variables": ""
+                          }
+                        },
+                        "url": "{{base_url}}/graphql"
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "MoveOut",
+                      "event": [
+                        {
+                          "listen": "test",
+                          "script": {
+                            "id": "bb1e536e-5c9b-4137-9012-00e4d1e81616",
+                            "exec": [
+                              "",
+                              "",
+                              "var json = JSON.parse(responseBody);",
+                              "",
+                              "tests[\"Error message:\" + \" \" + json.errors[0].message] = true;",
+                              "tests[\"status code is 400\"] =  json.errors[0].extensions.exception.status === 400;",
+                              "",
+                              ""
+                            ],
+                            "type": "text/javascript"
+                          }
+                        },
+                        {
+                          "listen": "prerequest",
+                          "script": {
+                            "id": "53b32f23-c4b3-4feb-8cbf-8aaddb6b61cc",
+                            "exec": [
+                              "",
+                              ""
+                            ],
+                            "type": "text/javascript"
+                          }
+                        }
+                      ],
+                      "id": "43605c14-731d-493f-8d08-868e40fc3dd7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": {
+                            "token": "{{accessTokenAdmin}}"
+                          }
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "graphql",
+                          "graphql": {
+                            "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: MOVE_OUT,\n  collectionStatus: true\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
+                            "variables": ""
+                          }
+                        },
+                        "url": "{{base_url}}/graphql"
+                      },
+                      "response": []
+                    }
+                  ],
+                  "id": "d8fc7279-fc18-4c9e-9ef0-f24e541a1c59"
+                },
+                {
+                  "name": "RentalThroughInstahome",
                   "event": [
                     {
                       "listen": "test",
                       "script": {
-                        "id": "2d05f70f-99b8-4155-bdec-6131ca42f795",
+                        "id": "d700fa45-2d3b-4554-af75-074ac47de135",
                         "exec": [
+                          "",
                           "var json = JSON.parse(responseBody);",
                           "",
-                          "tests[\"Error message:\" + \" \" + json.errors[0].message] = true",
-                          "tests[\"status code is 400\"] =  json.errors[0].extensions.exception.status === 400;",
+                          "tests[\"status code is 200\"] = responseCode.code === 200;",
+                          "",
+                          "tests[\"Get booking id\" + \" \" + json.data.updateBookingCollection.id] = true",
+                          "",
+                          "tests[\"Get collection status returned:\" + \" \" + json.data.updateBookingCollection.collectionStatus] = true",
+                          "",
+                          "tests[\"Get collection type returned:\" + \" \" + json.data.updateBookingCollection.collectionType] = true",
                           "",
                           ""
                         ],
@@ -8194,7 +8477,7 @@
                     {
                       "listen": "prerequest",
                       "script": {
-                        "id": "14dad436-0fd1-4456-8381-e84d4ccf95c8",
+                        "id": "df100874-8035-4cd8-a563-5739bd482e6f",
                         "exec": [
                           "",
                           ""
@@ -8203,7 +8486,7 @@
                       }
                     }
                   ],
-                  "id": "ae5122e7-8cef-4b8f-8717-52e9712a4225",
+                  "id": "f74f92d3-877d-4835-a1a9-798c41830f50",
                   "protocolProfileBehavior": {
                     "disableBodyPruning": true
                   },
@@ -8219,7 +8502,134 @@
                     "body": {
                       "mode": "graphql",
                       "graphql": {
-                        "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: ROOM_RENTAL,\n  collectionStatus: true\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
+                        "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: RENTAL_THROUGH_INSTAHOME,\n  collectionStatus: true\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
+                        "variables": ""
+                      }
+                    },
+                    "url": "{{base_url}}/graphql"
+                  },
+                  "response": []
+                }
+              ],
+              "id": "0dfecdf1-1cba-4c69-a342-3cd746c980d9",
+              "description": "#### \\[API\\] User Story 11: Create endpoint for updating booking type and rental collection status  \n[https://instahome.atlassian.net/browse/ENG-2106](https://instahome.atlassian.net/browse/ENG-2106)"
+            },
+            {
+              "name": "False:remove all \"pending\"payment record",
+              "item": [
+                {
+                  "name": "ErrorException",
+                  "item": [
+                    {
+                      "name": "RentalThroughInstahome",
+                      "event": [
+                        {
+                          "listen": "test",
+                          "script": {
+                            "id": "d2e320c9-e08c-4762-9527-7997431bccec",
+                            "exec": [
+                              "var json = JSON.parse(responseBody);",
+                              "",
+                              "tests[\"Error message:\" + \" \" + json.errors[0].message] = true;",
+                              "tests[\"status code is 400\"] =  json.errors[0].extensions.exception.status === 400;",
+                              "",
+                              ""
+                            ],
+                            "type": "text/javascript"
+                          }
+                        },
+                        {
+                          "listen": "prerequest",
+                          "script": {
+                            "id": "88655d0b-2607-4878-adfc-c03b9b71df0a",
+                            "exec": [
+                              "",
+                              ""
+                            ],
+                            "type": "text/javascript"
+                          }
+                        }
+                      ],
+                      "id": "c7dd6d64-ee0d-4579-8c2d-ce08d9919ae0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": {
+                            "token": "{{accessTokenAdmin}}"
+                          }
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "graphql",
+                          "graphql": {
+                            "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: RENTAL_THROUGH_INSTAHOME,\n  collectionStatus: false\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
+                            "variables": ""
+                          }
+                        },
+                        "url": "{{base_url}}/graphql"
+                      },
+                      "response": []
+                    }
+                  ],
+                  "id": "7b5c7d21-90b8-452f-88ad-fe7cce4a0a92"
+                },
+                {
+                  "name": "Defaulted",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "dd1ec34d-05d4-4f7d-9666-380991bcdb4e",
+                        "exec": [
+                          "",
+                          "var json = JSON.parse(responseBody);",
+                          "",
+                          "tests[\"status code is 200\"] = responseCode.code === 200;",
+                          "",
+                          "tests[\"Get booking id\" + \" \" + json.data.updateBookingCollection.id] = true",
+                          "",
+                          "tests[\"Get collection status returned:\" + \" \" + json.data.updateBookingCollection.collectionStatus] = true",
+                          "",
+                          "tests[\"Get collection type returned:\" + \" \" + json.data.updateBookingCollection.collectionType] = true",
+                          "",
+                          ""
+                        ],
+                        "type": "text/javascript"
+                      }
+                    },
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "id": "72deea33-595a-48e0-a742-f5736d1bc5a4",
+                        "exec": [
+                          "",
+                          ""
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "id": "0a0b2b22-3b56-4f63-8e88-54a2ba5962c3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": {
+                        "token": "{{accessTokenAdmin}}"
+                      }
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "graphql",
+                      "graphql": {
+                        "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: DEFAULTED,\n  collectionStatus: false\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
                         "variables": ""
                       }
                     },
@@ -8228,19 +8638,23 @@
                   "response": []
                 },
                 {
-                  "name": "Defaulted",
+                  "name": "RoomRental",
                   "event": [
                     {
                       "listen": "test",
                       "script": {
-                        "id": "0ac3177a-57c8-4d6a-b481-02218aff2900",
+                        "id": "536a0e36-2d10-430c-88db-0c4bb6767220",
                         "exec": [
-                          "",
                           "",
                           "var json = JSON.parse(responseBody);",
                           "",
-                          "tests[\"Error message:\" + \" \" + json.errors[0].message] = true;",
-                          "tests[\"status code is 400\"] =  json.errors[0].extensions.exception.status === 400;",
+                          "tests[\"status code is 200\"] = responseCode.code === 200;",
+                          "",
+                          "tests[\"Get booking id\" + \" \" + json.data.updateBookingCollection.id] = true",
+                          "",
+                          "tests[\"Get collection status returned:\" + \" \" + json.data.updateBookingCollection.collectionStatus] = true",
+                          "",
+                          "tests[\"Get collection type returned:\" + \" \" + json.data.updateBookingCollection.collectionType] = true",
                           "",
                           ""
                         ],
@@ -8250,7 +8664,7 @@
                     {
                       "listen": "prerequest",
                       "script": {
-                        "id": "a8c8053f-eb68-4c6e-85fa-ed3d37c9e35b",
+                        "id": "c6ad4281-2b82-468f-8d39-5050adf94229",
                         "exec": [
                           "",
                           ""
@@ -8259,7 +8673,7 @@
                       }
                     }
                   ],
-                  "id": "21a69a29-5527-4641-98dc-1a01d3ef1830",
+                  "id": "63d3ce5b-496c-4677-a88b-81ae0d89d425",
                   "protocolProfileBehavior": {
                     "disableBodyPruning": true
                   },
@@ -8275,7 +8689,7 @@
                     "body": {
                       "mode": "graphql",
                       "graphql": {
-                        "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: DEFAULTED,\n  collectionStatus: true\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
+                        "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: ROOM_RENTAL,\n  collectionStatus: false\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
                         "variables": ""
                       }
                     },
@@ -8289,14 +8703,19 @@
                     {
                       "listen": "test",
                       "script": {
-                        "id": "0b131569-b5bc-4d72-a9a4-7e4b4994c1fc",
+                        "id": "f30b7de1-d7f3-49c1-9f20-2e5a1711a70a",
                         "exec": [
-                          "",
                           "",
                           "var json = JSON.parse(responseBody);",
                           "",
-                          "tests[\"Error message:\" + \" \" + json.errors[0].message] = true;",
-                          "tests[\"status code is 400\"] =  json.errors[0].extensions.exception.status === 400;",
+                          "tests[\"status code is 200\"] = responseCode.code === 200;",
+                          "",
+                          "tests[\"Get booking id\" + \" \" + json.data.updateBookingCollection.id] = true",
+                          "",
+                          "tests[\"Get collection status returned:\" + \" \" + json.data.updateBookingCollection.collectionStatus] = true",
+                          "",
+                          "tests[\"Get collection type returned:\" + \" \" + json.data.updateBookingCollection.collectionType] = true",
+                          "",
                           ""
                         ],
                         "type": "text/javascript"
@@ -8305,7 +8724,7 @@
                     {
                       "listen": "prerequest",
                       "script": {
-                        "id": "0b65aab3-9a4a-4e80-a992-493ccd7ed4b3",
+                        "id": "e4549771-80a5-4d4f-9058-4ab525ccf054",
                         "exec": [
                           "",
                           ""
@@ -8314,7 +8733,7 @@
                       }
                     }
                   ],
-                  "id": "4dee5222-cf5e-470f-8cea-0a4f2c03a1dd",
+                  "id": "72f05fbe-88c1-40af-9c0d-675c9408e695",
                   "protocolProfileBehavior": {
                     "disableBodyPruning": true
                   },
@@ -8330,7 +8749,7 @@
                     "body": {
                       "mode": "graphql",
                       "graphql": {
-                        "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: EARLY_TERMINATION,\n  collectionStatus: true\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
+                        "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: EARLY_TERMINATION,\n  collectionStatus: false\n  ){\n      id\n      collectionStatus\n      collectionType\n    \n  }\n}",
                         "variables": ""
                       }
                     },
@@ -8344,14 +8763,19 @@
                     {
                       "listen": "test",
                       "script": {
-                        "id": "5d16ef0a-2868-4813-bd28-e2f9030af1b0",
+                        "id": "afaba80a-f2b8-4de3-8e98-88464a182f21",
                         "exec": [
-                          "",
                           "",
                           "var json = JSON.parse(responseBody);",
                           "",
-                          "tests[\"Error message:\" + \" \" + json.errors[0].message] = true;",
-                          "tests[\"status code is 400\"] =  json.errors[0].extensions.exception.status === 400;",
+                          "tests[\"status code is 200\"] = responseCode.code === 200;",
+                          "",
+                          "tests[\"Get booking id\" + \" \" + json.data.updateBookingCollection.id] = true",
+                          "",
+                          "tests[\"Get collection status returned:\" + \" \" + json.data.updateBookingCollection.collectionStatus] = true",
+                          "",
+                          "tests[\"Get collection type returned:\" + \" \" + json.data.updateBookingCollection.collectionType] = true",
+                          "",
                           ""
                         ],
                         "type": "text/javascript"
@@ -8360,7 +8784,7 @@
                     {
                       "listen": "prerequest",
                       "script": {
-                        "id": "2a69e215-b0c2-446a-a9dd-91d5e4b027a5",
+                        "id": "3c13d500-e5d6-4b7a-9ac2-dfd69a2a163d",
                         "exec": [
                           "",
                           ""
@@ -8369,7 +8793,7 @@
                       }
                     }
                   ],
-                  "id": "2252f931-1723-49df-8bb2-2fae9491b859",
+                  "id": "bb9bd875-b314-4955-b3db-8eef0134bc5a",
                   "protocolProfileBehavior": {
                     "disableBodyPruning": true
                   },
@@ -8385,7 +8809,7 @@
                     "body": {
                       "mode": "graphql",
                       "graphql": {
-                        "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: PASS_LEAD,\n  collectionStatus: true\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
+                        "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: PASS_LEAD,\n  collectionStatus: false\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
                         "variables": ""
                       }
                     },
@@ -8399,14 +8823,18 @@
                     {
                       "listen": "test",
                       "script": {
-                        "id": "bb1e536e-5c9b-4137-9012-00e4d1e81616",
+                        "id": "4d88f80a-a6d8-46d6-b9ca-1e960d5e8e6d",
                         "exec": [
-                          "",
                           "",
                           "var json = JSON.parse(responseBody);",
                           "",
-                          "tests[\"Error message:\" + \" \" + json.errors[0].message] = true;",
-                          "tests[\"status code is 400\"] =  json.errors[0].extensions.exception.status === 400;",
+                          "tests[\"status code is 200\"] = responseCode.code === 200;",
+                          "",
+                          "tests[\"Get booking id\" + \" \" + json.data.updateBookingCollection.id] = true",
+                          "",
+                          "tests[\"Get collection status returned:\" + \" \" + json.data.updateBookingCollection.collectionStatus] = true",
+                          "",
+                          "tests[\"Get collection type returned:\" + \" \" + json.data.updateBookingCollection.collectionType] = true",
                           "",
                           ""
                         ],
@@ -8416,7 +8844,7 @@
                     {
                       "listen": "prerequest",
                       "script": {
-                        "id": "53b32f23-c4b3-4feb-8cbf-8aaddb6b61cc",
+                        "id": "d95d77ff-c084-4c88-8005-d53f0f984af6",
                         "exec": [
                           "",
                           ""
@@ -8425,7 +8853,7 @@
                       }
                     }
                   ],
-                  "id": "43605c14-731d-493f-8d08-868e40fc3dd7",
+                  "id": "49bffc71-ee0a-456a-95d7-6923b44273ed",
                   "protocolProfileBehavior": {
                     "disableBodyPruning": true
                   },
@@ -8441,7 +8869,7 @@
                     "body": {
                       "mode": "graphql",
                       "graphql": {
-                        "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: MOVE_OUT,\n  collectionStatus: true\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
+                        "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: MOVE_OUT,\n  collectionStatus: false\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
                         "variables": ""
                       }
                     },
@@ -8450,109 +8878,34 @@
                   "response": []
                 }
               ],
-              "id": "d8fc7279-fc18-4c9e-9ef0-f24e541a1c59"
+              "id": "1c4bd9ec-bffd-4a70-8f50-a5facff47a42",
+              "description": "#### \\[API\\] User Story 11: Create endpoint for updating booking type and rental collection status  \n[https://instahome.atlassian.net/browse/ENG-2106](https://instahome.atlassian.net/browse/ENG-2106)"
             },
             {
-              "name": "RentalThroughInstahome",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "d700fa45-2d3b-4554-af75-074ac47de135",
-                    "exec": [
-                      "",
-                      "var json = JSON.parse(responseBody);",
-                      "",
-                      "tests[\"status code is 200\"] = responseCode.code === 200;",
-                      "",
-                      "tests[\"Get booking id\" + \" \" + json.data.updateBookingCollection.id] = true",
-                      "",
-                      "tests[\"Get collection status returned:\" + \" \" + json.data.updateBookingCollection.collectionStatus] = true",
-                      "",
-                      "tests[\"Get collection type returned:\" + \" \" + json.data.updateBookingCollection.collectionType] = true",
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "df100874-8035-4cd8-a563-5739bd482e6f",
-                    "exec": [
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "f74f92d3-877d-4835-a1a9-798c41830f50",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "auth": {
-                  "type": "bearer",
-                  "bearer": {
-                    "token": "{{accessTokenAdmin}}"
-                  }
-                },
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "graphql",
-                  "graphql": {
-                    "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: RENTAL_THROUGH_INSTAHOME,\n  collectionStatus: true\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
-                    "variables": ""
-                  }
-                },
-                "url": "{{base_url}}/graphql"
-              },
-              "response": []
-            }
-          ],
-          "id": "0dfecdf1-1cba-4c69-a342-3cd746c980d9",
-          "description": "#### \\[API\\] User Story 11: Create endpoint for updating booking type and rental collection status  \n[https://instahome.atlassian.net/browse/ENG-2106](https://instahome.atlassian.net/browse/ENG-2106)"
-        },
-        {
-          "name": "False:remove all \"pending\"payment record",
-          "item": [
-            {
-              "name": "ErrorException",
+              "name": "CalculateExpiredAP/BP",
               "item": [
                 {
-                  "name": "RentalThroughInstahome",
+                  "name": "CreateDraftListing",
                   "event": [
                     {
                       "listen": "test",
                       "script": {
-                        "id": "d2e320c9-e08c-4762-9527-7997431bccec",
+                        "id": "b51688e9-7799-4c3a-99fa-8444a67d3a33",
                         "exec": [
                           "var json = JSON.parse(responseBody);",
+                          "tests[\"created draft listing successfully with draft listing id\" + \" \" + json.data.createAdminDraftListing.id + \" \" + \"returned\"] = true",
+                          "tests[\"status code is 200\"] = responseCode.code === 200;",
                           "",
-                          "tests[\"Error message:\" + \" \" + json.errors[0].message] = true;",
-                          "tests[\"status code is 400\"] =  json.errors[0].extensions.exception.status === 400;",
-                          "",
-                          ""
-                        ],
-                        "type": "text/javascript"
-                      }
-                    },
-                    {
-                      "listen": "prerequest",
-                      "script": {
-                        "id": "88655d0b-2607-4878-adfc-c03b9b71df0a",
-                        "exec": [
-                          "",
-                          ""
+                          "postman.setEnvironmentVariable(\"ListingId1\", json.data.createAdminDraftListing.listingId);",
+                          "postman.setEnvironmentVariable(\"DraftListingId1\", json.data.createAdminDraftListing.id);",
+                          "postman.setEnvironmentVariable(\"UnitType1\", json.data.createAdminDraftListing.unitType);",
+                          "postman.setEnvironmentVariable(\"MoveInDate\", '2022-01-01');"
                         ],
                         "type": "text/javascript"
                       }
                     }
                   ],
-                  "id": "c7dd6d64-ee0d-4579-8c2d-ce08d9919ae0",
+                  "id": "05603533-b919-420c-8dc9-37ed4cbf7a7f",
                   "protocolProfileBehavior": {
                     "disableBodyPruning": true
                   },
@@ -8568,486 +8921,115 @@
                     "body": {
                       "mode": "graphql",
                       "graphql": {
-                        "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: RENTAL_THROUGH_INSTAHOME,\n  collectionStatus: false\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
+                        "query": "mutation {\n  createAdminDraftListing(data: {\n    minRentalAmount: 100,\n    address: {\n      fullUnitNumber:\"A-09-09\"\n      block: \"13\"\n      buildingName:\"test building name\"\n    }\n    propertyId: \"1\"\n    status:ProcessingComplete\n    unitType:EntireUnit\n  }) \n  {\n    id\n    status\n    listingId\n    unitType\n    tenancyMonth\n  }\n}",
                         "variables": ""
                       }
                     },
                     "url": "{{base_url}}/graphql"
                   },
                   "response": []
-                }
-              ],
-              "id": "7b5c7d21-90b8-452f-88ad-fe7cce4a0a92"
-            },
-            {
-              "name": "Defaulted",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "dd1ec34d-05d4-4f7d-9666-380991bcdb4e",
-                    "exec": [
-                      "",
-                      "var json = JSON.parse(responseBody);",
-                      "",
-                      "tests[\"status code is 200\"] = responseCode.code === 200;",
-                      "",
-                      "tests[\"Get booking id\" + \" \" + json.data.updateBookingCollection.id] = true",
-                      "",
-                      "tests[\"Get collection status returned:\" + \" \" + json.data.updateBookingCollection.collectionStatus] = true",
-                      "",
-                      "tests[\"Get collection type returned:\" + \" \" + json.data.updateBookingCollection.collectionType] = true",
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
                 },
                 {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "72deea33-595a-48e0-a742-f5736d1bc5a4",
-                    "exec": [
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "0a0b2b22-3b56-4f63-8e88-54a2ba5962c3",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "auth": {
-                  "type": "bearer",
-                  "bearer": {
-                    "token": "{{accessTokenAdmin}}"
-                  }
-                },
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "graphql",
-                  "graphql": {
-                    "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: DEFAULTED,\n  collectionStatus: false\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
-                    "variables": ""
-                  }
-                },
-                "url": "{{base_url}}/graphql"
-              },
-              "response": []
-            },
-            {
-              "name": "RoomRental",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "536a0e36-2d10-430c-88db-0c4bb6767220",
-                    "exec": [
-                      "",
-                      "var json = JSON.parse(responseBody);",
-                      "",
-                      "tests[\"status code is 200\"] = responseCode.code === 200;",
-                      "",
-                      "tests[\"Get booking id\" + \" \" + json.data.updateBookingCollection.id] = true",
-                      "",
-                      "tests[\"Get collection status returned:\" + \" \" + json.data.updateBookingCollection.collectionStatus] = true",
-                      "",
-                      "tests[\"Get collection type returned:\" + \" \" + json.data.updateBookingCollection.collectionType] = true",
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
+                  "name": "BeforePublish",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "42b04892-a9df-4b3b-bd10-124aff67d952",
+                        "exec": [
+                          "",
+                          "var json = JSON.parse(responseBody);",
+                          "",
+                          "tests[\"updated draft listing id\" + \" \" + json.data.updateAdminDraftListing.id + \" \" +  \"to status 'Expired' and BE will auto-calculate ExpiredAp or ExpiredBp listing status\"] = true",
+                          "",
+                          "tests[\"status code is 200\"] = responseCode.code === 200;",
+                          "",
+                          "postman.setEnvironmentVariable(\"DraftListingId1\", json.data.updateAdminDraftListing.id);",
+                          "postman.setEnvironmentVariable(\"listingStatus\", json.data.updateAdminDraftListing.listing.status);",
+                          "",
+                          "postman.setEnvironmentVariable(\"firstPublish\", json.data.updateAdminDraftListing.firstPublish);",
+                          "",
+                          "tests[\"'updateAdminDraftListing.firstPublish' should be exist in the response\"] = json.data.updateAdminDraftListing.hasOwnProperty('firstPublish');",
+                          "",
+                          "tests[\"'updateAdminDraftListing.firstPublish' should be null before publish\"] = json.data.updateAdminDraftListing.firstPublish === null;",
+                          "",
+                          "tests['firstPublish is' + \" \" +  pm.environment.get(\"firstPublish\")] = true;",
+                          "",
+                          "tests['Thus, listing status is' + \" \" +  pm.environment.get(\"listingStatus\")] = true;"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "id": "ec436cb5-f0da-4d4b-86cc-5a84123f5aa6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": {
+                        "token": "{{accessTokenAdmin}}"
+                      }
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "graphql",
+                      "graphql": {
+                        "query": "mutation {\n  updateAdminDraftListing(id: {{DraftListingId1}}, data: {\n    listingStatus: Expired}) \n  {\n    id\n    listing{\n        status\n    }\n    firstPublish\n  }\n}",
+                        "variables": ""
+                      }
+                    },
+                    "url": "{{base_url}}/graphql"
+                  },
+                  "response": []
                 },
                 {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "c6ad4281-2b82-468f-8d39-5050adf94229",
-                    "exec": [
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "63d3ce5b-496c-4677-a88b-81ae0d89d425",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "auth": {
-                  "type": "bearer",
-                  "bearer": {
-                    "token": "{{accessTokenAdmin}}"
-                  }
-                },
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "graphql",
-                  "graphql": {
-                    "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: ROOM_RENTAL,\n  collectionStatus: false\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
-                    "variables": ""
-                  }
-                },
-                "url": "{{base_url}}/graphql"
-              },
-              "response": []
-            },
-            {
-              "name": "EarlyTermination",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "f30b7de1-d7f3-49c1-9f20-2e5a1711a70a",
-                    "exec": [
-                      "",
-                      "var json = JSON.parse(responseBody);",
-                      "",
-                      "tests[\"status code is 200\"] = responseCode.code === 200;",
-                      "",
-                      "tests[\"Get booking id\" + \" \" + json.data.updateBookingCollection.id] = true",
-                      "",
-                      "tests[\"Get collection status returned:\" + \" \" + json.data.updateBookingCollection.collectionStatus] = true",
-                      "",
-                      "tests[\"Get collection type returned:\" + \" \" + json.data.updateBookingCollection.collectionType] = true",
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "e4549771-80a5-4d4f-9058-4ab525ccf054",
-                    "exec": [
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "72f05fbe-88c1-40af-9c0d-675c9408e695",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "auth": {
-                  "type": "bearer",
-                  "bearer": {
-                    "token": "{{accessTokenAdmin}}"
-                  }
-                },
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "graphql",
-                  "graphql": {
-                    "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: EARLY_TERMINATION,\n  collectionStatus: false\n  ){\n      id\n      collectionStatus\n      collectionType\n    \n  }\n}",
-                    "variables": ""
-                  }
-                },
-                "url": "{{base_url}}/graphql"
-              },
-              "response": []
-            },
-            {
-              "name": "PassLead",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "afaba80a-f2b8-4de3-8e98-88464a182f21",
-                    "exec": [
-                      "",
-                      "var json = JSON.parse(responseBody);",
-                      "",
-                      "tests[\"status code is 200\"] = responseCode.code === 200;",
-                      "",
-                      "tests[\"Get booking id\" + \" \" + json.data.updateBookingCollection.id] = true",
-                      "",
-                      "tests[\"Get collection status returned:\" + \" \" + json.data.updateBookingCollection.collectionStatus] = true",
-                      "",
-                      "tests[\"Get collection type returned:\" + \" \" + json.data.updateBookingCollection.collectionType] = true",
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "3c13d500-e5d6-4b7a-9ac2-dfd69a2a163d",
-                    "exec": [
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "bb9bd875-b314-4955-b3db-8eef0134bc5a",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "auth": {
-                  "type": "bearer",
-                  "bearer": {
-                    "token": "{{accessTokenAdmin}}"
-                  }
-                },
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "graphql",
-                  "graphql": {
-                    "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: PASS_LEAD,\n  collectionStatus: false\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
-                    "variables": ""
-                  }
-                },
-                "url": "{{base_url}}/graphql"
-              },
-              "response": []
-            },
-            {
-              "name": "MoveOut",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "4d88f80a-a6d8-46d6-b9ca-1e960d5e8e6d",
-                    "exec": [
-                      "",
-                      "var json = JSON.parse(responseBody);",
-                      "",
-                      "tests[\"status code is 200\"] = responseCode.code === 200;",
-                      "",
-                      "tests[\"Get booking id\" + \" \" + json.data.updateBookingCollection.id] = true",
-                      "",
-                      "tests[\"Get collection status returned:\" + \" \" + json.data.updateBookingCollection.collectionStatus] = true",
-                      "",
-                      "tests[\"Get collection type returned:\" + \" \" + json.data.updateBookingCollection.collectionType] = true",
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "d95d77ff-c084-4c88-8005-d53f0f984af6",
-                    "exec": [
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "49bffc71-ee0a-456a-95d7-6923b44273ed",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "auth": {
-                  "type": "bearer",
-                  "bearer": {
-                    "token": "{{accessTokenAdmin}}"
-                  }
-                },
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "graphql",
-                  "graphql": {
-                    "query": "mutation updateBookingCollection {\n  updateBookingCollection\n  (bookingId: {{BookingId}},\n  collectionType: MOVE_OUT,\n  collectionStatus: false\n  ){\n      id\n      collectionStatus\n      collectionType\n  }\n}",
-                    "variables": ""
-                  }
-                },
-                "url": "{{base_url}}/graphql"
-              },
-              "response": []
-            }
-          ],
-          "id": "1c4bd9ec-bffd-4a70-8f50-a5facff47a42",
-          "description": "#### \\[API\\] User Story 11: Create endpoint for updating booking type and rental collection status  \n[https://instahome.atlassian.net/browse/ENG-2106](https://instahome.atlassian.net/browse/ENG-2106)"
-        },
-        {
-          "name": "CalculateExpiredAP/BP",
-          "item": [
-            {
-              "name": "CreateDraftListing",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "b51688e9-7799-4c3a-99fa-8444a67d3a33",
-                    "exec": [
-                      "var json = JSON.parse(responseBody);",
-                      "tests[\"created draft listing successfully with draft listing id\" + \" \" + json.data.createAdminDraftListing.id + \" \" + \"returned\"] = true",
-                      "tests[\"status code is 200\"] = responseCode.code === 200;",
-                      "",
-                      "postman.setEnvironmentVariable(\"ListingId1\", json.data.createAdminDraftListing.listingId);",
-                      "postman.setEnvironmentVariable(\"DraftListingId1\", json.data.createAdminDraftListing.id);",
-                      "postman.setEnvironmentVariable(\"UnitType1\", json.data.createAdminDraftListing.unitType);",
-                      "postman.setEnvironmentVariable(\"MoveInDate\", '2022-01-01');"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "05603533-b919-420c-8dc9-37ed4cbf7a7f",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "auth": {
-                  "type": "bearer",
-                  "bearer": {
-                    "token": "{{accessTokenAdmin}}"
-                  }
-                },
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "graphql",
-                  "graphql": {
-                    "query": "mutation {\n  createAdminDraftListing(data: {\n    minRentalAmount: 100,\n    address: {\n      fullUnitNumber:\"A-09-09\"\n      block: \"13\"\n      buildingName:\"test building name\"\n    }\n    propertyId: \"1\"\n    status:ProcessingComplete\n    unitType:EntireUnit\n  }) \n  {\n    id\n    status\n    listingId\n    unitType\n    tenancyMonth\n  }\n}",
-                    "variables": ""
-                  }
-                },
-                "url": "{{base_url}}/graphql"
-              },
-              "response": []
-            },
-            {
-              "name": "BeforePublish",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "42b04892-a9df-4b3b-bd10-124aff67d952",
-                    "exec": [
-                      "",
-                      "var json = JSON.parse(responseBody);",
-                      "",
-                      "tests[\"updated draft listing id\" + \" \" + json.data.updateAdminDraftListing.id + \" \" +  \"to status 'Expired' and BE will auto-calculate ExpiredAp or ExpiredBp listing status\"] = true",
-                      "",
-                      "tests[\"status code is 200\"] = responseCode.code === 200;",
-                      "",
-                      "postman.setEnvironmentVariable(\"DraftListingId1\", json.data.updateAdminDraftListing.id);",
-                      "postman.setEnvironmentVariable(\"listingStatus\", json.data.updateAdminDraftListing.listing.status);",
-                      "",
-                      "postman.setEnvironmentVariable(\"firstPublish\", json.data.updateAdminDraftListing.firstPublish);",
-                      "",
-                      "tests[\"'updateAdminDraftListing.firstPublish' should be exist in the response\"] = json.data.updateAdminDraftListing.hasOwnProperty('firstPublish');",
-                      "",
-                      "tests[\"'updateAdminDraftListing.firstPublish' should be null before publish\"] = json.data.updateAdminDraftListing.firstPublish === null;",
-                      "",
-                      "tests['firstPublish is' + \" \" +  pm.environment.get(\"firstPublish\")] = true;",
-                      "",
-                      "tests['Thus, listing status is' + \" \" +  pm.environment.get(\"listingStatus\")] = true;"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "ec436cb5-f0da-4d4b-86cc-5a84123f5aa6",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "auth": {
-                  "type": "bearer",
-                  "bearer": {
-                    "token": "{{accessTokenAdmin}}"
-                  }
-                },
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "graphql",
-                  "graphql": {
-                    "query": "mutation {\n  updateAdminDraftListing(id: {{DraftListingId1}}, data: {\n    listingStatus: Expired}) \n  {\n    id\n    listing{\n        status\n    }\n    firstPublish\n  }\n}",
-                    "variables": ""
-                  }
-                },
-                "url": "{{base_url}}/graphql"
-              },
-              "response": []
-            },
-            {
-              "name": "PublishDraftListing",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "937366de-f10c-4b3b-8a55-933177117cb5",
-                    "exec": [
-                      "",
-                      "",
-                      "var json = JSON.parse(responseBody);",
-                      "",
-                      "tests[\"Publish draft listing success with listing id\" + \" \" + json.data.publishDraftListing.listingId ] = true",
-                      "",
-                      "tests[\"status code is 200\"] = responseCode.code === 200;",
-                      "",
-                      "tests[\"'publishDraftListing.listingId' should be exist in the response\"] = json.data.publishDraftListing.hasOwnProperty('listingId');",
-                      "",
-                      "postman.setEnvironmentVariable(\"ListingId1\", json.data.publishDraftListing.listingId);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "31685748-c031-499f-b0fb-4499fed1faa2",
-                    "exec": [
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "aa695289-5137-4ee4-b933-c6bdf539f3d8",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "auth": {
-                  "type": "bearer",
-                  "bearer": {
-                    "token": "{{accessTokenAdmin}}"
-                  }
-                },
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "graphql",
-                  "graphql": {
-                    "query": "mutation {\npublishDraftListing(id:{{DraftListingId1}}) \n  {\n    listingId\n\taddress{\n      area\n      block\n\t\t\tbuildingName\n      country\n      countryCode\n      floor\n      fullUnitNumber\n      postcode\n      state\n    \tstreetLine1\n      streetLine2\n      subArea\n      unitNo\n    },\n\t\tavailableAt\n    \tbathroom\n    \tbathroomType\n    \tbedroom\n    \tcarpark\n      createdAt\n    \tcurrency\n    \tdepositMonth\n    \tdepositValue\n  \t\telectricityBill\n    \tfloorLevel\n    \tfurnishing\n    \tfurnishType\n    \tgenderRule\n    \thouseRules\n    \tsquareFeet\n    \tstampingFee\n    \tstatus\n    \tunitPropertyType\n    \tunitType\n    \tutilities\n    \tutilityDeposit\n    \tutilityDepositValue\n    \twaterBill\n    \twifi\n  }\n\n}",
-                    "variables": ""
-                  }
-                },
-                "url": "{{base_url}}/graphql"
-              },
-              "response": [
-                {
-                  "id": "947ecdd9-d0fd-4c2a-8f86-65ed8a4a68ea",
                   "name": "PublishDraftListing",
-                  "originalRequest": {
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "937366de-f10c-4b3b-8a55-933177117cb5",
+                        "exec": [
+                          "",
+                          "",
+                          "var json = JSON.parse(responseBody);",
+                          "",
+                          "tests[\"Publish draft listing success with listing id\" + \" \" + json.data.publishDraftListing.listingId ] = true",
+                          "",
+                          "tests[\"status code is 200\"] = responseCode.code === 200;",
+                          "",
+                          "tests[\"'publishDraftListing.listingId' should be exist in the response\"] = json.data.publishDraftListing.hasOwnProperty('listingId');",
+                          "",
+                          "postman.setEnvironmentVariable(\"ListingId1\", json.data.publishDraftListing.listingId);"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    },
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "id": "31685748-c031-499f-b0fb-4499fed1faa2",
+                        "exec": [
+                          ""
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "id": "aa695289-5137-4ee4-b933-c6bdf539f3d8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": {
+                        "token": "{{accessTokenAdmin}}"
+                      }
+                    },
                     "method": "POST",
                     "header": [],
                     "body": {
@@ -9059,198 +9041,217 @@
                     },
                     "url": "{{base_url}}/graphql"
                   },
-                  "status": "OK",
-                  "code": 200,
-                  "_postman_previewlanguage": "json",
-                  "header": [
+                  "response": [
                     {
-                      "key": "Access-Control-Allow-Credentials",
-                      "value": "true"
-                    },
+                      "id": "947ecdd9-d0fd-4c2a-8f86-65ed8a4a68ea",
+                      "name": "PublishDraftListing",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "graphql",
+                          "graphql": {
+                            "query": "mutation {\npublishDraftListing(id:{{DraftListingId1}}) \n  {\n    listingId\n\taddress{\n      area\n      block\n\t\t\tbuildingName\n      country\n      countryCode\n      floor\n      fullUnitNumber\n      postcode\n      state\n    \tstreetLine1\n      streetLine2\n      subArea\n      unitNo\n    },\n\t\tavailableAt\n    \tbathroom\n    \tbathroomType\n    \tbedroom\n    \tcarpark\n      createdAt\n    \tcurrency\n    \tdepositMonth\n    \tdepositValue\n  \t\telectricityBill\n    \tfloorLevel\n    \tfurnishing\n    \tfurnishType\n    \tgenderRule\n    \thouseRules\n    \tsquareFeet\n    \tstampingFee\n    \tstatus\n    \tunitPropertyType\n    \tunitType\n    \tutilities\n    \tutilityDeposit\n    \tutilityDepositValue\n    \twaterBill\n    \twifi\n  }\n\n}",
+                            "variables": ""
+                          }
+                        },
+                        "url": "{{base_url}}/graphql"
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Access-Control-Allow-Credentials",
+                          "value": "true"
+                        },
+                        {
+                          "key": "Access-Control-Allow-Origin",
+                          "value": "*"
+                        },
+                        {
+                          "key": "Access-Control-Expose-Headers",
+                          "value": "x-pagination-page-count,x-pagination-total,x-pagination-page,x-pagination-count"
+                        },
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json; charset=utf-8"
+                        },
+                        {
+                          "key": "Date",
+                          "value": "Thu, 23 Dec 2021 03:32:46 GMT"
+                        },
+                        {
+                          "key": "ETag",
+                          "value": "W/\"38d-aLW7GphXBnYCqz81acD9dRJMxFI\""
+                        },
+                        {
+                          "key": "Strict-Transport-Security",
+                          "value": "max-age=15552000; includeSubDomains"
+                        },
+                        {
+                          "key": "Vary",
+                          "value": "Origin"
+                        },
+                        {
+                          "key": "X-Content-Type-Options",
+                          "value": "nosniff"
+                        },
+                        {
+                          "key": "X-DNS-Prefetch-Control",
+                          "value": "off"
+                        },
+                        {
+                          "key": "X-Download-Options",
+                          "value": "noopen"
+                        },
+                        {
+                          "key": "X-Frame-Options",
+                          "value": "SAMEORIGIN"
+                        },
+                        {
+                          "key": "X-XSS-Protection",
+                          "value": "1; mode=block"
+                        },
+                        {
+                          "key": "Content-Length",
+                          "value": "909"
+                        },
+                        {
+                          "key": "Connection",
+                          "value": "keep-alive"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n    \"data\": {\n        \"publishDraftListing\": {\n            \"listingId\": 20960,\n            \"address\": {\n                \"area\": \"kl city\",\n                \"block\": \"13\",\n                \"buildingName\": \"The Robertson\",\n                \"country\": \"malaysia\",\n                \"countryCode\": \"MY\",\n                \"floor\": \"\",\n                \"fullUnitNumber\": \"A-08-08\",\n                \"postcode\": \"50150\",\n                \"state\": \"kuala lumpur\",\n                \"streetLine1\": \"Jalan Robertson, 50150 Kuala Lumpur, The Robertson, Bukit Bintang, KL City, Kuala Lumpur, Malaysia\",\n                \"streetLine2\": null,\n                \"subArea\": \"bukit bintang\",\n                \"unitNo\": \"\"\n            },\n            \"availableAt\": null,\n            \"bathroom\": 0,\n            \"bathroomType\": null,\n            \"bedroom\": 0,\n            \"carpark\": null,\n            \"createdAt\": \"2021-12-23T03:25:39.602Z\",\n            \"currency\": null,\n            \"depositMonth\": null,\n            \"depositValue\": null,\n            \"electricityBill\": null,\n            \"floorLevel\": null,\n            \"furnishing\": [],\n            \"furnishType\": null,\n            \"genderRule\": null,\n            \"houseRules\": [],\n            \"squareFeet\": null,\n            \"stampingFee\": 0,\n            \"status\": \"ProcessingComplete\",\n            \"unitPropertyType\": null,\n            \"unitType\": \"EntireUnit\",\n            \"utilities\": null,\n            \"utilityDeposit\": null,\n            \"utilityDepositValue\": null,\n            \"waterBill\": null,\n            \"wifi\": null\n        }\n    }\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "AfterPublished",
+                  "event": [
                     {
-                      "key": "Access-Control-Allow-Origin",
-                      "value": "*"
-                    },
-                    {
-                      "key": "Access-Control-Expose-Headers",
-                      "value": "x-pagination-page-count,x-pagination-total,x-pagination-page,x-pagination-count"
-                    },
-                    {
-                      "key": "Content-Type",
-                      "value": "application/json; charset=utf-8"
-                    },
-                    {
-                      "key": "Date",
-                      "value": "Thu, 23 Dec 2021 03:32:46 GMT"
-                    },
-                    {
-                      "key": "ETag",
-                      "value": "W/\"38d-aLW7GphXBnYCqz81acD9dRJMxFI\""
-                    },
-                    {
-                      "key": "Strict-Transport-Security",
-                      "value": "max-age=15552000; includeSubDomains"
-                    },
-                    {
-                      "key": "Vary",
-                      "value": "Origin"
-                    },
-                    {
-                      "key": "X-Content-Type-Options",
-                      "value": "nosniff"
-                    },
-                    {
-                      "key": "X-DNS-Prefetch-Control",
-                      "value": "off"
-                    },
-                    {
-                      "key": "X-Download-Options",
-                      "value": "noopen"
-                    },
-                    {
-                      "key": "X-Frame-Options",
-                      "value": "SAMEORIGIN"
-                    },
-                    {
-                      "key": "X-XSS-Protection",
-                      "value": "1; mode=block"
-                    },
-                    {
-                      "key": "Content-Length",
-                      "value": "909"
-                    },
-                    {
-                      "key": "Connection",
-                      "value": "keep-alive"
+                      "listen": "test",
+                      "script": {
+                        "id": "94766c45-4a7c-4cb0-8153-d85a14bf1503",
+                        "exec": [
+                          "postman.setNextRequest(\"SearchListings Copy\");",
+                          "",
+                          "var json = JSON.parse(responseBody);",
+                          "",
+                          "tests[\"updated draft listing id\" + \" \" + json.data.updateAdminDraftListing.id + \" \" +  \"to status 'Expired' and BE will auto-calculate ExpiredAp or ExpiredBp listing status\"] = true",
+                          "",
+                          "tests[\"status code is 200\"] = responseCode.code === 200;",
+                          "",
+                          "postman.setEnvironmentVariable(\"DraftListingId1\", json.data.updateAdminDraftListing.id);",
+                          "postman.setEnvironmentVariable(\"listingStatus\", json.data.updateAdminDraftListing.listing.status);",
+                          "",
+                          "postman.setEnvironmentVariable(\"firstPublish\", json.data.updateAdminDraftListing.firstPublish);",
+                          "",
+                          "tests[\"'updateAdminDraftListing.firstPublish' should be exist in the response\"] = json.data.updateAdminDraftListing.hasOwnProperty('firstPublish');",
+                          "",
+                          "tests[\"'updateAdminDraftListing.firstPublish' should end with 'Z'\"] = json.data.updateAdminDraftListing.firstPublish.indexOf(\"Z\");",
+                          "",
+                          "tests['firstPublish is' + \" \" +  pm.environment.get(\"firstPublish\")] = true;",
+                          "",
+                          "tests['Backend calculates the draft listing has been published or not by checking firstPublish field , if it is null means the listing hasnt publish yet, but if it is not null, means the listing already published at least once. Thus, listing status is' + \" \" +  pm.environment.get(\"listingStatus\")] = true;"
+                        ],
+                        "type": "text/javascript"
+                      }
                     }
                   ],
-                  "cookie": [],
-                  "responseTime": null,
-                  "body": "{\n    \"data\": {\n        \"publishDraftListing\": {\n            \"listingId\": 20960,\n            \"address\": {\n                \"area\": \"kl city\",\n                \"block\": \"13\",\n                \"buildingName\": \"The Robertson\",\n                \"country\": \"malaysia\",\n                \"countryCode\": \"MY\",\n                \"floor\": \"\",\n                \"fullUnitNumber\": \"A-08-08\",\n                \"postcode\": \"50150\",\n                \"state\": \"kuala lumpur\",\n                \"streetLine1\": \"Jalan Robertson, 50150 Kuala Lumpur, The Robertson, Bukit Bintang, KL City, Kuala Lumpur, Malaysia\",\n                \"streetLine2\": null,\n                \"subArea\": \"bukit bintang\",\n                \"unitNo\": \"\"\n            },\n            \"availableAt\": null,\n            \"bathroom\": 0,\n            \"bathroomType\": null,\n            \"bedroom\": 0,\n            \"carpark\": null,\n            \"createdAt\": \"2021-12-23T03:25:39.602Z\",\n            \"currency\": null,\n            \"depositMonth\": null,\n            \"depositValue\": null,\n            \"electricityBill\": null,\n            \"floorLevel\": null,\n            \"furnishing\": [],\n            \"furnishType\": null,\n            \"genderRule\": null,\n            \"houseRules\": [],\n            \"squareFeet\": null,\n            \"stampingFee\": 0,\n            \"status\": \"ProcessingComplete\",\n            \"unitPropertyType\": null,\n            \"unitType\": \"EntireUnit\",\n            \"utilities\": null,\n            \"utilityDeposit\": null,\n            \"utilityDepositValue\": null,\n            \"waterBill\": null,\n            \"wifi\": null\n        }\n    }\n}"
-                }
-              ]
-            },
-            {
-              "name": "AfterPublished",
-              "event": [
+                  "id": "bd62cb81-fe09-4345-8f07-fa0a2feb7685",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": {
+                        "token": "{{accessTokenAdmin}}"
+                      }
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "graphql",
+                      "graphql": {
+                        "query": "mutation {\n  updateAdminDraftListing(id: {{DraftListingId1}}, data: {\n    listingStatus: Expired  }) \n  {\n    id\n    listing{\n        status\n    }\n    firstPublish\n      \n  }\n}",
+                        "variables": ""
+                      }
+                    },
+                    "url": "{{base_url}}/graphql"
+                  },
+                  "response": []
+                },
                 {
-                  "listen": "test",
-                  "script": {
-                    "id": "94766c45-4a7c-4cb0-8153-d85a14bf1503",
-                    "exec": [
-                      "postman.setNextRequest(\"SearchListings Copy\");",
-                      "",
-                      "var json = JSON.parse(responseBody);",
-                      "",
-                      "tests[\"updated draft listing id\" + \" \" + json.data.updateAdminDraftListing.id + \" \" +  \"to status 'Expired' and BE will auto-calculate ExpiredAp or ExpiredBp listing status\"] = true",
-                      "",
-                      "tests[\"status code is 200\"] = responseCode.code === 200;",
-                      "",
-                      "postman.setEnvironmentVariable(\"DraftListingId1\", json.data.updateAdminDraftListing.id);",
-                      "postman.setEnvironmentVariable(\"listingStatus\", json.data.updateAdminDraftListing.listing.status);",
-                      "",
-                      "postman.setEnvironmentVariable(\"firstPublish\", json.data.updateAdminDraftListing.firstPublish);",
-                      "",
-                      "tests[\"'updateAdminDraftListing.firstPublish' should be exist in the response\"] = json.data.updateAdminDraftListing.hasOwnProperty('firstPublish');",
-                      "",
-                      "tests[\"'updateAdminDraftListing.firstPublish' should end with 'Z'\"] = json.data.updateAdminDraftListing.firstPublish.indexOf(\"Z\");",
-                      "",
-                      "tests['firstPublish is' + \" \" +  pm.environment.get(\"firstPublish\")] = true;",
-                      "",
-                      "tests['Backend calculates the draft listing has been published or not by checking firstPublish field , if it is null means the listing hasnt publish yet, but if it is not null, means the listing already published at least once. Thus, listing status is' + \" \" +  pm.environment.get(\"listingStatus\")] = true;"
-                    ],
-                    "type": "text/javascript"
-                  }
+                  "name": "LiveListing",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "33f423b6-7013-4ab7-9bb8-96e4fde294b8",
+                        "exec": [
+                          "postman.setNextRequest(\"SearchListings Copy\");",
+                          "",
+                          "var json = JSON.parse(responseBody);",
+                          "",
+                          "tests[\"updated draft listing id\" + \" \" + json.data.updateAdminDraftListing.id + \" \" +  \"to status 'Expired' and BE will auto-calculate ExpiredAp or ExpiredBp listing status\"] = true",
+                          "",
+                          "tests[\"status code is 200\"] = responseCode.code === 200;",
+                          "",
+                          "postman.setEnvironmentVariable(\"DraftListingId1\", json.data.updateAdminDraftListing.id);",
+                          "postman.setEnvironmentVariable(\"listingStatus\", json.data.updateAdminDraftListing.listing.status);",
+                          "",
+                          "postman.setEnvironmentVariable(\"firstPublish\", json.data.updateAdminDraftListing.firstPublish);",
+                          "",
+                          "tests[\"'updateAdminDraftListing.firstPublish' should be exist in the response\"] = json.data.updateAdminDraftListing.hasOwnProperty('firstPublish');",
+                          "",
+                          "tests[\"'updateAdminDraftListing.firstPublish' should end with 'Z'\"] = json.data.updateAdminDraftListing.firstPublish.indexOf(\"Z\");",
+                          "",
+                          "tests['firstPublish is' + \" \" +  pm.environment.get(\"firstPublish\")] = true;",
+                          "",
+                          "tests['Backend calculates the draft listing has been published or not by checking firstPublish field , if it is null means the listing hasnt publish yet, but if it is not null, means the listing already published at least once. Thus, listing status is' + \" \" +  pm.environment.get(\"listingStatus\")] = true;"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "id": "be08dd8d-6680-4d82-8969-70959a09f65f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": {
+                        "token": "{{accessTokenAdmin}}"
+                      }
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "graphql",
+                      "graphql": {
+                        "query": "mutation {\n  updateAdminDraftListing(id: {{DraftListingId1}}, data: {\n    listingStatus: Live  }) \n  {\n    id\n    listing{\n        status\n    }\n    firstPublish\n      \n  }\n}",
+                        "variables": ""
+                      }
+                    },
+                    "url": "{{base_url}}/graphql"
+                  },
+                  "response": []
                 }
               ],
-              "id": "bd62cb81-fe09-4345-8f07-fa0a2feb7685",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "auth": {
-                  "type": "bearer",
-                  "bearer": {
-                    "token": "{{accessTokenAdmin}}"
-                  }
-                },
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "graphql",
-                  "graphql": {
-                    "query": "mutation {\n  updateAdminDraftListing(id: {{DraftListingId1}}, data: {\n    listingStatus: Expired  }) \n  {\n    id\n    listing{\n        status\n    }\n    firstPublish\n      \n  }\n}",
-                    "variables": ""
-                  }
-                },
-                "url": "{{base_url}}/graphql"
-              },
-              "response": []
-            },
-            {
-              "name": "LiveListing",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "33f423b6-7013-4ab7-9bb8-96e4fde294b8",
-                    "exec": [
-                      "postman.setNextRequest(\"SearchListings Copy\");",
-                      "",
-                      "var json = JSON.parse(responseBody);",
-                      "",
-                      "tests[\"updated draft listing id\" + \" \" + json.data.updateAdminDraftListing.id + \" \" +  \"to status 'Expired' and BE will auto-calculate ExpiredAp or ExpiredBp listing status\"] = true",
-                      "",
-                      "tests[\"status code is 200\"] = responseCode.code === 200;",
-                      "",
-                      "postman.setEnvironmentVariable(\"DraftListingId1\", json.data.updateAdminDraftListing.id);",
-                      "postman.setEnvironmentVariable(\"listingStatus\", json.data.updateAdminDraftListing.listing.status);",
-                      "",
-                      "postman.setEnvironmentVariable(\"firstPublish\", json.data.updateAdminDraftListing.firstPublish);",
-                      "",
-                      "tests[\"'updateAdminDraftListing.firstPublish' should be exist in the response\"] = json.data.updateAdminDraftListing.hasOwnProperty('firstPublish');",
-                      "",
-                      "tests[\"'updateAdminDraftListing.firstPublish' should end with 'Z'\"] = json.data.updateAdminDraftListing.firstPublish.indexOf(\"Z\");",
-                      "",
-                      "tests['firstPublish is' + \" \" +  pm.environment.get(\"firstPublish\")] = true;",
-                      "",
-                      "tests['Backend calculates the draft listing has been published or not by checking firstPublish field , if it is null means the listing hasnt publish yet, but if it is not null, means the listing already published at least once. Thus, listing status is' + \" \" +  pm.environment.get(\"listingStatus\")] = true;"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "be08dd8d-6680-4d82-8969-70959a09f65f",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "auth": {
-                  "type": "bearer",
-                  "bearer": {
-                    "token": "{{accessTokenAdmin}}"
-                  }
-                },
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "graphql",
-                  "graphql": {
-                    "query": "mutation {\n  updateAdminDraftListing(id: {{DraftListingId1}}, data: {\n    listingStatus: Live  }) \n  {\n    id\n    listing{\n        status\n    }\n    firstPublish\n      \n  }\n}",
-                    "variables": ""
-                  }
-                },
-                "url": "{{base_url}}/graphql"
-              },
-              "response": []
+              "id": "e8a22e97-6a29-48d8-887d-041a019695e5",
+              "description": "#### \\[BE\\] Calculate expired status to \\`Expired-BP\\` or \\`Expired-AP\\`\n\n[https://instahome.atlassian.net/browse/ENG-2149](https://instahome.atlassian.net/browse/ENG-2149)"
             }
           ],
-          "id": "e8a22e97-6a29-48d8-887d-041a019695e5",
-          "description": "#### \\[BE\\] Calculate expired status to \\`Expired-BP\\` or \\`Expired-AP\\`\n\n[https://instahome.atlassian.net/browse/ENG-2149](https://instahome.atlassian.net/browse/ENG-2149)"
+          "id": "89cdf948-8992-4090-b3c4-1accdd5a5632",
+          "description": "#### \\[API\\] User Story 11: Add booking type filter to getAdminPaymentRecords\n\n[https://instahome.atlassian.net/browse/ENG-2147](https://instahome.atlassian.net/browse/ENG-2147)"
         }
       ],
-      "id": "89cdf948-8992-4090-b3c4-1accdd5a5632",
-      "description": "#### \\[API\\] User Story 11: Add booking type filter to getAdminPaymentRecords\n\n[https://instahome.atlassian.net/browse/ENG-2147](https://instahome.atlassian.net/browse/ENG-2147)"
+      "id": "7f529004-9066-452e-b709-07d65d1a6be3"
     },
     {
       "name": "Others",
