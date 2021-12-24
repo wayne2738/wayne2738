@@ -9306,7 +9306,7 @@
               "response": []
             },
             {
-              "name": "ByCollectionType-Defaulted Copy",
+              "name": "ByCollectionType-MoveOut",
               "id": "cb923f71-f9c5-441f-9ffe-25c7666a8ca7",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
