@@ -9251,7 +9251,7 @@
           "description": "#### \\[API\\] User Story 11: Add booking type filter to getAdminPaymentRecords\n\n[https://instahome.atlassian.net/browse/ENG-2147](https://instahome.atlassian.net/browse/ENG-2147)"
         },
         {
-          "name": "New Folder",
+          "name": "FilterAdminBookingsByCollectionType",
           "item": [],
           "id": "4c9f59b6-878b-4bcf-8653-1e9431c561c8"
         }
