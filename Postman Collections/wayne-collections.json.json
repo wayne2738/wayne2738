@@ -11253,7 +11253,14 @@
                 "url": "{{base_url}}/graphql"
               },
               "response": []
-            },
+            }
+          ],
+          "id": "41aaac3a-41ea-4ef0-919f-f6193092ef84",
+          "description": "#### \\[API\\] User Story 1: Admin User can create and edit Landlord Account through Admin Pane\n\n[https://instahome.atlassian.net/browse/ENG-2168](https://instahome.atlassian.net/browse/ENG-2168)"
+        },
+        {
+          "name": "LandlordRegisterAcc",
+          "item": [
             {
               "name": "CreateNewLandlord Copy",
               "id": "b75acb67-c181-46ed-9c2c-ce81fc303115",
@@ -11275,12 +11282,6 @@
               "response": []
             }
           ],
-          "id": "41aaac3a-41ea-4ef0-919f-f6193092ef84",
-          "description": "#### \\[API\\] User Story 1: Admin User can create and edit Landlord Account through Admin Pane\n\n[https://instahome.atlassian.net/browse/ENG-2168](https://instahome.atlassian.net/browse/ENG-2168)"
-        },
-        {
-          "name": "LandlordRegisterAcc",
-          "item": [],
           "id": "4f767e39-0854-4b1f-893c-3a8a889b7608"
         }
       ],
