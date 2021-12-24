@@ -9278,6 +9278,32 @@
                 "url": "{{base_url}}/graphql"
               },
               "response": []
+            },
+            {
+              "name": "ByCollectionType-RentalThroughInstahome Copy",
+              "id": "940f9bfe-3f69-47ca-91a3-be839923f568",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{accessTokenAdmin}}"
+                  }
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query getAdminBookings {\n  getAdminBookings (\n    bookingType: RENTAL_THROUGH_INSTAHOME\n    page: 1    \n  ) {\n    items {\n      id\n    }\n  }\n}",
+                    "variables": ""
+                  }
+                },
+                "url": "{{base_url}}/graphql"
+              },
+              "response": []
             }
           ],
           "id": "4c9f59b6-878b-4bcf-8653-1e9431c561c8"
