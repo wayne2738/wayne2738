@@ -11262,7 +11262,7 @@
           "name": "LandlordRegisterAcc",
           "item": [
             {
-              "name": "LandlordRegisterAcc",
+              "name": "CreateNewLandlord Copy",
               "id": "b75acb67-c181-46ed-9c2c-ce81fc303115",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
