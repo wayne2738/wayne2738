@@ -11193,7 +11193,21 @@
       "item": [
         {
           "name": "CreateLandlordAcc",
-          "item": [],
+          "item": [
+            {
+              "name": "New Request",
+              "id": "60bc01e1-9618-4851-9bb0-5d77a3223f01",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": null
+              },
+              "response": []
+            }
+          ],
           "id": "41aaac3a-41ea-4ef0-919f-f6193092ef84"
         }
       ],
