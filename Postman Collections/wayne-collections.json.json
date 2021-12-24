@@ -11246,7 +11246,7 @@
                 "body": {
                   "mode": "graphql",
                   "graphql": {
-                    "query": "mutation getUser($id: String!) {\n  getUser(id: $id) {\n    id\n    role\n    name\n    firstName\n    lastName\n    email\n    phoneNumber\n    nationality\n    occupation\n    companyInstitution\n    country\n    crmUserId\n    password\n    isTmpPassword\n    listings{\n      id\n    }\n\t\tfocusArea\n    focusType\n    notes\n    paymentMethod\n    profile{\n      __typename\n    }\n    profileId\n    referrer\n    renTag\n    source\n    suspended\n    updatedAt\n    createdAt\n    verified\n  }\n}",
+                    "query": "query getUser($id: String!) {\n  getUser(id: $id) {\n    id\n    role\n    name\n    firstName\n    lastName\n    email\n    phoneNumber\n    nationality\n    occupation\n    companyInstitution\n    country\n    crmUserId\n    password\n    isTmpPassword\n\n\t\tfocusArea\n    focusType\n    notes\n    paymentMethod\n\n    profileId\n    referrer\n    renTag\n    source\n    suspended\n    verified\n  }\n}",
                     "variables": "{\n    \"id\": \"f71645ea-ed44-4fbb-8af6-7e595ed48a3e\"\n}\n"
                   }
                 },
