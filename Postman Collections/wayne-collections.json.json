@@ -9384,7 +9384,7 @@
               "response": []
             },
             {
-              "name": "ByCollectionType-RentalThroughInstahome Copy",
+              "name": "ByCollectionType-RoomRental",
               "id": "a17fcd39-b9ba-458c-b2f2-55258f25625d",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
