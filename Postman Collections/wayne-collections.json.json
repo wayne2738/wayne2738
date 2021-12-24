@@ -11195,7 +11195,7 @@
           "name": "CreateLandlordAcc",
           "item": [
             {
-              "name": "New Request",
+              "name": "CreateNewLandlord",
               "id": "60bc01e1-9618-4851-9bb0-5d77a3223f01",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
