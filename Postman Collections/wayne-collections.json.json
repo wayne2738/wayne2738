@@ -9358,7 +9358,7 @@
               "response": []
             },
             {
-              "name": "ByCollectionType-PassLead Copy",
+              "name": "ByCollectionType-EarlyTermination",
               "id": "ac267c8f-b825-4a59-85c5-93c08fed6a0f",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
