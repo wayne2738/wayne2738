@@ -9280,7 +9280,7 @@
               "response": []
             },
             {
-              "name": "ByCollectionType-RentalThroughInstahome Copy",
+              "name": "ByCollectionType-Defaulted",
               "id": "940f9bfe-3f69-47ca-91a3-be839923f568",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
