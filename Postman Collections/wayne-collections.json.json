@@ -9323,7 +9323,7 @@
                 "body": {
                   "mode": "graphql",
                   "graphql": {
-                    "query": "query getAdminBookings {\n  getAdminBookings (\n    bookingType: RENTAL_THROUGH_INSTAHOME\n    page: 1    \n  ) {\n    items {\n      id\n    }\n  }\n}",
+                    "query": "query getAdminBookings {\n  getAdminBookings (\n    bookingType: MOVE_OUT\n    page: 1    \n  ) {\n    items {\n      id\n    }\n  }\n}",
                     "variables": ""
                   }
                 },
