@@ -11195,7 +11195,7 @@
           "name": "CreateUpdateSearchLandlordAcc",
           "item": [
             {
-              "name": "CreateNewLandlordAccc",
+              "name": "CreateNewLandlordAcc",
               "id": "60bc01e1-9618-4851-9bb0-5d77a3223f01",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
