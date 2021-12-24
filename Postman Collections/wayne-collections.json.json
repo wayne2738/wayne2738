@@ -9252,7 +9252,21 @@
         },
         {
           "name": "FilterAdminBookingsByCollectionType",
-          "item": [],
+          "item": [
+            {
+              "name": "New Request",
+              "id": "9df18ca1-be20-4cf3-a594-79ad26d75825",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": null
+              },
+              "response": []
+            }
+          ],
           "id": "4c9f59b6-878b-4bcf-8653-1e9431c561c8"
         }
       ],
