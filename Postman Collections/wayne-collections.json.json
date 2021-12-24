@@ -9254,7 +9254,7 @@
           "name": "FilterAdminBookings",
           "item": [
             {
-              "name": "ByCollectionType",
+              "name": "ByCollectionType-RentalThroughInstahome",
               "id": "9df18ca1-be20-4cf3-a594-79ad26d75825",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
