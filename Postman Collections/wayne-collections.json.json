@@ -11262,19 +11262,6 @@
           "name": "LandlordRegisterAcc",
           "item": [],
           "id": "4f767e39-0854-4b1f-893c-3a8a889b7608"
-        },
-        {
-          "name": "New Request",
-          "id": "ebb4ddfa-ec30-42c6-9a68-6182fc1af421",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": null
-          },
-          "response": []
         }
       ],
       "id": "6af403b9-4412-4307-b56c-c8497eb95c26"
