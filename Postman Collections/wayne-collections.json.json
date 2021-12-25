@@ -1223,7 +1223,7 @@
             "body": {
               "mode": "graphql",
               "graphql": {
-                "query": "mutation {\n  adminLogin(data: {\n   password: \"88888888\",\n   username: \"wayne.yeow@instahome.com\"\n  }) {\n accessToken\n  }\n}",
+                "query": "mutation {\n  adminLogin(data: {\n   password: \"88888888\",\n   username: \"tester.1234@instahome.com\"\n  }) {\n accessToken\n  }\n}",
                 "variables": ""
               }
             },
