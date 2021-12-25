@@ -11350,6 +11350,43 @@
                     "url": "{{base_url}}/graphql"
                   },
                   "response": []
+                },
+                {
+                  "name": "createOtpChallenge Copy",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "5b5098db-694d-4083-b157-2f3054c165bd",
+                        "exec": [
+                          "var json = JSON.parse(responseBody);",
+                          "",
+                          "tests[\"createOtpChallenge successfully with id\" + \" \" + json.data.createOtpChallenge.id + \" \" + \"returned\"] = true",
+                          "tests[\"status code is 200\"] = responseCode.code === 200;",
+                          "",
+                          "postman.setEnvironmentVariable(\"otpChallengeID\", json.data.createOtpChallenge.id);"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "id": "4c77acf7-a2bc-4375-8701-97ae4f4a520f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "graphql",
+                      "graphql": {
+                        "query": "mutation CreateOtpChallenge($phoneNumber: String!) {\n  createOtpChallenge(phoneNumber: $phoneNumber) {\n    ...fragmentOTP\n    __typename\n  }\n}\n\nfragment fragmentOTP on OtpFragment {\n  id\n  status\n  __typename\n}\n",
+                        "variables": "{\n  \"phoneNumber\": \"+60163948117\"\n}"
+                      }
+                    },
+                    "url": "{{base_url}}/graphql"
+                  },
+                  "response": []
                 }
               ],
               "id": "3140ec5c-dae6-4d76-9357-0ab70ba6f2c0"
