@@ -11262,7 +11262,7 @@
           "name": "LandlordRegisterAcc",
           "item": [
             {
-              "name": "New Folder",
+              "name": "createOtpChallenge",
               "item": [],
               "id": "3140ec5c-dae6-4d76-9357-0ab70ba6f2c0"
             },
