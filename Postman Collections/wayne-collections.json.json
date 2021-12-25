@@ -11266,6 +11266,23 @@
               "item": [
                 {
                   "name": "createOtpChallenge",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "63ce6108-e979-4bc7-98e6-694cde5a38d4",
+                        "exec": [
+                          "var json = JSON.parse(responseBody);",
+                          "",
+                          "tests[\"createOtpChallenge successfully with id\" + \" \" + json.data.createOtpChallenge.id + \" \" + \"returned\"] = true",
+                          "tests[\"status code is 200\"] = responseCode.code === 200;",
+                          "",
+                          "postman.setEnvironmentVariable(\"otpChallengeID\", json.data.createOtpChallenge.id);"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
                   "id": "2b2f9ad7-da47-420b-864e-ccf5d2582731",
                   "protocolProfileBehavior": {
                     "disableBodyPruning": true
