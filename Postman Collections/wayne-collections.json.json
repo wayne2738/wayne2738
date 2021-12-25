@@ -1193,7 +1193,7 @@
                   "",
                   "var json = JSON.parse(responseBody);",
                   "",
-                  "postman.setEnvironmentVariable(\"accessTokenAdmin\", json.data.adminLogin.accessToken);",
+                  "postman.setEnvironmentVariable(\"accessTokenLandlord\", json.data.adminLogin.accessToken);",
                   "",
                   "tests[\"status code is 200\"] = responseCode.code === 200;",
                   "",
@@ -1223,7 +1223,7 @@
             "body": {
               "mode": "graphql",
               "graphql": {
-                "query": "mutation {\n  adminLogin(data: {\n   password: \"Stg-Admin@instahome-345\",\n   username: \"processor3@instahome.com\"\n  }) {\n accessToken\n  }\n}",
+                "query": "mutation {\n  adminLogin(data: {\n   password: \"88888888\",\n   username: \"wayne.yeow@instahome.com\"\n  }) {\n accessToken\n  }\n}",
                 "variables": ""
               }
             },
