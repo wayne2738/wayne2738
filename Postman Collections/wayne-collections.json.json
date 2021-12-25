@@ -1995,6 +1995,8 @@
               "script": {
                 "id": "4df161df-aa61-4830-8a19-febce1dae54c",
                 "exec": [
+                  "postman.setNextRequest(null);",
+                  "",
                   "postman.setNextRequest(\"SearchAdminDraftListing\");",
                   "",
                   "var json = JSON.parse(responseBody);",
