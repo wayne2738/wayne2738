@@ -11265,7 +11265,7 @@
               "name": "createOtpChallenge",
               "item": [
                 {
-                  "name": "LandlordRegisterAcc Copy",
+                  "name": "createOtpChallenge",
                   "id": "2b2f9ad7-da47-420b-864e-ccf5d2582731",
                   "protocolProfileBehavior": {
                     "disableBodyPruning": true
