@@ -11306,11 +11306,35 @@
             },
             {
               "name": "LandlordRegisterAcc",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "9722ad03-23d2-41ba-a76d-c0e1c15b0f64",
+                    "exec": [
+                      "var json = JSON.parse(responseBody);",
+                      "",
+                      "tests[\"accessToken created successfully:\" + \" \" + json.data.register.accessToken + \" \" + \"returned\"] = true",
+                      "",
+                      "tests[\"status code is 200\"] = responseCode.code === 200;",
+                      "",
+                      "postman.setEnvironmentVariable(\"accessTokenLandlord\", json.data.createOtpChallenge.id);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "id": "b75acb67-c181-46ed-9c2c-ce81fc303115",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
               },
               "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{accessTokenTenant}}"
+                  }
+                },
                 "method": "POST",
                 "header": [],
                 "body": {
