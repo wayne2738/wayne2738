@@ -11358,6 +11358,8 @@
                       "script": {
                         "id": "5b5098db-694d-4083-b157-2f3054c165bd",
                         "exec": [
+                          "postman.setNextRequest(null);",
+                          "",
                           "var json = JSON.parse(responseBody);",
                           "",
                           "tests[\"createOtpChallenge successfully with id\" + \" \" + json.data.createOtpChallenge.id + \" \" + \"returned\"] = true",
