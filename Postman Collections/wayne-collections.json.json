@@ -8160,6 +8160,7 @@
               "script": {
                 "id": "23ba6c8e-8f0d-45a1-86e7-2590ac8c7f3b",
                 "exec": [
+                  "postman.setNextRequest(null);",
                   "",
                   "var json = JSON.parse(responseBody);",
                   "",
