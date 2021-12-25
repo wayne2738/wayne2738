@@ -8199,6 +8199,54 @@
             "url": "{{base_url}}/graphql"
           },
           "response": []
+        },
+        {
+          "name": "getBookingInitialPayment_prod",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "591cfbf4-9db9-4333-8fa8-20ed4cd986ca",
+                "exec": [
+                  "//postman.setNextRequest(null);",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"Get payment id\" + \" \" + json.data.getBookingInitialPayment[2].paymentId] = true",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "postman.setEnvironmentVariable(\"BookingInitialPaymentId\", json.data.getBookingInitialPayment[2].paymentId);",
+                  "",
+                  "tests[\"Payment id\" + \" \" + json.data.getBookingInitialPayment[2].paymentId + \" \" + \"is generated and stored.\"] = true",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "2533aa8a-cc65-4c92-9e82-aa6bb8d2ec28",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenTenant2}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query getBookingInitialPayment {\n  getBookingInitialPayment(bookingId:{{BookingId}}, promotionCode:\"StayHome21\") {\n    paymentId\n    status\n    dueDate\n    amount\n    toDisplayAmount\n    initialAmount\n    toDisplayInitialAmount\n    paymentAdjustments {\n      id\n      remarks\n      operations  \n      amount\n      type\n      toDisplayAmount\n      toDisplayAlteration\n      remarks\n      createdAt\n    }\n    paymentStep\n    lateCharge\n    lateChargeAmount\n    discountAmount\n\n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
         }
       ],
       "id": "fdb28a83-381e-4b9a-8cc2-c93ce80179cb"
