@@ -8447,6 +8447,53 @@
             "url": "{{base_url}}/graphql"
           },
           "response": []
+        },
+        {
+          "name": "initOneOffPaymentRental_prod",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c6ad3ff2-2c8f-43c5-9f45-2b5af8381201",
+                "exec": [
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"Get payment link\" + \" \" + json.data.initOneOffPayment.url] = true",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "postman.setEnvironmentVariable(\"PaymentLink\", json.data.initOneOffPayment.url);",
+                  "",
+                  "tests[\"Payment link\" + \" \" + json.data.initOneOffPayment.url + \" \" + \"is generated and stored.\"] = true"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "aa40ef1c-22a3-4096-8523-4f34a33a5f81",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenTenant2}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation initOneOffPayment ($PaymentInput: PaymentInput!) {\n    initOneOffPayment (PaymentInput: $PaymentInput) {\n        url\n    }\n}",
+                "variables": "{\n  \"PaymentInput\": {\n    \"bankCode\": \"{{BankCode}}\",\n    \"bankId\": {{BankId}},\n    \"paymentId\": \"{{RentalPaymentId}}\"\n  }\n}"
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
         }
       ],
       "id": "fdb28a83-381e-4b9a-8cc2-c93ce80179cb"
