@@ -11246,6 +11246,18 @@
           "item": [
             {
               "name": "CreateNewLandlordAcc",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "cf90ca5d-b6b2-465f-833b-85f4f0b93afc",
+                    "exec": [
+                      "postman.setNextRequest(null);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "id": "60bc01e1-9618-4851-9bb0-5d77a3223f01",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
