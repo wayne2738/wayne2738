@@ -1180,6 +1180,137 @@
               "body": "{\n    \"data\": {\n        \"adminLogin\": {\n            \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXAiOiJCZWFyZXIiLCJzdWIiOiIyNWVhOThlMi1lMjYwLTQ4MzYtYjc1Zi0xYWZmOTdlYTA2ZDQiLCJlbWFpbCI6InByb2Nlc3NvcjNAaW5zdGFob21lLmNvbSIsInJvbGUiOiJwcm9jZXNzb3IiLCJpYXQiOjE2MzgzMzU3NTksImV4cCI6MTYzODk0MDU1OX0.UGzEMALKIVnrasOyZZwEB196w8d6vk5Ge1MJCldy2iM\"\n        }\n    }\n}"
             }
           ]
+        },
+        {
+          "name": "PrepareLoginProcessor3 Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "004b1563-30b1-41de-ab5c-93c2f41c3fbb",
+                "exec": [
+                  "tests[\"Prepare admin sign in and get token successfully\"] = true",
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "postman.setEnvironmentVariable(\"accessTokenAdmin\", json.data.adminLogin.accessToken);",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "tests[\"The token should be exist\"] = json.data.adminLogin.hasOwnProperty(\"accessToken\");"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "c2a3dc0d-73d8-4342-ab75-414e33104606",
+                "exec": [
+                  "postman.setNextRequest(\"CreateDraftListingByAdmin\");"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "4d2b2b73-36c6-4690-bd44-1ee0d15e1351",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\n  adminLogin(data: {\n   password: \"Stg-Admin@instahome-345\",\n   username: \"processor3@instahome.com\"\n  }) {\n accessToken\n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": [
+            {
+              "id": "d18af82c-a38a-4de1-99d7-1219b82d7de7",
+              "name": "PrepareLoginProcessor3Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql"
+                },
+                "url": "{{base_url}}/graphql"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Access-Control-Expose-Headers",
+                  "value": "x-pagination-page-count,x-pagination-total,x-pagination-page,x-pagination-count"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 01 Dec 2021 05:15:59 GMT"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"143-waqPAMLrI28VmZ55tFptNav3iF0\""
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "323"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"adminLogin\": {\n            \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXAiOiJCZWFyZXIiLCJzdWIiOiIyNWVhOThlMi1lMjYwLTQ4MzYtYjc1Zi0xYWZmOTdlYTA2ZDQiLCJlbWFpbCI6InByb2Nlc3NvcjNAaW5zdGFob21lLmNvbSIsInJvbGUiOiJwcm9jZXNzb3IiLCJpYXQiOjE2MzgzMzU3NTksImV4cCI6MTYzODk0MDU1OX0.UGzEMALKIVnrasOyZZwEB196w8d6vk5Ge1MJCldy2iM\"\n        }\n    }\n}"
+            }
+          ]
         }
       ],
       "id": "d38a2565-46af-4b5d-a9e5-eb3540af54eb"
