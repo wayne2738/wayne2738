@@ -1223,7 +1223,7 @@
             "body": {
               "mode": "graphql",
               "graphql": {
-                "query": "mutation {\n  adminLogin(data: {\n   password: \"88888888\",\n   username: \"tester123@instahome.com\"\n  }) {\n accessToken\n  }\n}",
+                "query": "mutation {\n  adminLogin(data: {\n   password: \"88888888\",\n   username: \"tester.1234@instahome.com\"\n  }) {\n accessToken\n  }\n}",
                 "variables": ""
               }
             },
@@ -8456,7 +8456,6 @@
               "script": {
                 "id": "c6ad3ff2-2c8f-43c5-9f45-2b5af8381201",
                 "exec": [
-                  "postman.setNextRequest(null);",
                   "",
                   "var json = JSON.parse(responseBody);",
                   "",
