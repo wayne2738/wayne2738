@@ -11315,7 +11315,7 @@
               "name": "createOtpChallenge",
               "item": [
                 {
-                  "name": "createOtpChallenge",
+                  "name": "submitOtpChallenge",
                   "event": [
                     {
                       "listen": "test",
