@@ -11344,7 +11344,7 @@
                       "mode": "graphql",
                       "graphql": {
                         "query": "mutation SubmitOtpChallenge(\n    $id String!,\n    $otpToken String!,\n    $phoneNumber: String!) {\n  submitOtpChallenge(\n      id: $id,\n      otpToken: $otpToken,\n      phoneNumber: $phoneNumber) {\n    ...fragmentOTP\n    __typename\n  }\n}\n\nfragment fragmentOTP on OtpFragment {\n  id\n  status\n  __typename\n}\n",
-                        "variables": "{\n\"id\":{{otpChallengeID}},\n\"otpToken\": \"060836\",\n\"phoneNumber\": \"+60163948117\"\n}"
+                        "variables": "{\n\"id\":\"{{otpChallengeID}}\",\n\"otpToken\": \"060836\",\n\"phoneNumber\": \"+60163948117\"\n}"
                       }
                     },
                     "url": "{{base_url}}/graphql"
