@@ -8301,6 +8301,53 @@
             "url": "{{base_url}}/graphql"
           },
           "response": []
+        },
+        {
+          "name": "initOneOffPaymentBookingDeposit_prod",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "bfcb0656-d85b-46c1-a9d6-0d363dca79c8",
+                "exec": [
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"Get payment link\" + \" \" + json.data.initOneOffPayment.url] = true",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "postman.setEnvironmentVariable(\"PaymentLink\", json.data.initOneOffPayment.url);",
+                  "",
+                  "tests[\"Payment link\" + \" \" + json.data.initOneOffPayment.url + \" \" + \"is generated and stored.\"] = true"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "c7de40fe-fdb5-41c9-8070-ca96b7575a7a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenTenant2}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation initOneOffPayment ($PaymentInput: PaymentInput!) {\n    initOneOffPayment (PaymentInput: $PaymentInput) {\n        url\n    }\n}",
+                "variables": "{\n  \"PaymentInput\": {\n    \"bankCode\": \"{{BankCode}}\",\n    \"bankId\": {{BankId}},\n    \"paymentId\": \"{{BookingDepositPaymentId}}\"\n  }\n}"
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
         }
       ],
       "id": "fdb28a83-381e-4b9a-8cc2-c93ce80179cb"
