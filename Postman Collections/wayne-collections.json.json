@@ -8358,7 +8358,8 @@
               "script": {
                 "id": "ca6e1f01-1e81-4e2f-bf57-eb5cba3996ee",
                 "exec": [
-                  "//postman.setNextRequest(null);",
+                  "postman.setNextRequest(null);",
+                  "",
                   "var json = JSON.parse(responseBody);",
                   "",
                   "tests[\"Get payment id\" + \" \" + json.data.getBookingDepositPayment[0].paymentId] = true",
