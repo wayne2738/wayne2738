@@ -1189,7 +1189,7 @@
               "script": {
                 "id": "004b1563-30b1-41de-ab5c-93c2f41c3fbb",
                 "exec": [
-                  "tests[\"Prepare admin sign in and get token successfully\"] = true",
+                  "tests[\"Prepare Landlord sign in and get token successfully\"] = true",
                   "",
                   "var json = JSON.parse(responseBody);",
                   "",
