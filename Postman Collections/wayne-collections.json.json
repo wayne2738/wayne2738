@@ -11352,7 +11352,7 @@
                   "response": []
                 },
                 {
-                  "name": "createOtpChallenge Copy",
+                  "name": "createOtpChallenge",
                   "event": [
                     {
                       "listen": "test",
