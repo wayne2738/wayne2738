@@ -11278,6 +11278,18 @@
             },
             {
               "name": "UpdateLandlordAcc",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "247c9e7d-23cc-4a80-aa06-615a72a7a6a8",
+                    "exec": [
+                      "postman.setNextRequest(null);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "id": "a7be7405-f1b2-413b-9a5f-c30034e63fa4",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
