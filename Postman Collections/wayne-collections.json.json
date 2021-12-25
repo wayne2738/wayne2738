@@ -11310,6 +11310,18 @@
             },
             {
               "name": "SearchLandlordUser",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "67e78cd9-2702-46ce-9630-c595ab78d01c",
+                    "exec": [
+                      "postman.setNextRequest(null);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "id": "ed382159-6f87-449a-a46a-189453075817",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
