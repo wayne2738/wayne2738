@@ -11315,43 +11315,6 @@
               "name": "createOtpChallenge",
               "item": [
                 {
-                  "name": "submitOtpChallenge",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "63ce6108-e979-4bc7-98e6-694cde5a38d4",
-                        "exec": [
-                          "var json = JSON.parse(responseBody);",
-                          "",
-                          "tests[\"createOtpChallenge successfully with id\" + \" \" + json.data.createOtpChallenge.id + \" \" + \"returned\"] = true",
-                          "tests[\"status code is 200\"] = responseCode.code === 200;",
-                          "",
-                          "postman.setEnvironmentVariable(\"otpChallengeID\", json.data.createOtpChallenge.id);"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "id": "2b2f9ad7-da47-420b-864e-ccf5d2582731",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "graphql",
-                      "graphql": {
-                        "query": "mutation SubmitOtpChallenge(\n    $id: String!,\n    $otpToken: String!,\n    $phoneNumber: String!) {\n  submitOtpChallenge(\n      id: $id,\n      otpToken: $otpToken,\n      phoneNumber: $phoneNumber) {\n    ...fragmentOTP\n    __typename\n  }\n}\n\nfragment fragmentOTP on OtpFragment {\n  id\n  status\n  __typename\n}\n",
-                        "variables": "{\n\"id\": \"{{otpChallengeID}}\",\n\"otpToken\": \"551636\",\n\"phoneNumber\": \"+60163948117\"\n}"
-                      }
-                    },
-                    "url": "{{base_url}}/graphql"
-                  },
-                  "response": []
-                },
-                {
                   "name": "createOtpChallenge",
                   "event": [
                     {
@@ -11382,6 +11345,43 @@
                       "graphql": {
                         "query": "mutation CreateOtpChallenge($phoneNumber: String!) {\n  createOtpChallenge(phoneNumber: $phoneNumber) {\n    ...fragmentOTP\n    __typename\n  }\n}\n\nfragment fragmentOTP on OtpFragment {\n  id\n  status\n  __typename\n}\n",
                         "variables": "{\n  \"phoneNumber\": \"+60163948117\"\n}"
+                      }
+                    },
+                    "url": "{{base_url}}/graphql"
+                  },
+                  "response": []
+                },
+                {
+                  "name": "submitOtpChallenge",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "63ce6108-e979-4bc7-98e6-694cde5a38d4",
+                        "exec": [
+                          "var json = JSON.parse(responseBody);",
+                          "",
+                          "tests[\"createOtpChallenge successfully with id\" + \" \" + json.data.createOtpChallenge.id + \" \" + \"returned\"] = true",
+                          "tests[\"status code is 200\"] = responseCode.code === 200;",
+                          "",
+                          "postman.setEnvironmentVariable(\"otpChallengeID\", json.data.createOtpChallenge.id);"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "id": "2b2f9ad7-da47-420b-864e-ccf5d2582731",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "graphql",
+                      "graphql": {
+                        "query": "mutation SubmitOtpChallenge(\n    $id: String!,\n    $otpToken: String!,\n    $phoneNumber: String!) {\n  submitOtpChallenge(\n      id: $id,\n      otpToken: $otpToken,\n      phoneNumber: $phoneNumber) {\n    ...fragmentOTP\n    __typename\n  }\n}\n\nfragment fragmentOTP on OtpFragment {\n  id\n  status\n  __typename\n}\n",
+                        "variables": "{\n\"id\": \"{{otpChallengeID}}\",\n\"otpToken\": \"551636\",\n\"phoneNumber\": \"+60163948117\"\n}"
                       }
                     },
                     "url": "{{base_url}}/graphql"
