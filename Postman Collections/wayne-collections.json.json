@@ -11318,7 +11318,7 @@
                       "",
                       "tests[\"status code is 200\"] = responseCode.code === 200;",
                       "",
-                      "postman.setEnvironmentVariable(\"accessTokenLandlord\", json.data.createOtpChallenge.id);"
+                      "postman.setEnvironmentVariable(\"accessTokenLandlord\", json.data.register.accessToken);"
                     ],
                     "type": "text/javascript"
                   }
