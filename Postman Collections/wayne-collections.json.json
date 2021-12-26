@@ -8046,6 +8046,18 @@
         },
         {
           "name": "bulkUpdate_prod",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b71a8105-48d4-4a64-a383-59aa89daa768",
+                "exec": [
+                  "postman.setNextRequest(null);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "id": "539eca3c-b335-4fe5-9541-ebcaf6cfbf9e",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
