@@ -7030,6 +7030,8 @@
               "script": {
                 "id": "22ce9793-9eb3-42e1-bc51-8732e6a36918",
                 "exec": [
+                  "postman.setNextRequest(\"getBookingInitialPayment\");",
+                  "",
                   "tests[\"getListingInitialPayment by input promo code, listing Id and Move In Date\"] = true",
                   "",
                   "var json = JSON.parse(responseBody);",
