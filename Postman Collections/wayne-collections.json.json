@@ -8254,6 +8254,7 @@
               "script": {
                 "id": "c6ad3ff2-2c8f-43c5-9f45-2b5af8381201",
                 "exec": [
+                  "postman.setNextRequest(\"SortPaidPaymentRecordsByPaidOnDesc\");",
                   "",
                   "var json = JSON.parse(responseBody);",
                   "",
