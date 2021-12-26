@@ -7023,7 +7023,7 @@
           "response": []
         },
         {
-          "name": "getListingInitialPayment",
+          "name": "getListingInitialPayment_",
           "event": [
             {
               "listen": "test",
