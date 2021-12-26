@@ -7236,6 +7236,55 @@
           "response": []
         },
         {
+          "name": "getBookingDepositPayment_prod",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ca6e1f01-1e81-4e2f-bf57-eb5cba3996ee",
+                "exec": [
+                  "postman.setNextRequest(null);",
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"Get payment id\" + \" \" + json.data.getBookingDepositPayment[0].paymentId] = true",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "postman.setEnvironmentVariable(\"BookingDepositPaymentId\", json.data.getBookingDepositPayment[0].paymentId);",
+                  "",
+                  "tests[\"Payment id\" + \" \" + json.data.getBookingDepositPayment[0].paymentId + \" \" + \"is generated and stored.\"] = true",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "01d42edb-b145-48b1-98af-f94b3bd37468",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenTenant2}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query getBookingDepositPayment {\n  getBookingDepositPayment(bookingId:{{BookingId}}, promotionCode:\"{{PromotionCode}}\") {\n    paymentId\n    status\n    dueDate\n    amount\n    toDisplayAmount\n    initialAmount\n    toDisplayInitialAmount\n    paymentAdjustments {\n      id\n      remarks\n      operations  \n      amount\n      type\n      toDisplayAmount\n      toDisplayAlteration\n      remarks\n      createdAt\n    }\n    paymentStep\n    lateCharge\n    lateChargeAmount\n    discountAmount\n    \n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
+        },
+        {
           "name": "getRentalPayment",
           "event": [
             {
@@ -8224,55 +8273,6 @@
               "mode": "graphql",
               "graphql": {
                 "query": "mutation {\nbulkUpdate(\n  ids: [6911,6912]\n  data:\n  {\n    unitType: EntireUnit,\n    unitPropertyType: Duplex,\n    status: ProcessingComplete,\n  \twifi: InclusiveOnRent\n  }\n) \n  {\n    unitType\n    unitPropertyType\n    status\n    wifi\n  }\n\n}",
-                "variables": ""
-              }
-            },
-            "url": "{{base_url}}/graphql"
-          },
-          "response": []
-        },
-        {
-          "name": "getBookingDepositPayment_prod",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "ca6e1f01-1e81-4e2f-bf57-eb5cba3996ee",
-                "exec": [
-                  "postman.setNextRequest(null);",
-                  "",
-                  "var json = JSON.parse(responseBody);",
-                  "",
-                  "tests[\"Get payment id\" + \" \" + json.data.getBookingDepositPayment[0].paymentId] = true",
-                  "",
-                  "tests[\"status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "postman.setEnvironmentVariable(\"BookingDepositPaymentId\", json.data.getBookingDepositPayment[0].paymentId);",
-                  "",
-                  "tests[\"Payment id\" + \" \" + json.data.getBookingDepositPayment[0].paymentId + \" \" + \"is generated and stored.\"] = true",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "01d42edb-b145-48b1-98af-f94b3bd37468",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "token": "{{accessTokenTenant2}}"
-              }
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "graphql",
-              "graphql": {
-                "query": "query getBookingDepositPayment {\n  getBookingDepositPayment(bookingId:{{BookingId}}, promotionCode:\"{{PromotionCode}}\") {\n    paymentId\n    status\n    dueDate\n    amount\n    toDisplayAmount\n    initialAmount\n    toDisplayInitialAmount\n    paymentAdjustments {\n      id\n      remarks\n      operations  \n      amount\n      type\n      toDisplayAmount\n      toDisplayAlteration\n      remarks\n      createdAt\n    }\n    paymentStep\n    lateCharge\n    lateChargeAmount\n    discountAmount\n    \n  }\n}",
                 "variables": ""
               }
             },
