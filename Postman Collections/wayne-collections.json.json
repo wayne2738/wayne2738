@@ -2053,6 +2053,8 @@
               "script": {
                 "id": "6916d828-ebf6-4ab0-a295-765f4d31d92d",
                 "exec": [
+                  "postman.setNextRequest(\"CreateBookingByTenant\");",
+                  "",
                   "tests[\"Get move out date successfully\"] = true",
                   "",
                   "var json = JSON.parse(responseBody);",
