@@ -10361,7 +10361,7 @@
               "script": {
                 "id": "dfc41fd1-1533-4fbb-8958-a192c80be893",
                 "exec": [
-                  "",
+                  "postman.setNextRequest(null);",
                   "var json = JSON.parse(responseBody);",
                   "",
                   "tests[\"Search listing id\" + \" \" + json.data.listingSearchFromIndex.data[0].id + \" \" + \"success\"] = true",
