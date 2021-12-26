@@ -9543,7 +9543,7 @@
                       "script": {
                         "id": "33f423b6-7013-4ab7-9bb8-96e4fde294b8",
                         "exec": [
-                          "postman.setNextRequest(\"SearchListings Copy\");",
+                          "",
                           "",
                           "var json = JSON.parse(responseBody);",
                           "",
