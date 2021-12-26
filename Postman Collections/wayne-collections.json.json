@@ -9826,6 +9826,62 @@
           "response": []
         },
         {
+          "name": "GetPromotionWithCode_prod",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "94cae2bc-7343-412e-ada1-d245f2fe4b74",
+                "exec": [
+                  "postman.setNextRequest(null);",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"Get promotion code\" + \" \" + json.data.getPromotionWithCode.name] = true",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "postman.setEnvironmentVariable(\"promotionCode\", json.data.getPromotionWithCode.name);",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f56aa846-8ba0-404b-883f-7596cee4a913",
+                "exec": [
+                  "",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "e7a8fb73-9000-4cb6-b01d-daf316f7b5c9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenTenant}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query GetPromotionWithCode($code: String!) {\n  getPromotionWithCode(code: $code) {\n    id\n    name\n    promoCodesUrls{\n        key\n        name\n        url\n    }\n    description\n    discounts {\n      discount\n      discountType\n      __typename\n    }\n    __typename\n  }\n}\n",
+                "variables": "{\n  \"code\": \"TAKECARE21\"\n}"
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
+        },
+        {
           "name": "GetBookingPromo",
           "event": [
             {
@@ -10223,62 +10279,6 @@
               "graphql": {
                 "query": "query getListingInitialPayment ($listingId: Float!, $moveInDate: String!, $promotionCode: String) {\n    getListingInitialPayment (listingId: $listingId, moveInDate: $moveInDate, promotionCode: $promotionCode) {\n         \n        discountAmount\n        dueDate\n        initialAmount\n        lateCharge\n        lateChargeAmount\n        paidOn\n        paymentAdjustments {\n            action\n            amount\n            attachmentUrls\n            bookingId\n            createdAt\n            id\n            operations\n            payment {\n                amount\n                booking {\n                    additionalDocuments {\n                        type\n                        url\n                    }\n                    advanceRental\n                    advanceRentalDiscount\n                    bookingCreditCheck {\n                        bookingId\n                        createdAt\n                        deletedAt\n                        fullName\n                        id\n                        identificationNumber\n                        isSuccess\n                        reportId\n                        response\n                        statusMessage\n                        updatedAt\n                        url\n                    }\n                    companyInstitution\n                    contractEnd\n                    contractLink\n                    createdAt\n                    ctosEntity\n                    deletedAt\n                    depositPaid\n                    emergencyContactName\n                    emergencyMobile\n                    emergencyRelationship\n                    fullName\n                    id\n                    identificationDocuments {\n                        type\n                        url\n                    }\n                    identificationNumber\n                    isDirectDebitEnabled\n                    landlordEmail\n                    landlordIC\n                    landlordMobile\n                    landlordName\n                    landlordSigned\n                    listing {\n                        agreementId\n                        area\n                        availableAt\n                        bathroom\n                        bathroomType\n                        bedroom\n                        carpark\n                        createdAt\n                        currency\n                        depositMonth\n                        depositValue\n                        electricityBill\n                        floorLevel\n                        furnishing\n                        furnishType\n                        genderRule\n                        houseRules\n                        id\n                        isDepositAbsolute\n                        isDuplicated\n                        isUtilityDepositAbsolute\n                        lastCheckedOn\n                        minRentalAmount\n                        notes\n                        ownerId\n                        photoUrls\n                        price\n                        propertyId\n                        roomFurnishing\n                        roomType\n                        scheduledPhotographyDateTime\n                        scheduledPhotographyDuration\n                        sharedFurnishing\n                        squareFeet\n                        stampingFee\n                        status\n                        tags\n                        tenancyAgreementFee\n                        tenancyMonth\n                        topFeatures\n                        unitPropertyType\n                        unitType\n                        updatedAt\n                        uriFragment\n                        utilities\n                        utilityDeposit\n                        utilityDepositValue\n                        verified\n                        videoUrls\n                        viewingAssistance\n                        virtualTour\n                        waterBill\n                        wifi\n                    }\n                    listingId\n                    miscellaneousDeposit\n                    movedInDate\n                    movedInEndDate\n                    movedInStartDate\n                    moveInEmailSent\n                    moveInScheduled\n                    nationality\n                    noOfResidents\n                    notes\n                    occupation\n                    otherRelationship\n                    paymentDueDateDay\n                    personalDataAccessAgreement\n                    price\n                    promotionCode {\n                        code\n                        createdAt\n                        deletedAt\n                        id\n                        status\n                        updatedAt\n                        usageCount\n                        usageLimit\n                    }\n                    refundAgreement\n                    relationship\n                    rentalDeposit\n                    rentalDepositDiscount\n                    signatureIds {\n                        role\n                        signatureId\n                    }\n                    stampingFee\n                    status\n                    tenancyAgreementFee\n                    tenantAgreed\n                    tenantPaid\n                    tenantSigned\n                    updatedAt\n                    user {\n                        companyInstitution\n                        country\n                        createdAt\n                        crmUserId\n                        deletedAt\n                        email\n                        firstName\n                        focusArea\n                        focusType\n                        id\n                        isTmpPassword\n                        lastName\n                        name\n                        nationality\n                        notes\n                        occupation\n                        password\n                        paymentMethod\n                        phoneNumber\n                        profile {\n                            ... on AgentProfile {\n                                countryCode\n                                medium\n                                phone1\n                                phone2\n                            }\n                            ... on B2bPartnerProfile {\n                                countryCode\n                                medium\n                                phone1\n                                phone2\n                            }\n                            ... on LandlordProfile {\n                                occupation\n                            }\n                            ... on TenantProfile {\n                                occupation\n                            }\n                        }\n                        profileId\n                        referrer\n                        renTag\n                        role\n                        source\n                        suspended\n                        updatedAt\n                        verified\n                    }\n                    utilityDeposit\n                    utilityDepositDiscount\n                }\n                createdAt\n                currency\n                discountAmount\n                dueDate\n                id\n                initialAmount\n                lateCharge\n                lateChargeAmount\n                paidOn\n                paymentAdjustments {\n                    action\n                    amount\n                    attachmentUrls\n                    bookingId\n                    createdAt\n                    id\n                    operations\n                    paymentId\n                    remarks\n                    source\n                    toDisplayAlteration\n                    toDisplayAmount\n                    toDisplaySource\n                    type\n                    updatedAt\n                    userId\n                }\n                promotionCode {\n                    booking {\n                        advanceRental\n                        advanceRentalDiscount\n                        companyInstitution\n                        contractEnd\n                        contractLink\n                        createdAt\n                        ctosEntity\n                        deletedAt\n                        depositPaid\n                        emergencyContactName\n                        emergencyMobile\n                        emergencyRelationship\n                        fullName\n                        id\n                        identificationNumber\n                        isDirectDebitEnabled\n                        landlordEmail\n                        landlordIC\n                        landlordMobile\n                        landlordName\n                        landlordSigned\n                        listingId\n                        miscellaneousDeposit\n                        movedInDate\n                        movedInEndDate\n                        movedInStartDate\n                        moveInEmailSent\n                        moveInScheduled\n                        nationality\n                        noOfResidents\n                        notes\n                        occupation\n                        otherRelationship\n                        paymentDueDateDay\n                        personalDataAccessAgreement\n                        price\n                        refundAgreement\n                        relationship\n                        rentalDeposit\n                        rentalDepositDiscount\n                        stampingFee\n                        status\n                        tenancyAgreementFee\n                        tenantAgreed\n                        tenantPaid\n                        tenantSigned\n                        updatedAt\n                        utilityDeposit\n                        utilityDepositDiscount\n                    }\n                    code\n                    createdAt\n                    deletedAt\n                    id\n                    promotion {\n                        createdAt\n                        deletedAt\n                        description\n                        endDate\n                        id\n                        name\n                        slug\n                        startDate\n                        status\n                        updatedAt\n                    }\n                    status\n                    updatedAt\n                    usageCount\n                    usageLimit\n                }\n                purpose\n                source\n                status\n                toDisplaySource\n                updatedAt\n            }\n            paymentId\n            remarks\n            source\n            toDisplayAlteration\n            toDisplayAmount\n            toDisplaySource\n            type\n            updatedAt\n            userId\n        }\n        paymentId\n        paymentStep\n        status\n        toDisplayAmount\n        toDisplayInitialAmount\n        type\n    }\n}",
                 "variables": "{\n  \"listingId\": {{ListingId1}},\n  \"moveInDate\": \"{{MoveInDate}}\",\n  \"promotionCode\": \"{{promotionCode}}\"\n}"
-              }
-            },
-            "url": "{{base_url}}/graphql"
-          },
-          "response": []
-        },
-        {
-          "name": "GetPromotionWithCode_prod",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "94cae2bc-7343-412e-ada1-d245f2fe4b74",
-                "exec": [
-                  "postman.setNextRequest(null);",
-                  "var json = JSON.parse(responseBody);",
-                  "",
-                  "tests[\"Get promotion code\" + \" \" + json.data.getPromotionWithCode.name] = true",
-                  "tests[\"status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "postman.setEnvironmentVariable(\"promotionCode\", json.data.getPromotionWithCode.name);",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "f56aa846-8ba0-404b-883f-7596cee4a913",
-                "exec": [
-                  "",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "e7a8fb73-9000-4cb6-b01d-daf316f7b5c9",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "token": "{{accessTokenTenant}}"
-              }
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "graphql",
-              "graphql": {
-                "query": "query GetPromotionWithCode($code: String!) {\n  getPromotionWithCode(code: $code) {\n    id\n    name\n    promoCodesUrls{\n        key\n        name\n        url\n    }\n    description\n    discounts {\n      discount\n      discountType\n      __typename\n    }\n    __typename\n  }\n}\n",
-                "variables": "{\n  \"code\": \"TAKECARE21\"\n}"
               }
             },
             "url": "{{base_url}}/graphql"
