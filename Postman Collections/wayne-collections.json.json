@@ -1640,7 +1640,6 @@
               "script": {
                 "id": "5712ec22-f95f-44ed-b4b3-c26192906f12",
                 "exec": [
-                  "postman.setNextRequest(null);",
                   "",
                   "var json = JSON.parse(responseBody);",
                   "",
