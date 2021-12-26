@@ -2039,6 +2039,58 @@
             "url": "{{base_url}}/graphql"
           },
           "response": []
+        },
+        {
+          "name": "UpdateAdminDraftListing (complete)_prod Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0b897ee7-d7dd-4c8b-98ae-a1eb962720d1",
+                "exec": [
+                  "postman.setNextRequest(null);",
+                  "",
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"updated draft listing successfully with draft listing id\" + \" \" + json.data.updateAdminDraftListing.id + \" \" + \"returned\"] = true",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "postman.setEnvironmentVariable(\"ListingId1\", json.data.updateAdminDraftListing.listingId);",
+                  "",
+                  "postman.setEnvironmentVariable(\"DraftListingId1\", json.data.updateAdminDraftListing.id);",
+                  "postman.setEnvironmentVariable(\"UnitType\", json.data.updateAdminDraftListing.unitType);",
+                  "postman.setEnvironmentVariable(\"UnitPropertyType\", json.data.updateAdminDraftListing.unitPropertyType);",
+                  "postman.setEnvironmentVariable(\"TenancyPeriod\", json.data.updateAdminDraftListing.tenancyMonth);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "8d46f98f-6f1a-422d-a9d6-a01852affdd0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenAdmin}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation ($id: Float!, $data: UpdateDraftListingInput!) {\n  updateAdminDraftListing(id: $id, data: $data) {\n    id\n    photoIndicator\n    status\n    __typename\n    propertyId\n    listingId\n    address{\n        fullUnitNumber\n        block\n        unitNo\n        buildingName\n        streetLine1\n        streetLine2\n        area\n        subArea\n        postcode\n        state\n        country\n        countryCode\n\n    }\n    tenancyMonth\n    minRentalAmount\n    depositValue\n    utilities\n    utilityDeposit\n    stampingFee\n    tenancyAgreementFee\n    unitType\n    roomType\n    bathroomType\n    roomFurnishing\n    virtualTour\n    supplierPhotos{label,url}\n    supplierVideos{label,url}\n\n  }\n}\n",
+                "variables": "{\n  \"id\": {{DraftListingId1}},\n  \"data\": {\n    \"propertyId\": \"2281\",\n    \"bathroom\": 4,\n    \"bedroom\": 3,\n    \"carpark\": 2,\n    \"furnishing\": [],\n    \"furnishType\": null,\n    \"availableAt\": \"\",\n    \"depositMonth\": null,\n    \"isDepositAbsolute\": false,\n    \"depositValue\": 500.00,\n    \"electricityBill\": null,\n    \"waterBill\": null,\n    \"houseRules\": [],\n    \"photoUrls\": [\n        {\n            \"url\": \"https://img.instahome.com/marketing-images/1639472693963LTU6AQ88HWWXWVXY.jpg\",\n            \"label\": \"Master Bedroom\"\n        },\n        {\n            \"url\": \"https://img.instahome.com/marketing-images/1639472694321GRDJJZVLPD9VQFG9.jpg\",\n            \"label\": \"Powder Room\"\n        },\n        {\n            \"url\": \"https://img.instahome.com/marketing-images/1639472694631NTR8HPTUUXTEKL3G.jpg\",\n            \"label\": \"Window View\"\n        }\n    ],\n    \"rawVideosUrls\": [{\n        \"url\": \"https://image-compression-source-stg.s3.ap-southeast-1.amazonaws.com/1639472701747_xx-34-xx.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2DQGVVZHU3LTWR6T%2F20211217%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20211217T075339Z&X-Amz-Expires=300&X-Amz-Signature=3c0d2162db9680c6e1e47c7915464123215f883789bbc72fbb2cedfd162a4a70&X-Amz-SignedHeaders=host\",\n        \"label\": \"\"\n    }],\n    \"rawVirtualTourUrls\": [{\n        \"url\": \"https://image-compression-source-stg.s3.ap-southeast-1.amazonaws.com/1639472714174_test.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2DQGVVZHU3LTWR6T%2F20211217%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20211217T084112Z&X-Amz-Expires=300&X-Amz-Signature=c4215885d4fd742d12fecf385cfdb152a65e7bc57c97a64a8cbd8318fa68cf3b&X-Amz-SignedHeaders=host\",\n        \"label\": \"\"\n    }],\n    \"pois\": [\n      {\n        \"distance\": 850,\n        \"duration\": 0,\n        \"name\": \"Plaza Rakyat LRT Station\",\n        \"type\": \"Train\"\n      }\n    ],\n    \"squareFeet\": null,\n    \"utilities\": [\"Electricity\",\"Water\",\"Wifi\"],\n    \"utilityDeposit\": 1,\n    \"utilityDepositValue\": 100.00,\n    \"stampingFee\": 50.00,\n    \"isUtilityDepositAbsolute\": false,\n    \"videoUrls\": {{captioned_video_url}},\n    \"virtualTour\": \"https://www.kuula.co/share/collection/7Pc1M?fs=1&vr=1&sd=1&initload=0&thumbs=1&chromeless=1&logo=1&logosize=161\",\n    \"virtualTourEditUrl\": \"\",\n    \"tenancyMonth\":12,\n    \"price\": 2.00,\n    \"minRentalAmount\": 1000.00,\n    \"tenancyAgreementFee\": 100.00,\n    \"photographerNote\": \"\",\n    \"processorNote\": \"\",\n    \"supplierNote\": \"\",\n    \"floorLevel\": null,\n    \"wifi\": null,\n    \"unitType\": \"EntireUnit\",\n    \"roomType\": \"Master\",\n    \"bathroomType\": \"Private\",\n    \"roomFurnishing\": null,\n    \"sharedFurnishing\": null,\n    \"topFeatures\": null,\n    \"genderRule\": null,\n    \"tags\": [],\n    \"verified\": false,\n    \"adminPhotographerId\": null,\n    \"adminProcessorId\": \"25ea98e2-e260-4836-b75f-1aff97ea06d4\",\n    \"supplierPhotos\": {{supplierPhotos}},\n    \"supplierVideos\": [{\n      \"label\": \"Living Hall\",\n      \"url\": \"{{supplierVideosUrl}}\"\n    }],\n    \"status\": \"ProcessingComplete\"\n  }\n}"
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
         }
       ],
       "id": "b2448f64-7046-4277-8c52-8cecc544e5c7"
