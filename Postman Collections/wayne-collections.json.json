@@ -7334,6 +7334,55 @@
           "response": []
         },
         {
+          "name": "getRentalPayment_prod",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f6c3e0c9-3034-4ba6-ab15-e9ada35bb754",
+                "exec": [
+                  "postman.setNextRequest(null);",
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"Get payment id\" + \" \" + json.data.getRentalPayments[0].paymentId] = true",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "postman.setEnvironmentVariable(\"RentalPaymentId\", json.data.getRentalPayments[0].paymentId);",
+                  "",
+                  "tests[\"Payment id\" + \" \" + json.data.getRentalPayments[0].paymentId + \" \" + \"is generated and stored.\"] = true",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "f4231505-2eb0-4942-987d-8ea7f1444f88",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenTenant2}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query getRentalPayments {\n  getRentalPayments(\n      bookingId: {{BookingId}},\n      status:pending\n      ) {\n    paymentId\n    status\n    dueDate\n    toDisplayAmount\n    initialAmount\n    toDisplayInitialAmount\n    paymentAdjustments {\n      id\n      remarks\n      operations  \n      amount\n      type\n      toDisplayAmount\n      toDisplayAlteration\n      remarks\n      createdAt\n    }\n    paymentStep\n    lateCharge\n    lateChargeAmount\n    discountAmount\n\n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
+        },
+        {
           "name": "CreateOrUpdateBooking(WithPromo)OffSecurityDeposit",
           "event": [
             {
@@ -8274,55 +8323,6 @@
               "mode": "graphql",
               "graphql": {
                 "query": "mutation {\nbulkUpdate(\n  ids: [6911,6912]\n  data:\n  {\n    unitType: EntireUnit,\n    unitPropertyType: Duplex,\n    status: ProcessingComplete,\n  \twifi: InclusiveOnRent\n  }\n) \n  {\n    unitType\n    unitPropertyType\n    status\n    wifi\n  }\n\n}",
-                "variables": ""
-              }
-            },
-            "url": "{{base_url}}/graphql"
-          },
-          "response": []
-        },
-        {
-          "name": "getRentalPayment_prod",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "f6c3e0c9-3034-4ba6-ab15-e9ada35bb754",
-                "exec": [
-                  "postman.setNextRequest(null);",
-                  "",
-                  "var json = JSON.parse(responseBody);",
-                  "",
-                  "tests[\"Get payment id\" + \" \" + json.data.getRentalPayments[0].paymentId] = true",
-                  "",
-                  "tests[\"status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "postman.setEnvironmentVariable(\"RentalPaymentId\", json.data.getRentalPayments[0].paymentId);",
-                  "",
-                  "tests[\"Payment id\" + \" \" + json.data.getRentalPayments[0].paymentId + \" \" + \"is generated and stored.\"] = true",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "f4231505-2eb0-4942-987d-8ea7f1444f88",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "token": "{{accessTokenTenant2}}"
-              }
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "graphql",
-              "graphql": {
-                "query": "query getRentalPayments {\n  getRentalPayments(\n      bookingId: {{BookingId}},\n      status:pending\n      ) {\n    paymentId\n    status\n    dueDate\n    toDisplayAmount\n    initialAmount\n    toDisplayInitialAmount\n    paymentAdjustments {\n      id\n      remarks\n      operations  \n      amount\n      type\n      toDisplayAmount\n      toDisplayAlteration\n      remarks\n      createdAt\n    }\n    paymentStep\n    lateCharge\n    lateChargeAmount\n    discountAmount\n\n  }\n}",
                 "variables": ""
               }
             },
