@@ -8090,7 +8090,7 @@
               "script": {
                 "id": "9d8e3f0f-9dd8-4e72-9109-d572e149acb1",
                 "exec": [
-                  "",
+                  "postman.setNextRequest(null);",
                   "var json = JSON.parse(responseBody);",
                   "",
                   "tests[\"Get booking id\" + \" \" + json.data.createOrUpdateBooking.id] = true;",
