@@ -1590,6 +1590,7 @@
               "script": {
                 "id": "0b897ee7-d7dd-4c8b-98ae-a1eb962720d1",
                 "exec": [
+                  "postman.setNextRequest(\"SearchAdminDraftListing\");",
                   "",
                   "var json = JSON.parse(responseBody);",
                   "",
