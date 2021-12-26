@@ -11055,7 +11055,7 @@
               "script": {
                 "id": "94cae2bc-7343-412e-ada1-d245f2fe4b74",
                 "exec": [
-                  "",
+                  "postman.setNextRequest(null);",
                   "var json = JSON.parse(responseBody);",
                   "",
                   "tests[\"Get promotion code\" + \" \" + json.data.getPromotionWithCode.name] = true",
