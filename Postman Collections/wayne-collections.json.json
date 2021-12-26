@@ -10198,6 +10198,7 @@
               "script": {
                 "id": "5d66d37f-982d-422a-95e0-474ebc0fae93",
                 "exec": [
+                  "postman.setNextRequest(null);",
                   "postman.setNextRequest(\"listingSearchFromIndex\");"
                 ],
                 "type": "text/javascript"
