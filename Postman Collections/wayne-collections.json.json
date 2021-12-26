@@ -5928,7 +5928,7 @@
               "script": {
                 "id": "e5c53c83-2e9a-476f-b8db-d9a27dfd5138",
                 "exec": [
-                  "",
+                  "postman.setNextRequest(null);",
                   "",
                   "tests[\"Filter paid payments by desc\"] = true",
                   "",
