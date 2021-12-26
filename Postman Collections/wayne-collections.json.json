@@ -7293,7 +7293,8 @@
               "script": {
                 "id": "f6c3e0c9-3034-4ba6-ab15-e9ada35bb754",
                 "exec": [
-                  "//postman.setNextRequest(null);",
+                  "postman.setNextRequest(\"CreateOrUpdateBooking(WithPromo)OffSecurityDeposit\");",
+                  "",
                   "var json = JSON.parse(responseBody);",
                   "",
                   "tests[\"Get payment id\" + \" \" + json.data.getRentalPayments[0].paymentId] = true",
