@@ -4938,6 +4938,85 @@
           "response": []
         },
         {
+          "name": "FilterPaidPaymentStatus_prod",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e5c53c83-2e9a-476f-b8db-d9a27dfd5138",
+                "exec": [
+                  "postman.setNextRequest();",
+                  "",
+                  "tests[\"Filter paid payments by desc\"] = true",
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "tests[\"Searching page size should be within pageSize '20' only\"] = json.data.getAdminPaymentRecords.items.length <= 20;",
+                  "",
+                  "tests[\"Should have 'paidOn' exist\"] = json.data.getAdminPaymentRecords.items[0].hasOwnProperty('paidOn');",
+                  "",
+                  "",
+                  "function checkAdminPaymentRecords(){",
+                  "    var data = json.data.getAdminPaymentRecords;",
+                  "    var checkPaidOn = false;",
+                  "    var checkPaidStatus = false;",
+                  "    if(json.data.getAdminPaymentRecords.items[0].hasOwnProperty(\"status\")){",
+                  "        if(json.data.getAdminPaymentRecords.items[0].status.has(\"success\")){",
+                  "            for(var i=0; i<json.data.getAdminPaymentRecords.items.length; i++){",
+                  "                checkPaidOn = checkPaidOn || (data.items[i].paidOn.indexOf(\"Z\"));",
+                  "                checkPaidStatus = checkPaidStatus || (data.items[i].status ===\"success\");",
+                  "                }",
+                  "        }",
+                  "   }",
+                  "    tests[\"'getAdminPaymentRecords.paidOn' should be exist in every iteration and return as not null\"] = checkPaidOn;",
+                  "    tests[\"'getAdminPaymentRecords.status' equal to 'success' in each iteration\"] = checkPaidStatus;",
+                  "}",
+                  "checkAdminPaymentRecords();",
+                  "",
+                  "",
+                  "var checkPaidOnSortByDesc= require('lodash')",
+                  "    responseBody = [",
+                  "            {\"paidOn\": \"2021-12-08T04:05:32.000Z\"},",
+                  "            {\"paidOn\": \"2021-12-08T04:04:02.000Z\"}",
+                  "    ]",
+                  "    pm.test('Paid On are in sorted order',()=>{",
+                  "        var expectedSortedOrder = checkPaidOnSortByDesc.orderBy(responseBody,['paidOn'],['desc']);",
+                  "        pm.expect(responseBody).to.eql(expectedSortedOrder);  ",
+                  "    })",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "3e03a158-f42d-4573-9d46-09fce2ed5df9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenAdmin}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query getAdminPaymentRecords {\n  getAdminPaymentRecords (\n    sortPaidOn: DESC\n    bookingType:[RENTAL_THROUGH_INSTAHOME, PASS_LEAD]\n    paymentStatus: paid\n    perPage: 10\n    page: 1\n  ) {\n    items {\n      id\n      dueDate\n      paidOn\n      status\n      purpose\n      source\n      toDisplaySource\n      totalAmount\n      toDisplayTotalAmount\n      initialAmount\n      toDisplayInitialAmount\n      createdAt\n\t\tpaymentFpxs {\n        referenceCode \n      }\n      latestPaymentAdjustment {\n        id\n        toDisplayAmount\n      }\n      lateFeeAdjustment {\n        id\n        toDisplayAmount\n      }\n      booking {\n        id\n      \tfullName\n        user {\n          email\n          phoneNumber\n        }\n        listing {\n          address {\n            fullUnitNumber\n          }\n          property {\n            location {\n              id\n              name\n            }\n          }\n        }\n      }\n    }\n    metadata {\n      itemCount\n      pageCount\n    }\n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
+        },
+        {
           "name": "FilterOverduePaymentStatus",
           "event": [
             {
@@ -5912,85 +5991,6 @@
               "mode": "graphql",
               "graphql": {
                 "query": "query getAdminPaymentRecords {\n  getAdminPaymentRecords (\n    sortDueDate: DESC\n    paymentStatus: pending\n    unitNo: \"C1-5\"\n    perPage: 3\n    page: 1\n  ) {\n    items {\n      id\n      dueDate\n      paidOn\n      status\n      purpose\n      source\n      toDisplaySource\n      totalAmount\n      toDisplayTotalAmount\n      initialAmount\n      toDisplayInitialAmount\n      createdAt\n\t\tpaymentFpxs {\n        referenceCode \n      }\n      latestPaymentAdjustment {\n        id\n        toDisplayAmount\n      }\n      lateFeeAdjustment {\n        id\n        toDisplayAmount\n      }\n      booking {\n        id\n      \tfullName\n        user {\n          email\n          phoneNumber\n        }\n        listing {\n          address {\n            fullUnitNumber\n          }\n          property {\n            location {\n              id\n              name\n            }\n          }\n        }\n      }\n    }\n    metadata {\n      itemCount\n      pageCount\n    }\n  }\n}",
-                "variables": ""
-              }
-            },
-            "url": "{{base_url}}/graphql"
-          },
-          "response": []
-        },
-        {
-          "name": "FilterPaidPaymentStatus_prod",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "e5c53c83-2e9a-476f-b8db-d9a27dfd5138",
-                "exec": [
-                  "postman.setNextRequest();",
-                  "",
-                  "tests[\"Filter paid payments by desc\"] = true",
-                  "",
-                  "var json = JSON.parse(responseBody);",
-                  "",
-                  "tests[\"status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "tests[\"Searching page size should be within pageSize '20' only\"] = json.data.getAdminPaymentRecords.items.length <= 20;",
-                  "",
-                  "tests[\"Should have 'paidOn' exist\"] = json.data.getAdminPaymentRecords.items[0].hasOwnProperty('paidOn');",
-                  "",
-                  "",
-                  "function checkAdminPaymentRecords(){",
-                  "    var data = json.data.getAdminPaymentRecords;",
-                  "    var checkPaidOn = false;",
-                  "    var checkPaidStatus = false;",
-                  "    if(json.data.getAdminPaymentRecords.items[0].hasOwnProperty(\"status\")){",
-                  "        if(json.data.getAdminPaymentRecords.items[0].status.has(\"success\")){",
-                  "            for(var i=0; i<json.data.getAdminPaymentRecords.items.length; i++){",
-                  "                checkPaidOn = checkPaidOn || (data.items[i].paidOn.indexOf(\"Z\"));",
-                  "                checkPaidStatus = checkPaidStatus || (data.items[i].status ===\"success\");",
-                  "                }",
-                  "        }",
-                  "   }",
-                  "    tests[\"'getAdminPaymentRecords.paidOn' should be exist in every iteration and return as not null\"] = checkPaidOn;",
-                  "    tests[\"'getAdminPaymentRecords.status' equal to 'success' in each iteration\"] = checkPaidStatus;",
-                  "}",
-                  "checkAdminPaymentRecords();",
-                  "",
-                  "",
-                  "var checkPaidOnSortByDesc= require('lodash')",
-                  "    responseBody = [",
-                  "            {\"paidOn\": \"2021-12-08T04:05:32.000Z\"},",
-                  "            {\"paidOn\": \"2021-12-08T04:04:02.000Z\"}",
-                  "    ]",
-                  "    pm.test('Paid On are in sorted order',()=>{",
-                  "        var expectedSortedOrder = checkPaidOnSortByDesc.orderBy(responseBody,['paidOn'],['desc']);",
-                  "        pm.expect(responseBody).to.eql(expectedSortedOrder);  ",
-                  "    })",
-                  "",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "3e03a158-f42d-4573-9d46-09fce2ed5df9",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "token": "{{accessTokenAdmin}}"
-              }
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "graphql",
-              "graphql": {
-                "query": "query getAdminPaymentRecords {\n  getAdminPaymentRecords (\n    sortPaidOn: DESC\n    bookingType:[RENTAL_THROUGH_INSTAHOME, PASS_LEAD]\n    paymentStatus: paid\n    perPage: 10\n    page: 1\n  ) {\n    items {\n      id\n      dueDate\n      paidOn\n      status\n      purpose\n      source\n      toDisplaySource\n      totalAmount\n      toDisplayTotalAmount\n      initialAmount\n      toDisplayInitialAmount\n      createdAt\n\t\tpaymentFpxs {\n        referenceCode \n      }\n      latestPaymentAdjustment {\n        id\n        toDisplayAmount\n      }\n      lateFeeAdjustment {\n        id\n        toDisplayAmount\n      }\n      booking {\n        id\n      \tfullName\n        user {\n          email\n          phoneNumber\n        }\n        listing {\n          address {\n            fullUnitNumber\n          }\n          property {\n            location {\n              id\n              name\n            }\n          }\n        }\n      }\n    }\n    metadata {\n      itemCount\n      pageCount\n    }\n  }\n}",
                 "variables": ""
               }
             },
