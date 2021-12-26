@@ -9776,6 +9776,7 @@
               "script": {
                 "id": "94cae2bc-7343-412e-ada1-d245f2fe4b74",
                 "exec": [
+                  "postman.setNextRequest(\"GetBookingPromo\");",
                   "",
                   "var json = JSON.parse(responseBody);",
                   "",
