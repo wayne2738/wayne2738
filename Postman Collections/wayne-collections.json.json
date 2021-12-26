@@ -7796,6 +7796,8 @@
               "script": {
                 "id": "bfb604a3-da8c-4e61-afc4-f4628e9cdced",
                 "exec": [
+                  "postman.setNextRequest();",
+                  "",
                   "tests[\"getAdminPaymentRecords by BookingId\"] = true",
                   "",
                   "var json = JSON.parse(responseBody);",
