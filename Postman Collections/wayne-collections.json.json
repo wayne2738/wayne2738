@@ -1583,7 +1583,7 @@
           ]
         },
         {
-          "name": "UpdateAdminDraftListing (complete)_prod Copy",
+          "name": "UpdateAdminDraftListing (complete)",
           "event": [
             {
               "listen": "test",
