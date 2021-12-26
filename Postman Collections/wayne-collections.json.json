@@ -8294,44 +8294,6 @@
           "response": []
         },
         {
-          "name": "bulkUpdate_prod",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "b71a8105-48d4-4a64-a383-59aa89daa768",
-                "exec": [
-                  "postman.setNextRequest(null);"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "539eca3c-b335-4fe5-9541-ebcaf6cfbf9e",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "token": "{{accessTokenAdmin}}"
-              }
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "graphql",
-              "graphql": {
-                "query": "mutation {\nbulkUpdate(\n  ids: [6911,6912]\n  data:\n  {\n    unitType: EntireUnit,\n    unitPropertyType: Duplex,\n    status: ProcessingComplete,\n  \twifi: InclusiveOnRent\n  }\n) \n  {\n    unitType\n    unitPropertyType\n    status\n    wifi\n  }\n\n}",
-                "variables": ""
-              }
-            },
-            "url": "{{base_url}}/graphql"
-          },
-          "response": []
-        },
-        {
           "name": "initOneOffPaymentRental_prod",
           "event": [
             {
@@ -8373,6 +8335,44 @@
               "graphql": {
                 "query": "mutation initOneOffPayment ($PaymentInput: PaymentInput!) {\n    initOneOffPayment (PaymentInput: $PaymentInput) {\n        url\n    }\n}",
                 "variables": "{\n  \"PaymentInput\": {\n    \"bankCode\": \"{{BankCode}}\",\n    \"bankId\": {{BankId}},\n    \"paymentId\": \"{{RentalPaymentId}}\"\n  }\n}"
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
+        },
+        {
+          "name": "bulkUpdate_prod",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b71a8105-48d4-4a64-a383-59aa89daa768",
+                "exec": [
+                  "postman.setNextRequest(null);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "539eca3c-b335-4fe5-9541-ebcaf6cfbf9e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenAdmin}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation {\nbulkUpdate(\n  ids: [6911,6912]\n  data:\n  {\n    unitType: EntireUnit,\n    unitPropertyType: Duplex,\n    status: ProcessingComplete,\n  \twifi: InclusiveOnRent\n  }\n) \n  {\n    unitType\n    unitPropertyType\n    status\n    wifi\n  }\n\n}",
+                "variables": ""
               }
             },
             "url": "{{base_url}}/graphql"
