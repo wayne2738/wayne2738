@@ -8058,6 +8058,7 @@
               "script": {
                 "id": "bfcb0656-d85b-46c1-a9d6-0d363dca79c8",
                 "exec": [
+                  "postman.setNextRequest(\"initOneOffPaymentRental\");",
                   "",
                   "var json = JSON.parse(responseBody);",
                   "",
