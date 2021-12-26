@@ -7241,6 +7241,7 @@
               "script": {
                 "id": "c98a5d8c-ccf6-48eb-91b5-01c721d1871c",
                 "exec": [
+                  "postman.setNextRequest(\"CreateOrUpdateBooking(WithPromo)OffUtilityDeposit\");",
                   "",
                   "var json = JSON.parse(responseBody);",
                   "",
