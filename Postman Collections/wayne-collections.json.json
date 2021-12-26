@@ -7952,6 +7952,54 @@
           "response": []
         },
         {
+          "name": "initOneOffPaymentBookingInitial_prod",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "23ba6c8e-8f0d-45a1-86e7-2590ac8c7f3b",
+                "exec": [
+                  "postman.setNextRequest(null);",
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"Get payment link\" + \" \" + json.data.initOneOffPayment.url] = true",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "postman.setEnvironmentVariable(\"PaymentLink\", json.data.initOneOffPayment.url);",
+                  "",
+                  "tests[\"Payment link\" + \" \" + json.data.initOneOffPayment.url + \" \" + \"is generated and stored.\"] = true"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "583e106c-01d3-4412-9a35-9f4c6e0ebab3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenTenant2}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation initOneOffPayment ($PaymentInput: PaymentInput!) {\n    initOneOffPayment (PaymentInput: $PaymentInput) {\n        url\n    }\n}",
+                "variables": "{\n  \"PaymentInput\": {\n    \"bankCode\": \"{{BankCode}}\",\n    \"bankId\": {{BankId}},\n    \"paymentId\": \"{{BookingInitialPaymentId}}\"\n  }\n}"
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
+        },
+        {
           "name": "initOneOffPaymentBookingDeposit",
           "event": [
             {
@@ -8077,54 +8125,6 @@
               "graphql": {
                 "query": "mutation {\nbulkUpdate(\n  ids: [6911,6912]\n  data:\n  {\n    unitType: EntireUnit,\n    unitPropertyType: Duplex,\n    status: ProcessingComplete,\n  \twifi: InclusiveOnRent\n  }\n) \n  {\n    unitType\n    unitPropertyType\n    status\n    wifi\n  }\n\n}",
                 "variables": ""
-              }
-            },
-            "url": "{{base_url}}/graphql"
-          },
-          "response": []
-        },
-        {
-          "name": "initOneOffPaymentBookingInitial_prod",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "23ba6c8e-8f0d-45a1-86e7-2590ac8c7f3b",
-                "exec": [
-                  "postman.setNextRequest(null);",
-                  "",
-                  "var json = JSON.parse(responseBody);",
-                  "",
-                  "tests[\"Get payment link\" + \" \" + json.data.initOneOffPayment.url] = true",
-                  "",
-                  "tests[\"status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "postman.setEnvironmentVariable(\"PaymentLink\", json.data.initOneOffPayment.url);",
-                  "",
-                  "tests[\"Payment link\" + \" \" + json.data.initOneOffPayment.url + \" \" + \"is generated and stored.\"] = true"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "583e106c-01d3-4412-9a35-9f4c6e0ebab3",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "token": "{{accessTokenTenant2}}"
-              }
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "graphql",
-              "graphql": {
-                "query": "mutation initOneOffPayment ($PaymentInput: PaymentInput!) {\n    initOneOffPayment (PaymentInput: $PaymentInput) {\n        url\n    }\n}",
-                "variables": "{\n  \"PaymentInput\": {\n    \"bankCode\": \"{{BankCode}}\",\n    \"bankId\": {{BankId}},\n    \"paymentId\": \"{{BookingInitialPaymentId}}\"\n  }\n}"
               }
             },
             "url": "{{base_url}}/graphql"
