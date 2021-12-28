@@ -7878,7 +7878,7 @@
             "body": {
               "mode": "graphql",
               "graphql": {
-                "query": "query getAdminPaymentRecords {\n  getAdminPaymentRecords (\n    bookingType:[\n        RENTAL_THROUGH_INSTAHOME,ROOM_RENTAL\n    ]\n    sortDueDate:DESC\n    paymentStatus: paid\n    perPage: 5\n    page: 1\n  ) {\n    items {\n      id\n      dueDate\n      paidOn\n      status\n      \n    }\n    metadata {\n      itemCount\n      pageCount\n    }\n  }\n}",
+                "query": "query getAdminPaymentRecords {\n  getAdminPaymentRecords (\n    bookingType:[\n        RENTAL_THROUGH_INSTAHOME,ROOM_RENTAL\n    ]\n    sortDueDate:DESC\n    paymentStatus: paid\n    perPage: 5\n    page: 1\n  ) {\n    items {\n      id\n      dueDate\n      paidOn\n      status\n      booking{\n          collectionType\n      }\n    }\n    metadata {\n      itemCount\n      pageCount\n    }\n  }\n}",
                 "variables": ""
               }
             },
