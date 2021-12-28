@@ -7855,7 +7855,26 @@
               "script": {
                 "id": "f4678122-69a6-4272-afd4-dedaa73bf130",
                 "exec": [
-                  "//postman.setNextRequest(\"generateSignedUrl\");",
+                  "tests[\"getAdminPaymentRecords by collection type\"] = true",
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "function checkAdminPaymentRecords(){",
+                  "    var data = json.data.getAdminPaymentRecords;",
+                  "    var checkCollectionType = false;",
+                  "",
+                  "    for(var i=0; i< data.items.length; i++){  ",
+                  "        checkCollectionType = checkCollectionType || (data.items[i].booking.hasOwnProperty(\"collectionType\"));",
+                  "        data.items[i].booking.collectionType.has(\"RENTAL_THROUGH_INSTAHOME\") &&",
+                  "        data.items[i].booking.collectionType.has(\"ROOM_RENTAL\") == true;",
+                  "   }",
+                  "    tests[\"getAdminPaymentRecords.items[i].booking.collectionType='RENTAL_THROUGH_INSTAHOME' and 'ROOM_RENTAL' should be exist in every iteration\"] = checkCollectionType;",
+                  "}",
+                  "checkAdminPaymentRecords();",
+                  "",
+                  "",
                   ""
                 ],
                 "type": "text/javascript"
