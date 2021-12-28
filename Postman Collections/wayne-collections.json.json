@@ -7869,9 +7869,7 @@
                   "    ",
                   "    for(var i=0; i< data.items.length; i++){  ",
                   "        checkCollectionType = checkCollectionType || (data.items[i].booking.hasOwnProperty(\"collectionType\"));",
-                  "        checkDefaultedStatus=data.items[i].booking.collectionType.has(\"DEFAULTED\") = true;",
-                  "        ",
-                  "        checkPassLeadStatus=data.items[i].booking.collectionType.has(\"PASS_LEAD\") = true;",
+                  "        checkDefaultedStatus=data.items[i].booking.collectionType.has(\"DEFAULTED\") | data.items[i].booking.collectionType.has(\"PASS_LEAD\") == true;",
                   "   }",
                   "    tests[\"getAdminPaymentRecords.items[i].booking.collectionType='RENTAL_THROUGH_INSTAHOME' and 'ROOM_RENTAL' should be exist in every iteration\"] = checkCollectionType;",
                   "    tests[\"getAdminPaymentRecords.items[i].booking.collectionType='DEFAULTED' should be exist in every iteration\"] = checkDefaultedStatus    ",
@@ -7902,7 +7900,7 @@
             "body": {
               "mode": "graphql",
               "graphql": {
-                "query": "query getAdminPaymentRecords {\n  getAdminPaymentRecords (\n    bookingType:[\n        ROOM_RENTAL,MOVE_OUT\n    ]\n    sortDueDate:DESC\n    paymentStatus: paid\n    perPage: 50\n    page: 1\n  ) {\n    items {\n      id\n      dueDate\n      paidOn\n      status\n      booking{\n          collectionType\n      }\n    }\n    metadata {\n      itemCount\n      pageCount\n    }\n  }\n}",
+                "query": "query getAdminPaymentRecords {\n  getAdminPaymentRecords (\n    bookingType:[\n        PASS_LEAD, DEFAULTED\n    ]\n    sortDueDate:DESC\n    paymentStatus: paid\n    perPage: 50\n    page: 1\n  ) {\n    items {\n      id\n      dueDate\n      paidOn\n      status\n      booking{\n          collectionType\n      }\n    }\n    metadata {\n      itemCount\n      pageCount\n    }\n  }\n}",
                 "variables": ""
               }
             },
