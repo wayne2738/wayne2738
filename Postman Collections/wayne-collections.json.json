@@ -10880,7 +10880,7 @@
                       "",
                       "tests[\"status code is 200\"] = responseCode.code === 200;",
                       "",
-                      "postman.setEnvironmentVariable(\"LandlordUserId\", json.data.createUser.id);"
+                      "postman.setEnvironmentVariable(\"landlordUserId\", json.data.createUser.id);"
                     ],
                     "type": "text/javascript"
                   }
