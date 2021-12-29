@@ -11197,7 +11197,7 @@
                 },
                 {
                   "id": "6f63444e-7cdd-454d-b790-a384615ef813",
-                  "name": "UpdateLandlordAcc",
+                  "name": "prod-UpdateLandlordAcc",
                   "originalRequest": {
                     "method": "POST",
                     "header": [],
@@ -11794,6 +11794,90 @@
                   "cookie": [],
                   "responseTime": null,
                   "body": "{\n    \"data\": {\n        \"register\": {\n            \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXAiOiJCZWFyZXIiLCJzdWIiOiJmYzE5YmM3OS02MzkxLTRlYmMtYWYyMi04MTlmOTczZTc1MGUiLCJlbWFpbCI6InRlc3RlcjEyM0BpbnN0YWhvbWUuY29tIiwicGhvbmVOdW1iZXIiOiIrNjAxNjM5NDgxMTciLCJuYW1lIjoiVGVzdGVyIDEyMyIsInJvbGUiOiJsYW5kbG9yZCIsImlhdCI6MTY0MDc1NzY2MCwiZXhwIjoxNjQxMzYyNDYwfQ.KciwqN5FSwLheuYbRWNK-Cxa5sO05m0QMf0SWpokTg0\",\n            \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXAiOiJSZWZyZXNoIiwic3ViIjoiZmMxOWJjNzktNjM5MS00ZWJjLWFmMjItODE5Zjk3M2U3NTBlIiwiZW1haWwiOiJ0ZXN0ZXIxMjNAaW5zdGFob21lLmNvbSIsInBob25lTnVtYmVyIjoiKzYwMTYzOTQ4MTE3IiwibmFtZSI6IlRlc3RlciAxMjMiLCJyb2xlIjoibGFuZGxvcmQiLCJpYXQiOjE2NDA3NTc2NjAsImV4cCI6MTY0MzE3Njg2MH0.7O-YNVOeNNmSpFF5cASVg1tM21mUHB-W-HTLLMtmAKU\",\n            \"expiresIn\": 604800,\n            \"refreshExpiresIn\": 2419200,\n            \"isTmpPassword\": false\n        }\n    }\n}"
+                },
+                {
+                  "id": "0534df44-6de0-496f-87cd-f8b312d86a0c",
+                  "name": "LandlordRegisterAcc",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "graphql",
+                      "graphql": {
+                        "query": "mutation register($data: RegisterWithOtpInput!) {\n  register(data: $data) {\n    ...fragmentAuth\n  }\n}\n\nfragment fragmentAuth on Auth {\n  accessToken\n  refreshToken\n  expiresIn\n  refreshExpiresIn\n  isTmpPassword\n}",
+                        "variables": "{\n  \"data\": {\n    \"firstName\": \"Tester\",\n    \"lastName\": \"123\",\n    \"name\": \"Tester 123\",\n    \"email\": \"tester123@instahome.com\",\n    \"password\": \"88888888\",\n    \"otpToken\": \"730702\",\n    \"otpChallengeID\": \"{{otpChallengeID}}\",\n    \"phoneNumber\": \"+60163948117\",\n    \"renTag\": \"\",\n    \"companyInstitution\": \"\",\n    \"role\": \"Landlord\"\n  }\n}"
+                      }
+                    },
+                    "url": "{{base_url}}/graphql"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Access-Control-Allow-Credentials",
+                      "value": "true"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "Access-Control-Expose-Headers",
+                      "value": "x-pagination-page-count,x-pagination-total,x-pagination-page,x-pagination-count"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 29 Dec 2021 07:27:39 GMT"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"32e-yB3CTbVK0kdxEPK1j3Kq/holrDQ\""
+                    },
+                    {
+                      "key": "Strict-Transport-Security",
+                      "value": "max-age=15552000; includeSubDomains"
+                    },
+                    {
+                      "key": "Vary",
+                      "value": "Origin"
+                    },
+                    {
+                      "key": "X-Content-Type-Options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "X-DNS-Prefetch-Control",
+                      "value": "off"
+                    },
+                    {
+                      "key": "X-Download-Options",
+                      "value": "noopen"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "X-XSS-Protection",
+                      "value": "1; mode=block"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "814"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"register\": {\n            \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXAiOiJCZWFyZXIiLCJzdWIiOiI0ZDRlMjBhZi0yZTA0LTQ1NWYtOWM4Mi0zNzdlMTg5Y2VkMzciLCJlbWFpbCI6InRlc3RlcjEyM0BpbnN0YWhvbWUuY29tIiwicGhvbmVOdW1iZXIiOiIrNjAxNjM5NDgxMTciLCJuYW1lIjoiVGVzdGVyIDEyMyIsInJvbGUiOiJsYW5kbG9yZCIsImlhdCI6MTY0MDc2Mjg1OSwiZXhwIjoxNjQxMzY3NjU5fQ.0Jl1JvrYVdqGprh6uGxu1L3-dF9DhVVFoBohSLqGWGk\",\n            \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXAiOiJSZWZyZXNoIiwic3ViIjoiNGQ0ZTIwYWYtMmUwNC00NTVmLTljODItMzc3ZTE4OWNlZDM3IiwiZW1haWwiOiJ0ZXN0ZXIxMjNAaW5zdGFob21lLmNvbSIsInBob25lTnVtYmVyIjoiKzYwMTYzOTQ4MTE3IiwibmFtZSI6IlRlc3RlciAxMjMiLCJyb2xlIjoibGFuZGxvcmQiLCJpYXQiOjE2NDA3NjI4NTksImV4cCI6MTY0MzE4MjA1OX0.3BYnEzpbdsEPvRESUzEvfEry8PY17s5iaW653HL7Yv4\",\n            \"expiresIn\": 604800,\n            \"refreshExpiresIn\": 2419200,\n            \"isTmpPassword\": false\n        }\n    }\n}"
                 }
               ]
             }
