@@ -10905,7 +10905,7 @@
               "response": [
                 {
                   "id": "a087affe-1086-4c09-b081-11b7426d27bb",
-                  "name": "stg",
+                  "name": "stg-CreateNewLandlordAcc",
                   "originalRequest": {
                     "method": "POST",
                     "header": [],
@@ -11026,7 +11026,92 @@
                 },
                 "url": "{{base_url}}/graphql"
               },
-              "response": []
+              "response": [
+                {
+                  "id": "2f3d51c3-dc2a-4194-98ae-47ed4517b6f9",
+                  "name": "UpdateLandlordAcc",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "graphql",
+                      "graphql": {
+                        "query": "mutation updateUserForAdmin($id: String!, $input: UpdateUserInput!) {\n  updateUserForAdmin(id: $id, data: $input) {\n    id\n    role\n    name\n    firstName\n    lastName\n    email\n    phoneNumber\n    nationality\n    occupation\n    companyInstitution\n    country\n    crmUserId\n    password\n    isTmpPassword\n    listings{\n      id\n    }\n\t\tfocusArea\n    focusType\n    notes\n    paymentMethod\n    profile{\n      __typename\n    }\n    profileId\n    referrer\n    renTag\n    source\n    suspended\n    updatedAt\n    createdAt\n    verified\n  }\n}",
+                        "variables": "{ \n  \"id\": \"{{landlordUserId}}\",\n  \"input\": {\n\n     \"role\": \"Landlord\",\n     \"firstName\": \"ih\",\n     \"lastName\": \"landlord\",\n     \"email\": \"ihlandlord23@gmail.com\",\n     \"phoneNumber\": \"0163948117\",\n     \"whatsappLink\": \"www.watsapp.com\",\n     \"businessDevelopmentPIC\": \"Gin\",\n     \"isOtherBusinessDevelopmentPIC\": false,\n     \"isOtherLandlordBankName\": true,\n     \"source\": \"Twitter\",\n     \"approach\": \"Platform\",\n     \"medium\": \"iRent\",\n     \"isOtherMedium\": false,\n     \"campaign\": \"campaign string\",\n     \"area\":  [1,3,4,123,3],\n     \"notes\": \"Testing Landlord Account123\",\n     \"landlordBankName\": \"SME test bank 123\",\n     \"landlordPayeeName\": \"Tester\",\n     \"landlordBankAccountNumber\": \"12345678\",\n     \"password\": \"pwd123\",\n     \"isTmpPassword\": true,\n     \"focusArea\": \"KL\",\n     \"focusType\": \"test focusType\",\n    \"countryCode\": \"60\",\n    \"country\": \"Malaysia\",\n    \"companyInstitution\": \"Instahome Sdn. Bhd.\",\n    \"nationality\": \"China\",\n    \"name\": \"Ali Baba\",\n    \"occupation\": \"Cheap Labor\",\n    \"paymentMethod\": \"CDM\",\n    \"phone1\": \"999\",\n    \"phone2\": \"911\",\n    \"referrer\": \"Dato K\",\n    \"renTag\": \"\"\n  }\n}"
+                      }
+                    },
+                    "url": "{{base_url}}/graphql"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Access-Control-Allow-Credentials",
+                      "value": "true"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    },
+                    {
+                      "key": "Access-Control-Expose-Headers",
+                      "value": "x-pagination-page-count,x-pagination-total,x-pagination-page,x-pagination-count"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 29 Dec 2021 06:17:40 GMT"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"319-CUqLKIBbUI/s4ZADUqhwHesSHUs\""
+                    },
+                    {
+                      "key": "Strict-Transport-Security",
+                      "value": "max-age=15552000; includeSubDomains"
+                    },
+                    {
+                      "key": "Vary",
+                      "value": "Origin"
+                    },
+                    {
+                      "key": "X-Content-Type-Options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "X-DNS-Prefetch-Control",
+                      "value": "off"
+                    },
+                    {
+                      "key": "X-Download-Options",
+                      "value": "noopen"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "X-XSS-Protection",
+                      "value": "1; mode=block"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "793"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"updateUserForAdmin\": {\n            \"id\": \"228168b9-452b-44c2-8929-c38d227e12fb\",\n            \"role\": \"Landlord\",\n            \"name\": \"ih landlord\",\n            \"firstName\": \"ih\",\n            \"lastName\": \"landlord\",\n            \"email\": \"ihlandlord23@gmail.com\",\n            \"phoneNumber\": \"0163948117\",\n            \"nationality\": \"China\",\n            \"occupation\": \"Cheap Labor\",\n            \"companyInstitution\": \"Instahome Sdn. Bhd.\",\n            \"country\": \"Malaysia\",\n            \"crmUserId\": \"29573\",\n            \"password\": \"$2b$12$m66mtscCxGuLx6RCyo2wquNOQAkpXr3FkXmAjE1U.yvbp4tVKrMCC\",\n            \"isTmpPassword\": true,\n            \"listings\": [],\n            \"focusArea\": \"KL\",\n            \"focusType\": \"test focusType\",\n            \"notes\": \"Testing Landlord Account123\",\n            \"paymentMethod\": \"CDM\",\n            \"profile\": null,\n            \"profileId\": \"5fee302f-7cc1-4ee1-b66f-dcc9dc9634f3\",\n            \"referrer\": \"Dato K\",\n            \"renTag\": \"\",\n            \"source\": \"Twitter\",\n            \"suspended\": false,\n            \"updatedAt\": \"2021-12-29T06:17:40.000Z\",\n            \"createdAt\": \"2021-12-29T05:57:11.782Z\",\n            \"verified\": true\n        }\n    }\n}"
+                }
+              ]
             },
             {
               "name": "SearchLandlordUser",
@@ -11117,7 +11202,7 @@
                   "response": [
                     {
                       "id": "e19ee3c5-472c-485a-9702-5a87261cb066",
-                      "name": "stg",
+                      "name": "stg-createOtpChallenge",
                       "originalRequest": {
                         "method": "POST",
                         "header": [],
@@ -11241,7 +11326,7 @@
                   "response": [
                     {
                       "id": "29c26d6c-e752-41e8-b5d4-5be69d717cde",
-                      "name": "submitOtpChallenge",
+                      "name": "stg-submitOtpChallenge",
                       "originalRequest": {
                         "method": "POST",
                         "header": [],
@@ -11375,7 +11460,7 @@
               "response": [
                 {
                   "id": "210bf683-28b6-465d-97ca-d1b997aa784b",
-                  "name": "stg",
+                  "name": "stg-LandlordRegisterAcc",
                   "originalRequest": {
                     "method": "POST",
                     "header": [],
