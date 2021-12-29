@@ -11536,6 +11536,90 @@
                       "cookie": [],
                       "responseTime": null,
                       "body": "{\n    \"data\": {\n        \"createOtpChallenge\": {\n            \"id\": \"101f7cc7-8511-420d-bac3-d39dfc346d87\",\n            \"status\": \"pending\",\n            \"__typename\": \"OtpFragment\"\n        }\n    }\n}"
+                    },
+                    {
+                      "id": "6e130b3d-19e4-4065-8784-f9d619b28cff",
+                      "name": "createOtpChallenge",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "graphql",
+                          "graphql": {
+                            "query": "mutation CreateOtpChallenge($phoneNumber: String!) {\n  createOtpChallenge(phoneNumber: $phoneNumber) {\n    ...fragmentOTP\n    __typename\n  }\n}\n\nfragment fragmentOTP on OtpFragment {\n  id\n  status\n  __typename\n}\n",
+                            "variables": "{\n  \"phoneNumber\": \"+60163948117\"\n}"
+                          }
+                        },
+                        "url": "{{base_url}}/graphql"
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Access-Control-Allow-Credentials",
+                          "value": "true"
+                        },
+                        {
+                          "key": "Access-Control-Allow-Origin",
+                          "value": "*"
+                        },
+                        {
+                          "key": "Access-Control-Expose-Headers",
+                          "value": "x-pagination-page-count,x-pagination-total,x-pagination-page,x-pagination-count"
+                        },
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json; charset=utf-8"
+                        },
+                        {
+                          "key": "Date",
+                          "value": "Wed, 29 Dec 2021 07:26:14 GMT"
+                        },
+                        {
+                          "key": "ETag",
+                          "value": "W/\"7c-QKjbs69HhVPdQ1hlq/qMtBVIBQA\""
+                        },
+                        {
+                          "key": "Strict-Transport-Security",
+                          "value": "max-age=15552000; includeSubDomains"
+                        },
+                        {
+                          "key": "Vary",
+                          "value": "Origin"
+                        },
+                        {
+                          "key": "X-Content-Type-Options",
+                          "value": "nosniff"
+                        },
+                        {
+                          "key": "X-DNS-Prefetch-Control",
+                          "value": "off"
+                        },
+                        {
+                          "key": "X-Download-Options",
+                          "value": "noopen"
+                        },
+                        {
+                          "key": "X-Frame-Options",
+                          "value": "SAMEORIGIN"
+                        },
+                        {
+                          "key": "X-XSS-Protection",
+                          "value": "1; mode=block"
+                        },
+                        {
+                          "key": "Content-Length",
+                          "value": "124"
+                        },
+                        {
+                          "key": "Connection",
+                          "value": "keep-alive"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n    \"data\": {\n        \"createOtpChallenge\": {\n            \"id\": \"32c0a6ec-69ec-4e5e-9450-0f0b77c5736f\",\n            \"status\": \"pending\",\n            \"__typename\": \"OtpFragment\"\n        }\n    }\n}"
                     }
                   ]
                 },
@@ -11797,7 +11881,7 @@
                 },
                 {
                   "id": "0534df44-6de0-496f-87cd-f8b312d86a0c",
-                  "name": "LandlordRegisterAcc",
+                  "name": "prod-LandlordRegisterAcc",
                   "originalRequest": {
                     "method": "POST",
                     "header": [],
