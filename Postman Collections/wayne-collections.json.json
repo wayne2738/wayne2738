@@ -10997,7 +10997,14 @@
                   "script": {
                     "id": "247c9e7d-23cc-4a80-aa06-615a72a7a6a8",
                     "exec": [
-                      "postman.setNextRequest(null);"
+                      "postman.setNextRequest(null);",
+                      "",
+                      "var json = JSON.parse(responseBody);",
+                      "",
+                      "tests[\"Landlord acc is updated successfully with id\" + \" \" + json.data.updateUserForAdmin.id + \" \" + \"returned\"] = true",
+                      "",
+                      "tests[\"status code is 200\"] = responseCode.code === 200;",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -11103,7 +11110,7 @@
                   "response": [
                     {
                       "id": "e19ee3c5-472c-485a-9702-5a87261cb066",
-                      "name": "createOtpChallenge",
+                      "name": "stg",
                       "originalRequest": {
                         "method": "POST",
                         "header": [],
