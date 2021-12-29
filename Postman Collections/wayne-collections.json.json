@@ -11213,7 +11213,7 @@
                           "",
                           "var json = JSON.parse(responseBody);",
                           "",
-                          "tests[\"createOtpChallenge is submitted successfully with id\" + \" \" + json.data.submitOtpChallenge.id + \" \" + \"returned\"] = true",
+                          "tests[\"submitOtpChallenge is submitted successfully with id\" + \" \" + json.data.submitOtpChallenge.id + \" \" + \"returned\"] = true",
                           "tests[\"status code is 200\"] = responseCode.code === 200;",
                           "",
                           "postman.setEnvironmentVariable(\"otpChallengeID\", json.data.submitOtpChallenge.id);"
