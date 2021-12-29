@@ -10872,7 +10872,15 @@
                   "script": {
                     "id": "cf90ca5d-b6b2-465f-833b-85f4f0b93afc",
                     "exec": [
-                      "postman.setNextRequest(null);"
+                      "postman.setNextRequest(null);",
+                      "",
+                      "var json = JSON.parse(responseBody);",
+                      "",
+                      "tests[\"Landlord acc created successfully with id\" + \" \" + json.data.createUser.id + \" \" + \"returned\"] = true",
+                      "",
+                      "tests[\"status code is 200\"] = responseCode.code === 200;",
+                      "",
+                      "postman.setEnvironmentVariable(\"LandlordUserId\", json.data.createUser.id);"
                     ],
                     "type": "text/javascript"
                   }
