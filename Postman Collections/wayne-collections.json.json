@@ -10424,6 +10424,26 @@
         },
         {
           "name": "getUsersForDropDown Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3e411651-7d33-4ed6-828e-4b70ef7a875b",
+                "exec": [
+                  "postman.setNextRequest(null);",
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"getUserForDropDown returned with user email \" + \" \" + json.data.getUsersForDropDown.email + \" \" + \"successfully\"] = true",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "id": "2f3cbaf5-6882-4161-aa97-f08ff92f0ddb",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
