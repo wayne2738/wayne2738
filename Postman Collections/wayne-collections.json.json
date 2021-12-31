@@ -10378,6 +10378,26 @@
       "item": [
         {
           "name": "getUsersForDropDown",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "93da7853-dac1-45aa-aaf1-e7d2b2b7cf13",
+                "exec": [
+                  "postman.setNextRequest(null);",
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"getUserForDropDown returned with user email \" + \" \" + json.data.getUsersForDropDown.email + \" \" + \"successfully\"] = true",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "id": "f89f4cc5-5df6-4a83-90be-32d3fcaf7172",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -11405,7 +11425,7 @@
                 },
                 {
                   "id": "258d1d5a-4b73-40ca-83cf-0239138b4ce1",
-                  "name": "SearchLandlordUser",
+                  "name": "prod-SearchLandlordUser",
                   "originalRequest": {
                     "method": "POST",
                     "header": [],
