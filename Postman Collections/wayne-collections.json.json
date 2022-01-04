@@ -1826,7 +1826,7 @@
           "response": []
         },
         {
-          "name": "DeleteAdminDraftListing Copy",
+          "name": "DeleteAdminListing",
           "event": [
             {
               "listen": "test",
