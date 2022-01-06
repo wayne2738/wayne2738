@@ -10281,7 +10281,13 @@
               "script": {
                 "id": "22ce9793-9eb3-42e1-bc51-8732e6a36918",
                 "exec": [
-                  "//postman.setNextRequest(null);"
+                  "//postman.setNextRequest(null);",
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"getListingInitialPayment will list out those initial payment under status\" + json.data.getListingInitialPayment.status ] = true",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;"
                 ],
                 "type": "text/javascript"
               }
