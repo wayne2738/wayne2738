@@ -2692,7 +2692,8 @@
                 "variables": ""
               }
             },
-            "url": "{{base_url}}/graphql"
+            "url": "{{base_url}}/graphql",
+            "description": "#### \\[API\\] Refactor getAdminBooking\n\n[https://instahome.atlassian.net/browse/ENG-2229](https://instahome.atlassian.net/browse/ENG-2229)"
           },
           "response": []
         },
