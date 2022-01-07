@@ -2567,7 +2567,7 @@
           "description": "Expected to prompt error message: \"Listing is already binded to a booking\"\n\n#### \\[API\\] Refactor listing delete\n\n[https://instahome.atlassian.net/browse/ENG-2231](https://instahome.atlassian.net/browse/ENG-2231)"
         },
         {
-          "name": "New Folder",
+          "name": "BookingFlow",
           "item": [],
           "id": "66e7db1a-56e4-4bbd-a017-7facbbe5bcaa"
         },
