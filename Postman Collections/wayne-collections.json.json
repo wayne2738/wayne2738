@@ -2749,7 +2749,8 @@
                 "variables": "{\n  \"page\": 1,\n  \"perPage\": 10,\n  \"id\": \"{{BookingId}}\",\n  \"tenantName\": null,\n  \"phoneNumber\": null,\n  \"moveInDateStart\": null,\n  \"moveInDateEnd\": null,\n  \"status\": null\n}"
               }
             },
-            "url": "{{base_url}}/graphql"
+            "url": "{{base_url}}/graphql",
+            "description": "#### \\[API\\] Refactor getAdminBooking\n\n[https://instahome.atlassian.net/browse/ENG-2229](https://instahome.atlassian.net/browse/ENG-2229)"
           },
           "response": []
         },
