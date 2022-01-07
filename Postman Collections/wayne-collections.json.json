@@ -2523,7 +2523,69 @@
         },
         {
           "name": "CreateBooking",
-          "item": [],
+          "item": [
+            {
+              "name": "CreateBookingByTenant",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ba5d31c7-e3a2-4946-9a18-f7ed54ca1909",
+                    "exec": [
+                      "",
+                      "",
+                      "var json = JSON.parse(responseBody);",
+                      "",
+                      "tests[\"Get booking id\" + \" \" + json.data.createBooking.id] = true",
+                      "",
+                      "tests[\"status code is 200\"] = responseCode.code === 200;",
+                      "",
+                      "postman.setEnvironmentVariable(\"BookingId\", json.data.createBooking.id);",
+                      "",
+                      "tests[\"Booking id\" + \" \" + json.data.createBooking.id + \" \" + \"is created\"] = true",
+                      "",
+                      "postman.setEnvironmentVariable(\"normal_run\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "eac51cef-84af-4185-a080-e5cda7b4c841",
+                    "exec": [
+                      "postman.setNextRequest(\"GetBookingByTenant\");",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "id": "ce4b54d9-0c59-49a2-af6c-01666e93c649",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{accessTokenTenant}}"
+                  }
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation {\ncreateBooking(data:{\n    companyInstitution:\"ih\",\n    contractEnd:\"{{MoveOutDate}}\",\n    fullName:\"ipmy\",\n    price: 500.00,\n    rentalDeposit:1000.00,\n    listingId:{{ListingId1}},\n    movedInDate:\"{{MoveInDate}}\",\n    movedInEndDate:\"{{MoveOutDate}}\",\n    movedInStartDate:\"{{MoveInDate}}\",\n    tenancyMonths: 12,\n  \tnationality:\"US\",\n  \tnoOfResidents:3,\n  \toccupation:\"cleaner\",\n  \totherRelationship:\"No\",\n  \trelationship:\"family\",\n   \tidentificationDocuments:[{url: \"https://s3.ap-southeast-1.amazonaws.com/booking-document-stg.instahome.com/identity-document/1630568773159TWSNGQY4XPFGSVN9.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2DQGVVZHU3LTWR6T%2F20210908%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20210908T071211Z&X-Amz-Expires=300&X-Amz-Signature=8523406bcd97f8b330a36658164e0bb1292310548a09fab9ab9b5f20a6786a2f&X-Amz-SignedHeaders=host\", type: \"identity-document\"}, {url: \"https://s3.ap-southeast-1.amazonaws.com/booking-document-stg.instahome.com/identity-document/1630568778384F8MN4WP1YLPAUNCT.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2DQGVVZHU3LTWR6T%2F20210908%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20210908T071211Z&X-Amz-Expires=300&X-Amz-Signature=55e93375293bb856e68e35f415f8114d00a741b071bea8f3eeb8c4180a9cb99d&X-Amz-SignedHeaders=host\", type: \"identity-document\"}]\n  \tadditionalDocuments:[{url:\"https://s3.ap-southeast-1.amazonaws.com/booking-document-stg.instahome.com/student-id/16305687872125553DYZE9367NWR4.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2DQGVVZHU3LTWR6T%2F20210908%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20210908T071211Z&X-Amz-Expires=300&X-Amz-Signature=b6b6944f39eb1a4cc359da1f907ecac8568d782a152f257ed405e2c5810bffa8&X-Amz-SignedHeaders=host\",type:\"student-id\"}]\n})\n  {\n    additionalDocuments\n    {\n      type\n      url\n    }\n    advanceRental\n    advanceRentalDiscount\n\t\tbookingCreditCheck\n    {\n      bookingId\n      createdAt\n      deletedAt\n      fullName\n      id\n      identificationNumber\n      isSuccess\n      reportId\n      response\n      statusMessage\n      updatedAt\n      url\n    }\n    emergencyContactName\n    emergencyMobile\n    emergencyRelationship\n\t\tfullName\n    id\n    identificationDocuments    \n    {\n      type\n      url\n    }\n    identificationNumber\n    isDirectDebitEnabled\n    landlordEmail\n    landlordIC\n    landlordMobile\n    landlordName\n    landlordSigned\n\n    miscellaneousDeposit\n    movedInDate\n    movedInEndDate\n    movedInStartDate\n    moveInEmailSent\n    moveInScheduled\n    nationality\n    noOfResidents\n    notes\n    occupation\n    otherRelationship\n    price\n    promotionCode{\n\n      code\n      createdAt\n      deletedAt\n      id\n      promotion{\n        createdAt\n        deletedAt\n        description\n       \n        endDate\n        id\n        name\n        \n        slug\n        startDate\n        status\n        updatedAt\n      }\n      \n      status\n      updatedAt\n      usageCount\n      usageLimit\n    }    \n\n\n    relationship\n    rentalDeposit\n    rentalDepositDiscount\n    signatureIds{\n      role\n      signatureId\n    }\n    stampingFee\n    status\n    tenancyAgreementFee\n    tenantAgreed\n    tenantPaid\n    \n    updatedAt\n    user{\n      name\n      \n    }\n    utilityDeposit\n    utilityDepositDiscount\n}\n\n}",
+                    "variables": ""
+                  }
+                },
+                "url": "{{base_url}}/graphql"
+              },
+              "response": []
+            }
+          ],
           "id": "66e7db1a-56e4-4bbd-a017-7facbbe5bcaa"
         },
         {
@@ -2620,67 +2682,6 @@
               "mode": "graphql",
               "graphql": {
                 "query": "query {\n  getAdminBooking\n  (id: {{BookingId}}){\n      id\n      collectionType\n      collectionStatus\n          listingId\n          listing{\n          address\n          {\n            area\n            block\n            buildingName\n            country\n            countryCode\n            floor\n            fullUnitNumber\n            postcode\n            state\n            streetLine1\n            streetLine2\n            subArea\n            unitNo\n          }\n        agreement{\n            createdAt\n            \n            id\n            name\n            templateId\n            updatedAt\n        }\n        agreementId\n        analytics{\n            favourites\n            pageView\n            virtualTourView\n        }\n        area\n        availableAt\n        bathroom\n        bathroomType\n        bedroom\n        carpark\n        createdAt\n        currency\n        depositMonth\n        depositValue\n        electricityBill\n        floorLevel\n        furnishing\n        furnishType\n        genderRule\n        houseRules\n        id\n        isDepositAbsolute\n        isDuplicated\n        isUtilityDepositAbsolute\n        lastCheckedOn\n        minRentalAmount\n        notes\n        owner{\n            companyInstitution\n            country\n            createdAt\n            crmUserId\n           \n            email\n            firstName\n            focusArea\n            focusType\n            id\n            isTmpPassword\n            lastName\n            listings{\n                    address\n                    {\n                        area\n                        block\n                        buildingName\n                        country\n                        countryCode\n                        floor\n                        fullUnitNumber\n                        postcode\n                        state\n                        streetLine1\n                        streetLine2\n                        subArea\n                        unitNo\n                    }\n                    agreement{\n                        createdAt\n                        \n                        id\n                        name\n                        templateId\n                        updatedAt\n                    }\n                    agreementId\n                    analytics{\n                        favourites\n                        pageView\n                        virtualTourView\n                    }\n                    area\n                    availableAt\n                    bathroom\n                    bathroomType\n                    bedroom\n                    carpark\n                    createdAt\n                    currency\n                    depositMonth\n                    depositValue\n                    electricityBill\n                    floorLevel\n                    furnishing\n                    furnishType\n                    genderRule\n                    houseRules\n                    id\n                    isDepositAbsolute\n                    isDuplicated\n                    isUtilityDepositAbsolute\n                    lastCheckedOn\n                    minRentalAmount\n                    notes\n                    owner{\n                        companyInstitution\n                        country\n                        createdAt\n                        crmUserId\n                        \n                        email\n                        firstName\n                        focusArea\n                        focusType\n                        id\n                        isTmpPassword\n                        lastName\n                        \n                        nationality\n                        notes\n                        occupation\n                        password\n                        paymentMethod\n                        phoneNumber\n                        profile{\n                          __typename\n                        }\n                        profileId\n                        referrer\n                        renTag\n                        role\n                        source\n                        suspended\n                        updatedAt\n                        verified\n                    }\n                    ownerId\n                    photographer{\n                        avatarUrl\n                        id\n                        name\n                    }\n                    photoUrls\n                    pois{\n                        distance\n                        duration\n                        latitude\n                        longitude\n                        name\n                        type\n                    }\n                    price\n                    property{\n            createdAt\n            \n            facilities\n            facilityVideos\n            facilityVirtualTour\n            hasPublicTransport\n            id\n            \n            location{\n                address\n                country\n                countryCode\n                createdAt\n                \n                description\n                facilities\n            facilityVideos\n            facilityVirtualTour\n            hasPublicTransport\n            id\n            latitude\n            level\n            listingCount\n            longitude\n            name\n            parentId\n            parents{\n                country\n                countryCode\n                id\n                level\n                name\n                parentId\n                slug\n            }\n            photoUrls\n            pois{\n                distance\n                duration\n                latitude\n                longitude\n                name\n            }\n            postcode\n            properties{\n                            createdAt\n                            \n                            facilities\n                            facilityVideos\n                            facilityVirtualTour\n                            hasPublicTransport\n                            id\n                            \n                            location{\n                                address\n                                country\n                                countryCode\n                                createdAt\n                               \n                                description\n                                facilities\n                            }\n                            locationId\n                            pois{\n                                distance\n                                duration\n                                latitude\n                                longitude\n                                name\n                                type\n                            }\n                            publicTransportOptions\n                            updatedAt\n                        }\n                        propertyGroupType\n                        propertyId\n                        propertyType\n                        publicTransportOptions\n                        slug\n                        state\n                        streetAddress\n                        updatedAt\n                        }\n                        locationId\n\n                        publicTransportOptions\n                        updatedAt\n                    }\n                    propertyId\n                    roomFurnishing\n                    roomType\n                    scheduledPhotographyDateTime\n                    scheduledPhotographyDuration\n                    sharedFurnishing\n                    squareFeet\n                    stampingFee\n                    status\n                    tags\n                    tenancyAgreementFee\n                    tenancyMonth\n                    topFeatures\n                    unitPropertyType\n                    unitType\n                    updatedAt\n                    uriFragment\n                    user {\n                        companyInstitution\n                        country\n                        createdAt\n                        crmUserId\n                        \n                        email\n                        firstName\n                        focusArea\n                        focusType\n                        id\n                        isTmpPassword\n                        lastName\n                        name\n                        nationality\n                        notes\n                        occupation\n                        password\n                        paymentMethod\n                        phoneNumber\n                        profile{__typename}\n                        profileId\n                        referrer\n                        renTag\n                        role\n                        source\n                        suspended\n                        updatedAt\n                        verified\n                        }\n                    utilities\n                    utilityDeposit\n                    utilityDepositValue\n                    verified\n                    videoUrls\n                    viewingAssistance\n                    virtualTour\n                    waterBill\n                    wifi\n                }\n            nationality\n            notes\n            occupation\n            password\n            paymentMethod\n            phoneNumber\n            profile{\n                __typename\n            }\n            profileId\n            referrer\n            renTag\n            role\n            source\n            suspended\n            updatedAt\n            verified\n        }\n        ownerId\n        photographer{\n            avatarUrl\n            id\n            name\n        }\n        photoUrls\n        pois{\n            distance\n            duration\n            latitude\n            longitude\n            name\n            type\n        }\n        price\n        property{\n            createdAt\n\n            facilities\n            facilityVideos\n            facilityVirtualTour\n            hasPublicTransport\n            id\n            location{\n                address\n                country\n                countryCode\n                createdAt\n                \n                description\n                facilities\n            facilityVideos\n            facilityVirtualTour\n            hasPublicTransport\n            id\n            latitude\n            level\n            listingCount\n            longitude\n            name\n            parentId\n            parents{\n                country\n                countryCode\n                id\n                level\n                name\n                parentId\n                slug\n            }\n            photoUrls\n            pois{\n                distance\n                duration\n                latitude\n                longitude\n                name\n            }\n            postcode\n            properties{\n                createdAt\n               \n                facilities\n                facilityVideos\n                facilityVirtualTour\n                hasPublicTransport\n                id\n              \n                location{\n                    address\n                    country\n                    countryCode\n                    createdAt\n                   \n                    description\n                    facilities\n                }\n                locationId\n                pois{\n                    distance\n                    duration\n                    latitude\n                    longitude\n                    name\n                    type\n                }\n                publicTransportOptions\n                updatedAt\n            }\n            propertyGroupType\n            propertyId\n            propertyType\n            publicTransportOptions\n            slug\n            state\n            streetAddress\n            updatedAt\n            }\n            locationId\n\n            publicTransportOptions\n            updatedAt\n        }\n        propertyId\n        roomFurnishing\n        roomType \n        scheduledPhotographyDateTime\n        scheduledPhotographyDuration\n        sharedFurnishing\n        squareFeet\n        stampingFee\n        status\n        tags\n        tenancyAgreementFee\n        tenancyMonth\n        topFeatures\n        unitPropertyType\n        unitType\n        updatedAt\n        uriFragment\n\n        utilities\n        utilityDeposit\n        utilityDepositValue\n        verified\n        videoUrls\n        viewingAssistance\n        virtualTour\n        waterBill\n        wifi\n      }\n      additionalDocuments{\n            type\n            url\n        }\n      advanceRental\n      advanceRentalDiscount\n      bookingCreditCheck{\n            bookingId\n            createdAt\n            \n            fullName\n            id\n            identificationNumber\n            isSuccess\n            reportId\n            response\n            statusMessage\n            updatedAt\n            url\n        }\n      companyInstitution\n      contractEnd\n      contractLink\n      createdAt\n      ctosEntity\n\n      depositPaid\n      emergencyContactName\n      emergencyMobile\n      emergencyRelationship\n      fullName\n\n      identificationDocuments{\n          type\n          url\n      }\n      identificationNumber\n      isDirectDebitEnabled\n      landlordEmail\n      landlordIC\n      landlordMobile\n      landlordName\n      landlordSigned\n\n      miscellaneousDeposit\n      movedInDate\n      movedInEndDate\n      movedInStartDate\n      moveInEmailSent\n      moveInScheduled\n      nationality\n      noOfResidents\n      notes\n      occupation\n      otherRelationship\n      personalDataAccessAgreement\n      price\n      \n      refundAgreement\n      relationship\n      rentalDeposit\n      rentalDepositDiscount\n      signatureIds{\n        role\n        signatureId\n    }\n      stampingFee\n      status\n      tenancyAgreementFee\n      tenantAgreed\n      tenantPaid\n      tenantSigned\n      updatedAt\n\n      utilityDeposit\n      utilityDepositDiscount\n      \n  }\n}",
-                "variables": ""
-              }
-            },
-            "url": "{{base_url}}/graphql"
-          },
-          "response": []
-        },
-        {
-          "name": "CreateBookingByTenant",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "ba5d31c7-e3a2-4946-9a18-f7ed54ca1909",
-                "exec": [
-                  "",
-                  "",
-                  "var json = JSON.parse(responseBody);",
-                  "",
-                  "tests[\"Get booking id\" + \" \" + json.data.createBooking.id] = true",
-                  "",
-                  "tests[\"status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "postman.setEnvironmentVariable(\"BookingId\", json.data.createBooking.id);",
-                  "",
-                  "tests[\"Booking id\" + \" \" + json.data.createBooking.id + \" \" + \"is created\"] = true",
-                  "",
-                  "postman.setEnvironmentVariable(\"normal_run\");"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "eac51cef-84af-4185-a080-e5cda7b4c841",
-                "exec": [
-                  "postman.setNextRequest(\"GetBookingByTenant\");",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "ce4b54d9-0c59-49a2-af6c-01666e93c649",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "token": "{{accessTokenTenant}}"
-              }
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "graphql",
-              "graphql": {
-                "query": "mutation {\ncreateBooking(data:{\n    companyInstitution:\"ih\",\n    contractEnd:\"{{MoveOutDate}}\",\n    fullName:\"ipmy\",\n    price: 500.00,\n    rentalDeposit:1000.00,\n    listingId:{{ListingId1}},\n    movedInDate:\"{{MoveInDate}}\",\n    movedInEndDate:\"{{MoveOutDate}}\",\n    movedInStartDate:\"{{MoveInDate}}\",\n    tenancyMonths: 12,\n  \tnationality:\"US\",\n  \tnoOfResidents:3,\n  \toccupation:\"cleaner\",\n  \totherRelationship:\"No\",\n  \trelationship:\"family\",\n   \tidentificationDocuments:[{url: \"https://s3.ap-southeast-1.amazonaws.com/booking-document-stg.instahome.com/identity-document/1630568773159TWSNGQY4XPFGSVN9.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2DQGVVZHU3LTWR6T%2F20210908%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20210908T071211Z&X-Amz-Expires=300&X-Amz-Signature=8523406bcd97f8b330a36658164e0bb1292310548a09fab9ab9b5f20a6786a2f&X-Amz-SignedHeaders=host\", type: \"identity-document\"}, {url: \"https://s3.ap-southeast-1.amazonaws.com/booking-document-stg.instahome.com/identity-document/1630568778384F8MN4WP1YLPAUNCT.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2DQGVVZHU3LTWR6T%2F20210908%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20210908T071211Z&X-Amz-Expires=300&X-Amz-Signature=55e93375293bb856e68e35f415f8114d00a741b071bea8f3eeb8c4180a9cb99d&X-Amz-SignedHeaders=host\", type: \"identity-document\"}]\n  \tadditionalDocuments:[{url:\"https://s3.ap-southeast-1.amazonaws.com/booking-document-stg.instahome.com/student-id/16305687872125553DYZE9367NWR4.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2DQGVVZHU3LTWR6T%2F20210908%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20210908T071211Z&X-Amz-Expires=300&X-Amz-Signature=b6b6944f39eb1a4cc359da1f907ecac8568d782a152f257ed405e2c5810bffa8&X-Amz-SignedHeaders=host\",type:\"student-id\"}]\n})\n  {\n    additionalDocuments\n    {\n      type\n      url\n    }\n    advanceRental\n    advanceRentalDiscount\n\t\tbookingCreditCheck\n    {\n      bookingId\n      createdAt\n      deletedAt\n      fullName\n      id\n      identificationNumber\n      isSuccess\n      reportId\n      response\n      statusMessage\n      updatedAt\n      url\n    }\n    emergencyContactName\n    emergencyMobile\n    emergencyRelationship\n\t\tfullName\n    id\n    identificationDocuments    \n    {\n      type\n      url\n    }\n    identificationNumber\n    isDirectDebitEnabled\n    landlordEmail\n    landlordIC\n    landlordMobile\n    landlordName\n    landlordSigned\n\n    miscellaneousDeposit\n    movedInDate\n    movedInEndDate\n    movedInStartDate\n    moveInEmailSent\n    moveInScheduled\n    nationality\n    noOfResidents\n    notes\n    occupation\n    otherRelationship\n    price\n    promotionCode{\n\n      code\n      createdAt\n      deletedAt\n      id\n      promotion{\n        createdAt\n        deletedAt\n        description\n       \n        endDate\n        id\n        name\n        \n        slug\n        startDate\n        status\n        updatedAt\n      }\n      \n      status\n      updatedAt\n      usageCount\n      usageLimit\n    }    \n\n\n    relationship\n    rentalDeposit\n    rentalDepositDiscount\n    signatureIds{\n      role\n      signatureId\n    }\n    stampingFee\n    status\n    tenancyAgreementFee\n    tenantAgreed\n    tenantPaid\n    \n    updatedAt\n    user{\n      name\n      \n    }\n    utilityDeposit\n    utilityDepositDiscount\n}\n\n}",
                 "variables": ""
               }
             },
