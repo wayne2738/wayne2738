@@ -11065,7 +11065,7 @@
           "description": "####   \nWhen listing media status changes to \"Photography Completed\", the listing should be displayed under \"Processing Pending\" sub-tab\n\n[https://instahome.atlassian.net/browse/ENG-2189](https://instahome.atlassian.net/browse/ENG-2189)"
         },
         {
-          "name": "VerifyBookedListingCannotBeDeleted Copy",
+          "name": "VerifyBookedListingCanBeDeletedNow",
           "item": [
             {
               "name": "DeleteAdminListing",
