@@ -10989,7 +10989,7 @@
                 "body": {
                   "mode": "graphql",
                   "graphql": {
-                    "query": "mutation {\n  updateAdminDraftListing(id: {{DraftListingId1}}, data: {\n    listingStatus: Live\n    unitType:Room\n    unitPropertyType:Studio\n    tenancyMonth: {{TenancyPeriod}}\n    ownerId: \"7150a7b5-5db0-464b-9dd4-9440d24533cb\"\n    photoUrls: [{\n      label: \"adsad\",\n      url: \"https://google.com\"\n    }],\n    videoUrls: [{\n      label: \"adsad\",\n      url: \"https://google.com\"\n    }],\n      rawVideosUrls: [{\n      label: \"adsad\",\n      url: \"https://instahome.atlassian.net/l/c/pE1XzMyf\"\n    }],\n      rawVirtualTourUrls: [{\n      label: \"adsad\",\n      url: \"https://instahome.atlassian.net/l/c/pE1XzMyf\"\n    }],\n      supplierPhotos: [{\n      label: \"adsad\",\n      url: \"https://instahome.atlassian.net/l/c/pE1XzMyf\"\n    }],\n      supplierVideos: [{\n      label: \"adsad\",\n      url: \"https://instahome.atlassian.net/l/c/pE1XzMyf\"\n    }],\n  }) \n  {\n    id\n    unitType\n    unitPropertyType\n    tenancyMonth\n    ownerId\n    photoUrls {\n        url\n        label\n      }\n      videoUrls{\n        url\n        label\n      }\n      rawVideosUrls{\n        url\n        label\n      }\n      rawVirtualTourUrls{\n        url\n        label\n      }\n      supplierPhotos{\n        url\n        label\n      }\n      supplierVideos{\n        url\n        label\n      }\n  }\n}",
+                    "query": "mutation {\n  updateAdminDraftListing(id: {{DraftListingId1}}, data: {\n    listingStatus: Live\n    unitType:Room\n    unitPropertyType:Studio\n    tenancyMonth: {{TenancyPeriod}}\n    ownerId: \"7150a7b5-5db0-464b-9dd4-9440d24533cb\"\n    photoUrls: [{\n      label: \"adsad\",\n      url: \"https://google.com\"\n    }],\n    videoUrls: [{\n      label: \"adsad\",\n      url: \"https://google.com\"\n    }],\n      rawVideosUrls: [{\n      label: \"adsad\",\n      url: \"https://instahome.atlassian.net/l/c/pE1XzMyf\"\n    }],\n      rawVirtualTourUrls: [{\n      label: \"adsad\",\n      url: \"https://instahome.atlassian.net/l/c/pE1XzMyf\"\n    }],\n      supplierPhotos: [{\n      label: \"adsad\",\n      url: \"https://instahome.atlassian.net/l/c/pE1XzMyf\"\n    }],\n      supplierVideos: [{\n      label: \"adsad\",\n      url: \"https://instahome.atlassian.net/l/c/pE1XzMyf\"\n    }],\n  }) \n  {\n    id\n    listingId\n    unitType\n    unitPropertyType\n    tenancyMonth\n    ownerId\n    photoUrls {\n        url\n        label\n      }\n      videoUrls{\n        url\n        label\n      }\n      rawVideosUrls{\n        url\n        label\n      }\n      rawVirtualTourUrls{\n        url\n        label\n      }\n      supplierPhotos{\n        url\n        label\n      }\n      supplierVideos{\n        url\n        label\n      }\n  }\n}",
                     "variables": ""
                   }
                 },
@@ -11075,7 +11075,7 @@
                   "script": {
                     "id": "37d2e25c-a4f5-4e26-a65d-1a18336f765a",
                     "exec": [
-                      "//postman.setNextRequest(null);"
+                      "postman.setNextRequest(null)"
                     ],
                     "type": "text/javascript"
                   }
