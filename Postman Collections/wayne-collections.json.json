@@ -2659,7 +2659,6 @@
               "script": {
                 "id": "b5dd51a9-934e-4b70-8985-a18e7abc767f",
                 "exec": [
-                  "",
                   ""
                 ],
                 "type": "text/javascript"
@@ -2716,7 +2715,6 @@
               "script": {
                 "id": "d3e62555-069d-4ec1-b6f3-6a13e62a30fb",
                 "exec": [
-                  "",
                   ""
                 ],
                 "type": "text/javascript"
@@ -2774,7 +2772,6 @@
               "script": {
                 "id": "cdeecf79-0fe4-47b9-8a3d-a418c2e68b6d",
                 "exec": [
-                  "",
                   ""
                 ],
                 "type": "text/javascript"
