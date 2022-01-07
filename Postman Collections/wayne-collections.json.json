@@ -2522,6 +2522,11 @@
           "id": "f524ed92-4647-4ead-a4ed-dda8168fad44"
         },
         {
+          "name": "BookingFlow",
+          "item": [],
+          "id": "66e7db1a-56e4-4bbd-a017-7facbbe5bcaa"
+        },
+        {
           "name": "VerifyBookedListingCannotBeDeleted",
           "item": [
             {
@@ -2565,11 +2570,6 @@
           ],
           "id": "f565b108-258d-41bf-904d-7ed3dbbe9ad7",
           "description": "Expected to prompt error message: \"Listing is already binded to a booking\"\n\n#### \\[API\\] Refactor listing delete\n\n[https://instahome.atlassian.net/browse/ENG-2231](https://instahome.atlassian.net/browse/ENG-2231)"
-        },
-        {
-          "name": "BookingFlow",
-          "item": [],
-          "id": "66e7db1a-56e4-4bbd-a017-7facbbe5bcaa"
         },
         {
           "name": "CreateBookingByTenant",
