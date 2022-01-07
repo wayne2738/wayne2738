@@ -2746,7 +2746,7 @@
               "mode": "graphql",
               "graphql": {
                 "query": "query GetAdminBookings($bookingType: [BookingCollectionType!], $id: String, $moveInDateEnd: DateTime, $moveInDateSort: SortOrder, $moveInDateStart: DateTime, $page: Int, $perPage: Int, $phoneNumber: String, $status: [BookingStatus!], $submittedSort: SortOrder, $tenantName: String) {\n  getAdminBookings(bookingType: $bookingType, id: $id, moveInDateEnd: $moveInDateEnd, moveInDateSort: $moveInDateSort, moveInDateStart: $moveInDateStart, page: $page, perPage: $perPage, phoneNumber: $phoneNumber, status: $status, submittedSort: $submittedSort, tenantName: $tenantName) {\n    items {\n      collectionType\n      id\n      listing {\n        address {\n          unitNo\n          fullUnitNumber\n          buildingName\n          __typename\n        }\n        __typename\n      }\n      fullName\n      status\n      user {\n        phoneNumber\n        __typename\n      }\n      createdAt\n      movedInDate\n      contractEnd\n      movedInStartDate\n      movedInEndDate\n      __typename\n    }\n    metadata {\n      perPage\n      itemCount\n      pageCount\n      __typename\n    }\n    __typename\n  }\n}\n",
-                "variables": "{\n  \"page\": 1,\n  \"perPage\": 10,\n  \"id\": \"700\",\n  \"tenantName\": null,\n  \"phoneNumber\": null,\n  \"moveInDateStart\": null,\n  \"moveInDateEnd\": null,\n  \"status\": null\n}"
+                "variables": "{\n  \"page\": 1,\n  \"perPage\": 10,\n  \"id\": \"{{BookingId}}\",\n  \"tenantName\": null,\n  \"phoneNumber\": null,\n  \"moveInDateStart\": null,\n  \"moveInDateEnd\": null,\n  \"status\": null\n}"
               }
             },
             "url": "{{base_url}}/graphql"
