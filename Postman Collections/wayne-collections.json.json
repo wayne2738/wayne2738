@@ -2522,7 +2522,7 @@
           "id": "f524ed92-4647-4ead-a4ed-dda8168fad44"
         },
         {
-          "name": "BookingFlow",
+          "name": "CreateBooking",
           "item": [
             {
               "name": "CreateBookingByTenant",
@@ -2592,7 +2592,7 @@
           "name": "VerifyBookedListingCannotBeDeleted",
           "item": [
             {
-              "name": "DeleteAdminListing Copy",
+              "name": "DeleteAdminListing",
               "event": [
                 {
                   "listen": "test",
