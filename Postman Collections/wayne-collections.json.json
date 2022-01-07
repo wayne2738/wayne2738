@@ -2524,7 +2524,8 @@
         {
           "name": "VerifyBookedListingCannotBeDeleted",
           "item": [],
-          "id": "f565b108-258d-41bf-904d-7ed3dbbe9ad7"
+          "id": "f565b108-258d-41bf-904d-7ed3dbbe9ad7",
+          "description": "Expected to prompt error message: \"Listing is already binded to a booking\"\n\n#### \\[API\\] Refactor listing delete\n\n[https://instahome.atlassian.net/browse/ENG-2231](https://instahome.atlassian.net/browse/ENG-2231)"
         },
         {
           "name": "CreateBookingByTenant",
