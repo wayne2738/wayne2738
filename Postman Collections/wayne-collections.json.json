@@ -8074,68 +8074,6 @@
           "response": []
         },
         {
-          "name": "getAdminPaymentsByBookingType Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "032dd5ca-6915-4a61-984f-3a55faea4dd4",
-                "exec": [
-                  "tests[\"getAdminPaymentRecords by collection type\"] = true",
-                  "",
-                  "var json = JSON.parse(responseBody);",
-                  "",
-                  "tests[\"status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "function checkAdminPaymentRecords(){",
-                  "    var data = json.data.getAdminPaymentRecords;",
-                  "    var checkCollectionType = false;",
-                  "    var checkDefaultedStatus = false;",
-                  "    var checkPassLeadStatus = false;",
-                  "    ",
-                  "    for(var i=0; i< data.items.length; i++){  ",
-                  "        checkCollectionType = checkCollectionType || (data.items[i].booking.hasOwnProperty(\"collectionType\"));",
-                  "        checkPassLeadStatus = checkPassLeadStatus || data.items[i].booking.collectionType.has(\"PASS_LEAD\") == true;",
-                  "        checkDefaultedStatus=checkDefaultedStatus || data.items[i].booking.collectionType.has(\"DEFAULTED\")  == true;",
-                  "   }",
-                  "    tests[\"getAdminPaymentRecords.items[i].booking.collectionType='RENTAL_THROUGH_INSTAHOME' and 'ROOM_RENTAL' should be exist in every iteration\"] = checkCollectionType;",
-                  "    tests[\"getAdminPaymentRecords.items[i].booking.collectionType='DEFAULTED' should be exist in every iteration\"] = checkDefaultedStatus    ",
-                  "    tests[\"getAdminPaymentRecords.items[i].booking.collectionType='PASS_LEAD' should be exist in every iteration\"] = checkPassLeadStatus",
-                  "}",
-                  "checkAdminPaymentRecords();",
-                  "",
-                  "",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "97e0519d-25ee-4064-a7cf-b083da542a79",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "token": "{{accessTokenAdmin}}"
-              }
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "graphql",
-              "graphql": {
-                "query": "query getAdminPaymentRecords {\n  getAdminPaymentRecords (\n    bookingType:[\n        PASS_LEAD, DEFAULTED\n    ]\n    sortDueDate:DESC\n    paymentStatus: paid\n    perPage: 50\n    page: 1\n  ) {\n    items {\n      id\n      dueDate\n      paidOn\n      status\n      booking{\n          collectionType\n      }\n    }\n    metadata {\n      itemCount\n      pageCount\n    }\n  }\n}",
-                "variables": ""
-              }
-            },
-            "url": "{{base_url}}/graphql"
-          },
-          "response": []
-        },
-        {
           "name": "generateSignedUrl",
           "event": [
             {
