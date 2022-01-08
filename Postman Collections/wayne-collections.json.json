@@ -12628,9 +12628,9 @@
                 "disableBodyPruning": true
               },
               "request": {
-                "method": "POST",
+                "method": "GET",
                 "header": [],
-                "url": "{{base_url}}/graphql"
+                "url": null
               },
               "response": []
             }
