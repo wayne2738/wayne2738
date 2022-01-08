@@ -12622,15 +12622,15 @@
           "name": "test",
           "item": [
             {
-              "name": "New Request",
+              "name": "testCommit",
               "id": "a5cdee63-f7b4-451b-a822-d2d863a77840",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
               },
               "request": {
-                "method": "GET",
+                "method": "POST",
                 "header": [],
-                "url": null
+                "url": "{{base_url}}/graphql"
               },
               "response": []
             }
