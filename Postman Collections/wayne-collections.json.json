@@ -12623,6 +12623,19 @@
           "item": [
             {
               "name": "getBooking-ViewProratedItem",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "682e338b-6e11-47d8-9dfe-182930a8e2ba",
+                    "exec": [
+                      "postman.setNextRequest(null);",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "id": "b8163317-975c-41bf-ae5f-cf0705dfbc72",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
