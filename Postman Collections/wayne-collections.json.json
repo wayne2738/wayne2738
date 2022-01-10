@@ -12690,7 +12690,34 @@
         },
         {
           "name": "GenerateLocationCsvAsync",
-          "item": [],
+          "item": [
+            {
+              "name": "GenerateLocationCsvAsync",
+              "id": "598d1ff8-09d5-4b51-9c26-86a23df1f689",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{accessTokenAdmin}}"
+                  }
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation {\n  generateLocationCsvAsync(email: \"wayne.yeow@instahome.com\") {\n    text\n  }\n}",
+                    "variables": ""
+                  }
+                },
+                "url": "{{base_url}}/graphql"
+              },
+              "response": []
+            }
+          ],
           "id": "bdee4c3a-d35b-487b-b892-17301d62ad6a"
         },
         {
