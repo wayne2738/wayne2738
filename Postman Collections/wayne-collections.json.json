@@ -12666,9 +12666,22 @@
                 "disableBodyPruning": true
               },
               "request": {
-                "method": "GET",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{accessTokenTenant}}"
+                  }
+                },
+                "method": "POST",
                 "header": [],
-                "url": null
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query getBookings {\n  getBookings {\n    id\n    paymentRecords {\n      isProrated\n      proratedItem { \n        amount\n        remarks\n        toDisplayAmount\n        toDisplayAlteration\n      }\n      paymentAdjustments {\n        remarks\n      }\n    }\n  }\n}",
+                    "variables": ""
+                  }
+                },
+                "url": "{{base_url}}/graphql"
               },
               "response": []
             }
