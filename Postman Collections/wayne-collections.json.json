@@ -2599,7 +2599,7 @@
                   "script": {
                     "id": "52ebb376-9cec-4ee5-b5ee-020f77ef3eac",
                     "exec": [
-                      "//postman.setNextRequest(null);"
+                      "postman.setNextRequest(null);"
                     ],
                     "type": "text/javascript"
                   }
