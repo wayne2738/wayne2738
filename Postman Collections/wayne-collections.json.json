@@ -12660,7 +12660,7 @@
           "name": "getBooking-ViewProratedItem",
           "item": [
             {
-              "name": "New Request",
+              "name": "getBooking-ViewProratedItem",
               "id": "b8163317-975c-41bf-ae5f-cf0705dfbc72",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
