@@ -2592,12 +2592,12 @@
           "name": "VerifyBookedListingCannotBeDeleted",
           "item": [
             {
-              "name": "DeleteAdminListing",
+              "name": "DeleteAdminDraftListing",
               "event": [
                 {
                   "listen": "test",
                   "script": {
-                    "id": "c5fddb8f-bb79-4ceb-9d04-b889fed155cf",
+                    "id": "52ebb376-9cec-4ee5-b5ee-020f77ef3eac",
                     "exec": [
                       "//postman.setNextRequest(null);"
                     ],
@@ -2605,7 +2605,7 @@
                   }
                 }
               ],
-              "id": "9be5de1a-be24-417f-a39b-71111d0c8bfc",
+              "id": "18cd83a2-d0b8-44fd-ae23-2f05dc2bd7cf",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
               },
@@ -2630,12 +2630,12 @@
               "response": []
             },
             {
-              "name": "DeleteAdminDraftListing",
+              "name": "DeleteAdminListing",
               "event": [
                 {
                   "listen": "test",
                   "script": {
-                    "id": "52ebb376-9cec-4ee5-b5ee-020f77ef3eac",
+                    "id": "c5fddb8f-bb79-4ceb-9d04-b889fed155cf",
                     "exec": [
                       "//postman.setNextRequest(null);"
                     ],
@@ -2643,7 +2643,7 @@
                   }
                 }
               ],
-              "id": "18cd83a2-d0b8-44fd-ae23-2f05dc2bd7cf",
+              "id": "9be5de1a-be24-417f-a39b-71111d0c8bfc",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
               },
