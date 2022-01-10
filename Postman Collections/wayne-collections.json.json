@@ -12668,6 +12668,19 @@
           "item": [
             {
               "name": "GenerateLocationCsvAsync",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "00048349-f87c-456d-8a8e-a8355eb1b177",
+                    "exec": [
+                      "postman.setNextRequest(null);",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "id": "598d1ff8-09d5-4b51-9c26-86a23df1f689",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
