@@ -2592,7 +2592,7 @@
           "name": "VerifyBookedListingCannotBeDeleted",
           "item": [
             {
-              "name": "DeleteAdminDraftListin6",
+              "name": "DeleteAdminListing",
               "event": [
                 {
                   "listen": "test",
