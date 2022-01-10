@@ -2532,7 +2532,7 @@
                   "script": {
                     "id": "ba5d31c7-e3a2-4946-9a18-f7ed54ca1909",
                     "exec": [
-                      "",
+                      "postman.setNextRequest(\"GetBookingByTenant\");",
                       "",
                       "var json = JSON.parse(responseBody);",
                       "",
