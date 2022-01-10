@@ -2630,7 +2630,7 @@
               "response": []
             },
             {
-              "name": "DeleteAdminListing",
+              "name": "DeleteAdminDraftListing",
               "event": [
                 {
                   "listen": "test",
