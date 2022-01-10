@@ -12620,7 +12620,21 @@
         },
         {
           "name": "getBooking-ViewProratedItem",
-          "item": [],
+          "item": [
+            {
+              "name": "New Request",
+              "id": "b8163317-975c-41bf-ae5f-cf0705dfbc72",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": null
+              },
+              "response": []
+            }
+          ],
           "id": "2fa68057-2c20-468b-869d-00a1005908bc"
         },
         {
