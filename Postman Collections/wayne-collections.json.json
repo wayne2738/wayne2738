@@ -11173,7 +11173,7 @@
                   "script": {
                     "id": "8e85cb85-7374-43df-ac87-6ce39beecc41",
                     "exec": [
-                      "//postman.setNextRequest(null);"
+                      "postman.setNextRequest(null);"
                     ],
                     "type": "text/javascript"
                   }
