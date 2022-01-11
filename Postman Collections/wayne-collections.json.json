@@ -2669,7 +2669,29 @@
             }
           ],
           "id": "f565b108-258d-41bf-904d-7ed3dbbe9ad7",
-          "description": "Expected to prompt error message: \"Listing is already binded to a booking\"\n\n#### \\[API\\] Refactor listing delete\n\n[https://instahome.atlassian.net/browse/ENG-2231](https://instahome.atlassian.net/browse/ENG-2231)"
+          "description": "Expected to prompt error message: \"Listing is already binded to a booking\"\n\n#### \\[API\\] Refactor listing delete\n\n[https://instahome.atlassian.net/browse/ENG-2231](https://instahome.atlassian.net/browse/ENG-2231)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "e7410c05-60d2-4906-8753-6a368148eb27",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "91fd9fff-af92-49b1-9588-a0561eceb51a",
+                "type": "text/javascript",
+                "exec": [
+                  "postman.setNextRequest(null);"
+                ]
+              }
+            }
+          ]
         },
         {
           "name": "GetBookingByTenant",
@@ -12792,7 +12814,7 @@
           "id": "3fe00617-71da-49eb-a66d-20961a5de6bd"
         },
         {
-          "name": "New Folder",
+          "name": "Deplicated",
           "item": [],
           "id": "a4bd052a-76c9-474b-b919-d1a254160b0b"
         },
