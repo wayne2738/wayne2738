@@ -12787,6 +12787,11 @@
           "id": "bdee4c3a-d35b-487b-b892-17301d62ad6a"
         },
         {
+          "name": "New Folder",
+          "item": [],
+          "id": "3fe00617-71da-49eb-a66d-20961a5de6bd"
+        },
+        {
           "name": "GetAllBookings(ERROR)",
           "event": [
             {
