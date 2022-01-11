@@ -12732,7 +12732,8 @@
                     "variables": ""
                   }
                 },
-                "url": "{{base_url}}/graphql"
+                "url": "{{base_url}}/graphql",
+                "description": "####   \n\\[API\\] User Story 12: return Prorate information for dashboard\n\n[https://instahome.atlassian.net/browse/ENG-2151](https://instahome.atlassian.net/browse/ENG-2151)"
               },
               "response": []
             }
