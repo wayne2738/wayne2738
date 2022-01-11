@@ -13189,7 +13189,29 @@
           "response": []
         }
       ],
-      "id": "1a87c7ae-f173-4540-b095-f6c17330ac64"
+      "id": "1a87c7ae-f173-4540-b095-f6c17330ac64",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "026d4474-68cb-4c78-9aa3-426e870f1bee",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "3ecc7da8-aca0-4c2a-a0ff-1e31630bafdf",
+            "type": "text/javascript",
+            "exec": [
+              "postman.setNextRequest(null);"
+            ]
+          }
+        }
+      ]
     }
   ]
 }
