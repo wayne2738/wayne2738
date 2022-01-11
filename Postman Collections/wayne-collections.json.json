@@ -1634,7 +1634,7 @@
           "response": []
         },
         {
-          "name": "UpdateAdminDraftListing",
+          "name": "UpdateAdminDraftListing(room)",
           "event": [
             {
               "listen": "test",
