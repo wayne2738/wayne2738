@@ -1467,7 +1467,7 @@
                   "postman.setEnvironmentVariable(\"ListingId1\", json.data.createAdminDraftListing.listingId);",
                   "postman.setEnvironmentVariable(\"DraftListingId1\", json.data.createAdminDraftListing.id);",
                   "postman.setEnvironmentVariable(\"UnitType1\", json.data.createAdminDraftListing.unitType);",
-                  "postman.setEnvironmentVariable(\"MoveInDate\", '2022-15-01');"
+                  "postman.setEnvironmentVariable(\"MoveInDate\", '2022-01-15');"
                 ],
                 "type": "text/javascript"
               }
