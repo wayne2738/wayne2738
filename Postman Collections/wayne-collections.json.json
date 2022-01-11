@@ -11205,7 +11205,29 @@
             }
           ],
           "id": "d53920e1-ed87-4841-a9b7-05f111b0361b",
-          "description": "Expected to prompt error message: \"Listing is already binded to a booking\"\n\n#### \\[API\\] Refactor listing delete\n\n[https://instahome.atlassian.net/browse/ENG-2231](https://instahome.atlassian.net/browse/ENG-2231)"
+          "description": "Expected to prompt error message: \"Listing is already binded to a booking\"\n\n#### \\[API\\] Refactor listing delete\n\n[https://instahome.atlassian.net/browse/ENG-2231](https://instahome.atlassian.net/browse/ENG-2231)",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "65b4db8f-325f-407d-9bf1-36ff8fa167fe",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "66042a90-2672-45ac-a007-6e0ae58712aa",
+                "type": "text/javascript",
+                "exec": [
+                  "postman.setNextRequest(null);"
+                ]
+              }
+            }
+          ]
         }
       ],
       "id": "312431c0-7ced-4a4a-8d7a-e32d35f855fd"
