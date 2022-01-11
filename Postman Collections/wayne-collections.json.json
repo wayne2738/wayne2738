@@ -11135,7 +11135,7 @@
                   "script": {
                     "id": "37d2e25c-a4f5-4e26-a65d-1a18336f765a",
                     "exec": [
-                      "//postman.setNextRequest(null)"
+                      "postman.setNextRequest(null)"
                     ],
                     "type": "text/javascript"
                   }
