@@ -1253,7 +1253,7 @@
                   "postman.setEnvironmentVariable(\"ListingId1\", json.data.createDraftListing.listingId);",
                   "postman.setEnvironmentVariable(\"DraftListingId1\", json.data.createDraftListing.id);",
                   "postman.setEnvironmentVariable(\"UnitType1\", json.data.createDraftListing.unitType);",
-                  "postman.setEnvironmentVariable(\"MoveInDate\", '2022-01-01');"
+                  "postman.setEnvironmentVariable(\"MoveInDate\", '2022-01-15');"
                 ],
                 "type": "text/javascript"
               }
