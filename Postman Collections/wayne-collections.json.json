@@ -2038,6 +2038,52 @@
             "url": "{{base_url}}/graphql"
           },
           "response": []
+        },
+        {
+          "name": "SearchAdminDraftListing Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e1678612-20bc-43b8-acd9-43aa03ddd3ea",
+                "exec": [
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"Get draft listing id\" + \" \" + json.data.getAdminDraftListings.items[0].listingId] = true",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "postman.setEnvironmentVariable(\"ListingId1\", json.data.getAdminDraftListings.items[0].listingId);",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "0bf82932-27c9-4ae4-aeb8-fd2a154ffdac",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenAdmin}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\ngetAdminDraftListings(\n  id:\"{{DraftListingId1}}\",\n  listingId:{{ListingId1}}\n\n){\n  \titems{\n      adminPhotographerId\n      adminProcessorId\n      agreement\n      {\n        createdAt\n        deletedAt\n        id\n        name\n        templateId\n        updatedAt\n      }\n      agreementId\n      area\n      bedroom\n      availableAt\n      bathroomType\n      bedroom\n      canPublish\n      carpark\n      createdAt\n      currency\n      depositMonth\n      depositValue\n      electricityBill\n      firstPublish\n      floorLevel\n      furnishing\n      furnishType\n      genderRule\n      houseRules\n      id\n      isDepositAbsolute\n      isDuplicated\n      isUtilityDepositAbsolute\n      lastCheckedOn\n      listingId\n      minRentalAmount\n      notes\n\t  owner{\n        id\n        name\n      }\n      ownerId\n      photographer\n      {\n        avatarUrl\n        id\n        name\n      }\n      photographerNote\n      photoIndicator\n      photoUrls{\n        url\n        label\n      }\n      pois{\n        distance\n        duration\n        latitude\n        longitude\n        name\n        type\n      }\n      price\n      processorNote\n      property{\n        createdAt\n        deletedAt\n        id\n        facilities\n        facilityVideos\n        facilityVirtualTour\n        hasPublicTransport\n        id\n        location\n          {\n            streetAddress\n            address\n            country\n          }\n          locationId\n        \n        updatedAt\n        \n      }\n      propertyId\n      rawVideosUrls{\n        url\n        label\n      }\n      rawVirtualTourUrls{\n        url\n        label\n      }\n      roomFurnishing\n      roomType\n      scheduledPhotographyDateTime\n      scheduledPhotographyDuration\n      sharedFurnishing\n      squareFeet\n\t\t\tstampingFee\n      status\n      supplierNote\n      supplierPhotos{\n        url\n        label\n      }\n      supplierVideos{\n        url\n        label\n      }\n      supplierVideoUrl\n      tags\n      tenancyAgreementFee\n      tenancyMonth\n      topFeatures\n      unitPropertyType\n      unitType\n      updatedAt\n      uriFragment\n\t\t\tutilities\n      utilityDeposit\n      utilityDepositValue\n      verified\n      videoIndicator\n      videoUrls{\n        url\n        label\n      }\n      viewingAssistance\n      virtualTour\n      virtualTourEditUrl\n      virtualTourIndicator\n      waterBill\n      wifi\n      \n\t\t}\n  \n    metadata{\n      hasNextPage\n      hasPreviousPage\n      itemCount\n      pageCount\n      perPage\n    }\n  \n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
         }
       ],
       "id": "b2448f64-7046-4277-8c52-8cecc544e5c7"
