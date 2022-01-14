@@ -1730,6 +1730,52 @@
           "response": []
         },
         {
+          "name": "SearchAdminDraftListing Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e1678612-20bc-43b8-acd9-43aa03ddd3ea",
+                "exec": [
+                  "",
+                  "var json = JSON.parse(responseBody);",
+                  "",
+                  "tests[\"Get draft listing id\" + \" \" + json.data.getAdminDraftListings.items[0].listingId] = true",
+                  "",
+                  "tests[\"status code is 200\"] = responseCode.code === 200;",
+                  "",
+                  "postman.setEnvironmentVariable(\"ListingId1\", json.data.getAdminDraftListings.items[0].listingId);",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "id": "0bf82932-27c9-4ae4-aeb8-fd2a154ffdac",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{accessTokenAdmin}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\ngetAdminDraftListings(\n  id:\"{{DraftListingId1}}\",\n  listingId:{{ListingId1}}\n\n){\n  \titems{\n      adminPhotographerId\n      adminProcessorId\n      agreement\n      {\n        createdAt\n        deletedAt\n        id\n        name\n        templateId\n        updatedAt\n      }\n      agreementId\n      area\n      bedroom\n      availableAt\n      bathroomType\n      bedroom\n      canPublish\n      carpark\n      createdAt\n      currency\n      depositMonth\n      depositValue\n      electricityBill\n      firstPublish\n      floorLevel\n      furnishing\n      furnishType\n      genderRule\n      houseRules\n      id\n      isDepositAbsolute\n      isDuplicated\n      isUtilityDepositAbsolute\n      lastCheckedOn\n      listingId\n      minRentalAmount\n      notes\n\t  owner{\n        id\n        name\n      }\n      ownerId\n      photographer\n      {\n        avatarUrl\n        id\n        name\n      }\n      photographerNote\n      photoIndicator\n      photoUrls{\n        url\n        label\n      }\n      pois{\n        distance\n        duration\n        latitude\n        longitude\n        name\n        type\n      }\n      price\n      processorNote\n      property{\n        createdAt\n        deletedAt\n        id\n        facilities\n        facilityVideos\n        facilityVirtualTour\n        hasPublicTransport\n        id\n        location\n          {\n            streetAddress\n            address\n            country\n          }\n          locationId\n        \n        updatedAt\n        \n      }\n      propertyId\n      rawVideosUrls{\n        url\n        label\n      }\n      rawVirtualTourUrls{\n        url\n        label\n      }\n      roomFurnishing\n      roomType\n      scheduledPhotographyDateTime\n      scheduledPhotographyDuration\n      sharedFurnishing\n      squareFeet\n\t\t\tstampingFee\n      status\n      supplierNote\n      supplierPhotos{\n        url\n        label\n      }\n      supplierVideos{\n        url\n        label\n      }\n      supplierVideoUrl\n      tags\n      tenancyAgreementFee\n      tenancyMonth\n      topFeatures\n      unitPropertyType\n      unitType\n      updatedAt\n      uriFragment\n\t\t\tutilities\n      utilityDeposit\n      utilityDepositValue\n      verified\n      videoIndicator\n      videoUrls{\n        url\n        label\n      }\n      viewingAssistance\n      virtualTour\n      virtualTourEditUrl\n      virtualTourIndicator\n      waterBill\n      wifi\n      \n\t\t}\n  \n    metadata{\n      hasNextPage\n      hasPreviousPage\n      itemCount\n      pageCount\n      perPage\n    }\n  \n  }\n}",
+                "variables": ""
+              }
+            },
+            "url": "{{base_url}}/graphql"
+          },
+          "response": []
+        },
+        {
           "name": "PublishDraftListingSuccess",
           "event": [
             {
@@ -2033,52 +2079,6 @@
               "graphql": {
                 "query": "mutation ($id: Float!, $data: UpdateDraftListingInput!) {\n  updateAdminDraftListing(id: $id, data: $data) {\n    id\n    photoIndicator\n    status\n    __typename\n    propertyId\n    listingId\n    address{\n        fullUnitNumber\n        block\n        unitNo\n        buildingName\n        streetLine1\n        streetLine2\n        area\n        subArea\n        postcode\n        state\n        country\n        countryCode\n\n    }\n    tenancyMonth\n    minRentalAmount\n    depositValue\n    utilities\n    utilityDeposit\n    stampingFee\n    tenancyAgreementFee\n    unitType\n    roomType\n    bathroomType\n    roomFurnishing\n    virtualTour\n    supplierPhotos{label,url}\n    supplierVideos{label,url}\n\n  }\n}\n",
                 "variables": "{\n  \"id\": {{DraftListingId1}},\n  \"data\": {\n    \"propertyId\": \"2\",\n    \"bathroom\": 4,\n    \"bedroom\": 3,\n    \"carpark\": 2,\n    \"furnishing\": [],\n    \"furnishType\": null,\n    \"availableAt\": \"\",\n    \"depositMonth\": null,\n    \"isDepositAbsolute\": false,\n    \"depositValue\": 500.00,\n    \"electricityBill\": null,\n    \"waterBill\": null,\n    \"houseRules\": [],\n    \"photoUrls\": [\n        {\n            \"url\": \"https://img.instahome.com/marketing-images/1639472693963LTU6AQ88HWWXWVXY.jpg\",\n            \"label\": \"Master Bedroom\"\n        },\n        {\n            \"url\": \"https://img.instahome.com/marketing-images/1639472694321GRDJJZVLPD9VQFG9.jpg\",\n            \"label\": \"Powder Room\"\n        },\n        {\n            \"url\": \"https://img.instahome.com/marketing-images/1639472694631NTR8HPTUUXTEKL3G.jpg\",\n            \"label\": \"Window View\"\n        }\n    ],\n    \"rawVideosUrls\": [{\n        \"url\": \"https://image-compression-source-stg.s3.ap-southeast-1.amazonaws.com/1639472701747_xx-34-xx.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2DQGVVZHU3LTWR6T%2F20211217%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20211217T075339Z&X-Amz-Expires=300&X-Amz-Signature=3c0d2162db9680c6e1e47c7915464123215f883789bbc72fbb2cedfd162a4a70&X-Amz-SignedHeaders=host\",\n        \"label\": \"\"\n    }],\n    \"rawVirtualTourUrls\": [{\n        \"url\": \"https://image-compression-source-stg.s3.ap-southeast-1.amazonaws.com/1639472714174_test.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2DQGVVZHU3LTWR6T%2F20211217%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20211217T084112Z&X-Amz-Expires=300&X-Amz-Signature=c4215885d4fd742d12fecf385cfdb152a65e7bc57c97a64a8cbd8318fa68cf3b&X-Amz-SignedHeaders=host\",\n        \"label\": \"\"\n    }],\n    \"pois\": [\n      {\n        \"distance\": 850,\n        \"duration\": 0,\n        \"name\": \"Plaza Rakyat LRT Station\",\n        \"type\": \"Train\"\n      }\n    ],\n    \"squareFeet\": null,\n    \"utilities\": [\"Electricity\",\"Water\",\"Wifi\"],\n    \"utilityDeposit\": 1,\n    \"utilityDepositValue\": 100.00,\n    \"stampingFee\": 50.00,\n    \"isUtilityDepositAbsolute\": false,\n    \"videoUrls\": {{captioned_video_url}},\n    \"virtualTour\": \"https://www.kuula.co/share/collection/7Pc1M?fs=1&vr=1&sd=1&initload=0&thumbs=1&chromeless=1&logo=1&logosize=161\",\n    \"virtualTourEditUrl\": \"\",\n    \"tenancyMonth\":12,\n    \"price\": 1.00,\n    \"minRentalAmount\": 1000.00,\n    \"tenancyAgreementFee\": 100.00,\n    \"photographerNote\": \"\",\n    \"processorNote\": \"\",\n    \"supplierNote\": \"\",\n    \"floorLevel\": null,\n    \"wifi\": null,\n    \"unitType\": \"EntireUnit\",\n    \"roomType\": \"Master\",\n    \"bathroomType\": \"Private\",\n    \"roomFurnishing\": null,\n    \"sharedFurnishing\": null,\n    \"topFeatures\": null,\n    \"genderRule\": null,\n    \"tags\": [],\n    \"verified\": false,\n    \"adminPhotographerId\": null,\n    \"adminProcessorId\": \"25ea98e2-e260-4836-b75f-1aff97ea06d4\",\n    \"supplierPhotos\": {{supplierPhotos}},\n    \"supplierVideos\": [{\n      \"label\": \"Living Hall\",\n      \"url\": \"{{supplierVideosUrl}}\"\n    }],\n    \"status\": \"ProcessingComplete\"\n  }\n}"
-              }
-            },
-            "url": "{{base_url}}/graphql"
-          },
-          "response": []
-        },
-        {
-          "name": "SearchAdminDraftListing Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "e1678612-20bc-43b8-acd9-43aa03ddd3ea",
-                "exec": [
-                  "",
-                  "var json = JSON.parse(responseBody);",
-                  "",
-                  "tests[\"Get draft listing id\" + \" \" + json.data.getAdminDraftListings.items[0].listingId] = true",
-                  "",
-                  "tests[\"status code is 200\"] = responseCode.code === 200;",
-                  "",
-                  "postman.setEnvironmentVariable(\"ListingId1\", json.data.getAdminDraftListings.items[0].listingId);",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "id": "0bf82932-27c9-4ae4-aeb8-fd2a154ffdac",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": {
-                "token": "{{accessTokenAdmin}}"
-              }
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "graphql",
-              "graphql": {
-                "query": "query {\ngetAdminDraftListings(\n  id:\"{{DraftListingId1}}\",\n  listingId:{{ListingId1}}\n\n){\n  \titems{\n      adminPhotographerId\n      adminProcessorId\n      agreement\n      {\n        createdAt\n        deletedAt\n        id\n        name\n        templateId\n        updatedAt\n      }\n      agreementId\n      area\n      bedroom\n      availableAt\n      bathroomType\n      bedroom\n      canPublish\n      carpark\n      createdAt\n      currency\n      depositMonth\n      depositValue\n      electricityBill\n      firstPublish\n      floorLevel\n      furnishing\n      furnishType\n      genderRule\n      houseRules\n      id\n      isDepositAbsolute\n      isDuplicated\n      isUtilityDepositAbsolute\n      lastCheckedOn\n      listingId\n      minRentalAmount\n      notes\n\t  owner{\n        id\n        name\n      }\n      ownerId\n      photographer\n      {\n        avatarUrl\n        id\n        name\n      }\n      photographerNote\n      photoIndicator\n      photoUrls{\n        url\n        label\n      }\n      pois{\n        distance\n        duration\n        latitude\n        longitude\n        name\n        type\n      }\n      price\n      processorNote\n      property{\n        createdAt\n        deletedAt\n        id\n        facilities\n        facilityVideos\n        facilityVirtualTour\n        hasPublicTransport\n        id\n        location\n          {\n            streetAddress\n            address\n            country\n          }\n          locationId\n        \n        updatedAt\n        \n      }\n      propertyId\n      rawVideosUrls{\n        url\n        label\n      }\n      rawVirtualTourUrls{\n        url\n        label\n      }\n      roomFurnishing\n      roomType\n      scheduledPhotographyDateTime\n      scheduledPhotographyDuration\n      sharedFurnishing\n      squareFeet\n\t\t\tstampingFee\n      status\n      supplierNote\n      supplierPhotos{\n        url\n        label\n      }\n      supplierVideos{\n        url\n        label\n      }\n      supplierVideoUrl\n      tags\n      tenancyAgreementFee\n      tenancyMonth\n      topFeatures\n      unitPropertyType\n      unitType\n      updatedAt\n      uriFragment\n\t\t\tutilities\n      utilityDeposit\n      utilityDepositValue\n      verified\n      videoIndicator\n      videoUrls{\n        url\n        label\n      }\n      viewingAssistance\n      virtualTour\n      virtualTourEditUrl\n      virtualTourIndicator\n      waterBill\n      wifi\n      \n\t\t}\n  \n    metadata{\n      hasNextPage\n      hasPreviousPage\n      itemCount\n      pageCount\n      perPage\n    }\n  \n  }\n}",
-                "variables": ""
               }
             },
             "url": "{{base_url}}/graphql"
