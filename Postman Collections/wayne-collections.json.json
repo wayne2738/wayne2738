@@ -429,7 +429,7 @@
               "script": {
                 "id": "75178b5d-cef5-4281-9de1-8331ba1ac8e5",
                 "exec": [
-                  "tests[\"Prepare admin sign in and get token successfully\"] = true",
+                  "tests[\"Prepare photographer1 sign in and get token successfully\"] = true",
                   "",
                   "var json = JSON.parse(responseBody);",
                   "",
