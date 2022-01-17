@@ -554,11 +554,11 @@
               "script": {
                 "id": "e85c8dcf-da34-491a-9831-f8fbe65b58e7",
                 "exec": [
-                  "tests[\"Prepare admin sign in and get token successfully\"] = true",
+                  "tests[\"Prepare Photographer2 sign in and get token successfully\"] = true",
                   "",
                   "var json = JSON.parse(responseBody);",
                   "",
-                  "postman.setEnvironmentVariable(\"accessTokenAdmin\", json.data.adminLogin.accessToken);",
+                  "postman.setEnvironmentVariable(\"accessTokenPhotographer2\", json.data.adminLogin.accessToken);",
                   "",
                   "tests[\"status code is 200\"] = responseCode.code === 200;",
                   "",
