@@ -12586,6 +12586,32 @@
                 "url": "{{base_url}}/graphql"
               },
               "response": []
+            },
+            {
+              "name": "getMedium Copy",
+              "id": "f2b95189-0dbc-418a-bef3-648c81428a5e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{accessTokenLandlord}}"
+                  }
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query GetMedium {\n  getMediums\n}",
+                    "variables": ""
+                  }
+                },
+                "url": "{{base_url}}/graphql"
+              },
+              "response": []
             }
           ],
           "id": "1a0ce84a-7989-47b7-a656-f138c7479c30"
