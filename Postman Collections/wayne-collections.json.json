@@ -12560,7 +12560,21 @@
         },
         {
           "name": "Medium & Source field under Admin Panel BD info",
-          "item": [],
+          "item": [
+            {
+              "name": "New Request",
+              "id": "d042fa6f-2310-4475-b0d7-c374438c2e57",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": null
+              },
+              "response": []
+            }
+          ],
           "id": "1a0ce84a-7989-47b7-a656-f138c7479c30"
         }
       ],
