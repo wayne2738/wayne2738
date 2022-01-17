@@ -12605,7 +12605,7 @@
                 "body": {
                   "mode": "graphql",
                   "graphql": {
-                    "query": "query GetMedium {\n  getMediums\n}",
+                    "query": "query GetSource {\n  getSources\n}",
                     "variables": ""
                   }
                 },
