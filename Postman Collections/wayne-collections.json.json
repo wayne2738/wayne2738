@@ -12344,34 +12344,7 @@
               "item": [
                 {
                   "name": "ForLandlord",
-                  "item": [
-                    {
-                      "name": "GetSource",
-                      "id": "f2b95189-0dbc-418a-bef3-648c81428a5e",
-                      "protocolProfileBehavior": {
-                        "disableBodyPruning": true
-                      },
-                      "request": {
-                        "auth": {
-                          "type": "bearer",
-                          "bearer": {
-                            "token": "{{accessTokenLandlord}}"
-                          }
-                        },
-                        "method": "POST",
-                        "header": [],
-                        "body": {
-                          "mode": "graphql",
-                          "graphql": {
-                            "query": "query GetSource {\n  getSources\n}",
-                            "variables": ""
-                          }
-                        },
-                        "url": "{{base_url}}/graphql"
-                      },
-                      "response": []
-                    }
-                  ],
+                  "item": [],
                   "id": "4cedaaf3-fe35-48d1-a052-a748c1f9aecb"
                 },
                 {
@@ -12451,6 +12424,32 @@
                       "mode": "graphql",
                       "graphql": {
                         "query": "query GetMedium {\n  getMediums\n}",
+                        "variables": ""
+                      }
+                    },
+                    "url": "{{base_url}}/graphql"
+                  },
+                  "response": []
+                },
+                {
+                  "name": "GetSource",
+                  "id": "f2b95189-0dbc-418a-bef3-648c81428a5e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": {
+                        "token": "{{accessTokenLandlord}}"
+                      }
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "graphql",
+                      "graphql": {
+                        "query": "query GetSource {\n  getSources\n}",
                         "variables": ""
                       }
                     },
