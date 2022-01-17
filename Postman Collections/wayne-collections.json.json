@@ -12343,64 +12343,6 @@
               "name": "Medium&SourceBDinfo",
               "item": [
                 {
-                  "name": "ForAgent",
-                  "item": [
-                    {
-                      "name": "GetMedium",
-                      "id": "7a08ada4-a5f9-4ce8-b6ac-707fad1cf313",
-                      "protocolProfileBehavior": {
-                        "disableBodyPruning": true
-                      },
-                      "request": {
-                        "auth": {
-                          "type": "bearer",
-                          "bearer": {
-                            "token": "{{accessTokenAgent}}"
-                          }
-                        },
-                        "method": "POST",
-                        "header": [],
-                        "body": {
-                          "mode": "graphql",
-                          "graphql": {
-                            "query": "query GetMedium {\n  getMediums\n}",
-                            "variables": ""
-                          }
-                        },
-                        "url": "{{base_url}}/graphql"
-                      },
-                      "response": []
-                    },
-                    {
-                      "name": "GetSource",
-                      "id": "2aaa673f-5246-4e67-beb0-96a093134b1b",
-                      "protocolProfileBehavior": {
-                        "disableBodyPruning": true
-                      },
-                      "request": {
-                        "auth": {
-                          "type": "bearer",
-                          "bearer": {
-                            "token": "{{accessTokenAgent}}"
-                          }
-                        },
-                        "method": "POST",
-                        "header": [],
-                        "body": {
-                          "mode": "graphql",
-                          "graphql": {
-                            "query": "query GetSource {\n  getSources\n}",
-                            "variables": ""
-                          }
-                        },
-                        "url": "{{base_url}}/graphql"
-                      },
-                      "response": []
-                    }
-                  ],
-                  "id": "56ec40ff-784d-4fba-a466-eea8ca3f3317"
-                },
-                {
                   "name": "GetMedium",
                   "id": "d042fa6f-2310-4475-b0d7-c374438c2e57",
                   "protocolProfileBehavior": {
