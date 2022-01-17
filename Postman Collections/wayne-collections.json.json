@@ -12632,7 +12632,7 @@
                     "auth": {
                       "type": "bearer",
                       "bearer": {
-                        "token": "{{accessTokenLandlord}}"
+                        "token": "{{accessTokenAgent}}"
                       }
                     },
                     "method": "POST",
