@@ -12589,93 +12589,35 @@
                     "url": "{{base_url}}/graphql"
                   },
                   "response": []
-                },
-                {
-                  "name": "GetSource",
-                  "id": "f2b95189-0dbc-418a-bef3-648c81428a5e",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "auth": {
-                      "type": "bearer",
-                      "bearer": {
-                        "token": "{{accessTokenLandlord}}"
-                      }
-                    },
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "graphql",
-                      "graphql": {
-                        "query": "query GetSource {\n  getSources\n}",
-                        "variables": ""
-                      }
-                    },
-                    "url": "{{base_url}}/graphql"
-                  },
-                  "response": []
                 }
               ],
               "id": "4cedaaf3-fe35-48d1-a052-a748c1f9aecb"
             },
             {
-              "name": "For Landlord Copy",
-              "item": [
-                {
-                  "name": "GetMedium",
-                  "id": "7a08ada4-a5f9-4ce8-b6ac-707fad1cf313",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "auth": {
-                      "type": "bearer",
-                      "bearer": {
-                        "token": "{{accessTokenLandlord}}"
-                      }
-                    },
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "graphql",
-                      "graphql": {
-                        "query": "query GetMedium {\n  getMediums\n}",
-                        "variables": ""
-                      }
-                    },
-                    "url": "{{base_url}}/graphql"
-                  },
-                  "response": []
+              "name": "GetSource",
+              "id": "f2b95189-0dbc-418a-bef3-648c81428a5e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{accessTokenLandlord}}"
+                  }
                 },
-                {
-                  "name": "GetSource",
-                  "id": "2aaa673f-5246-4e67-beb0-96a093134b1b",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "auth": {
-                      "type": "bearer",
-                      "bearer": {
-                        "token": "{{accessTokenLandlord}}"
-                      }
-                    },
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "graphql",
-                      "graphql": {
-                        "query": "query GetSource {\n  getSources\n}",
-                        "variables": ""
-                      }
-                    },
-                    "url": "{{base_url}}/graphql"
-                  },
-                  "response": []
-                }
-              ],
-              "id": "56ec40ff-784d-4fba-a466-eea8ca3f3317"
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query GetSource {\n  getSources\n}",
+                    "variables": ""
+                  }
+                },
+                "url": "{{base_url}}/graphql"
+              },
+              "response": []
             }
           ],
           "id": "1a0ce84a-7989-47b7-a656-f138c7479c30"
