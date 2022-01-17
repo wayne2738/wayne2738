@@ -433,7 +433,7 @@
                   "",
                   "var json = JSON.parse(responseBody);",
                   "",
-                  "postman.setEnvironmentVariable(\"accessTokenAdmin\", json.data.adminLogin.accessToken);",
+                  "postman.setEnvironmentVariable(\"accessTokenPhotographer1\", json.data.adminLogin.accessToken);",
                   "",
                   "tests[\"status code is 200\"] = responseCode.code === 200;",
                   "",
