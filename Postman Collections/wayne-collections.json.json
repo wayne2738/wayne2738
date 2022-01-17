@@ -12410,7 +12410,7 @@
                     "auth": {
                       "type": "bearer",
                       "bearer": {
-                        "token": "{{accessTokenLandlord}}"
+                        "token": "{{accessTokenAdmin}}"
                       }
                     },
                     "method": "POST",
