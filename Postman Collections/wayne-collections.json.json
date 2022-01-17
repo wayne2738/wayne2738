@@ -12568,9 +12568,22 @@
                 "disableBodyPruning": true
               },
               "request": {
-                "method": "GET",
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{accessTokenLandlord}}"
+                  }
+                },
+                "method": "POST",
                 "header": [],
-                "url": null
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query GetMedium {\n  getMediums\n}",
+                    "variables": ""
+                  }
+                },
+                "url": "{{base_url}}/graphql"
               },
               "response": []
             }
