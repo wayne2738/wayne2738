@@ -12340,6 +12340,128 @@
               "id": "3140ec5c-dae6-4d76-9357-0ab70ba6f2c0"
             },
             {
+              "name": "Medium & Source field under Admin Panel BD info",
+              "item": [
+                {
+                  "name": "For Landlord",
+                  "item": [
+                    {
+                      "name": "GetMedium",
+                      "id": "d042fa6f-2310-4475-b0d7-c374438c2e57",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": {
+                            "token": "{{accessTokenLandlord}}"
+                          }
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "graphql",
+                          "graphql": {
+                            "query": "query GetMedium {\n  getMediums\n}",
+                            "variables": ""
+                          }
+                        },
+                        "url": "{{base_url}}/graphql"
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "GetSource",
+                      "id": "f2b95189-0dbc-418a-bef3-648c81428a5e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": {
+                            "token": "{{accessTokenLandlord}}"
+                          }
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "graphql",
+                          "graphql": {
+                            "query": "query GetSource {\n  getSources\n}",
+                            "variables": ""
+                          }
+                        },
+                        "url": "{{base_url}}/graphql"
+                      },
+                      "response": []
+                    }
+                  ],
+                  "id": "4cedaaf3-fe35-48d1-a052-a748c1f9aecb"
+                },
+                {
+                  "name": "For Agent",
+                  "item": [
+                    {
+                      "name": "GetMedium",
+                      "id": "7a08ada4-a5f9-4ce8-b6ac-707fad1cf313",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": {
+                            "token": "{{accessTokenAgent}}"
+                          }
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "graphql",
+                          "graphql": {
+                            "query": "query GetMedium {\n  getMediums\n}",
+                            "variables": ""
+                          }
+                        },
+                        "url": "{{base_url}}/graphql"
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "GetSource",
+                      "id": "2aaa673f-5246-4e67-beb0-96a093134b1b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": {
+                            "token": "{{accessTokenAgent}}"
+                          }
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "graphql",
+                          "graphql": {
+                            "query": "query GetSource {\n  getSources\n}",
+                            "variables": ""
+                          }
+                        },
+                        "url": "{{base_url}}/graphql"
+                      },
+                      "response": []
+                    }
+                  ],
+                  "id": "56ec40ff-784d-4fba-a466-eea8ca3f3317"
+                }
+              ],
+              "id": "1a0ce84a-7989-47b7-a656-f138c7479c30"
+            },
+            {
               "name": "LandlordRegisterAcc",
               "event": [
                 {
@@ -12557,128 +12679,6 @@
           ],
           "id": "4f767e39-0854-4b1f-893c-3a8a889b7608",
           "description": "#### \\[API\\] User Story 2: Landlord can create Landlord Account and access Landlord Dashboard\n\n[https://instahome.atlassian.net/browse/ENG-2169?atlOrigin=eyJpIjoiYWVhZDIwOWVmMGY1NDZmYTk5YTIwMWZiMzQ4N2IwYmIiLCJwIjoiaiJ9](https://instahome.atlassian.net/browse/ENG-2169?atlOrigin=eyJpIjoiYWVhZDIwOWVmMGY1NDZmYTk5YTIwMWZiMzQ4N2IwYmIiLCJwIjoiaiJ9)"
-        },
-        {
-          "name": "Medium & Source field under Admin Panel BD info",
-          "item": [
-            {
-              "name": "For Landlord",
-              "item": [
-                {
-                  "name": "GetMedium",
-                  "id": "d042fa6f-2310-4475-b0d7-c374438c2e57",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "auth": {
-                      "type": "bearer",
-                      "bearer": {
-                        "token": "{{accessTokenLandlord}}"
-                      }
-                    },
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "graphql",
-                      "graphql": {
-                        "query": "query GetMedium {\n  getMediums\n}",
-                        "variables": ""
-                      }
-                    },
-                    "url": "{{base_url}}/graphql"
-                  },
-                  "response": []
-                },
-                {
-                  "name": "GetSource",
-                  "id": "f2b95189-0dbc-418a-bef3-648c81428a5e",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "auth": {
-                      "type": "bearer",
-                      "bearer": {
-                        "token": "{{accessTokenLandlord}}"
-                      }
-                    },
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "graphql",
-                      "graphql": {
-                        "query": "query GetSource {\n  getSources\n}",
-                        "variables": ""
-                      }
-                    },
-                    "url": "{{base_url}}/graphql"
-                  },
-                  "response": []
-                }
-              ],
-              "id": "4cedaaf3-fe35-48d1-a052-a748c1f9aecb"
-            },
-            {
-              "name": "For Agent",
-              "item": [
-                {
-                  "name": "GetMedium",
-                  "id": "7a08ada4-a5f9-4ce8-b6ac-707fad1cf313",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "auth": {
-                      "type": "bearer",
-                      "bearer": {
-                        "token": "{{accessTokenAgent}}"
-                      }
-                    },
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "graphql",
-                      "graphql": {
-                        "query": "query GetMedium {\n  getMediums\n}",
-                        "variables": ""
-                      }
-                    },
-                    "url": "{{base_url}}/graphql"
-                  },
-                  "response": []
-                },
-                {
-                  "name": "GetSource",
-                  "id": "2aaa673f-5246-4e67-beb0-96a093134b1b",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "auth": {
-                      "type": "bearer",
-                      "bearer": {
-                        "token": "{{accessTokenAgent}}"
-                      }
-                    },
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                      "mode": "graphql",
-                      "graphql": {
-                        "query": "query GetSource {\n  getSources\n}",
-                        "variables": ""
-                      }
-                    },
-                    "url": "{{base_url}}/graphql"
-                  },
-                  "response": []
-                }
-              ],
-              "id": "56ec40ff-784d-4fba-a466-eea8ca3f3317"
-            }
-          ],
-          "id": "1a0ce84a-7989-47b7-a656-f138c7479c30"
         }
       ],
       "id": "6af403b9-4412-4307-b56c-c8497eb95c26"
