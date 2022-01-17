@@ -12562,7 +12562,7 @@
           "name": "Medium & Source field under Admin Panel BD info",
           "item": [
             {
-              "name": "New Request",
+              "name": "getMedium",
               "id": "d042fa6f-2310-4475-b0d7-c374438c2e57",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
