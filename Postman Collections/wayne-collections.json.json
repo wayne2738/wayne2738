@@ -12562,35 +12562,36 @@
           "name": "Medium & Source field under Admin Panel BD info",
           "item": [
             {
-              "name": "New Folder",
-              "item": [],
+              "name": "For Landlord",
+              "item": [
+                {
+                  "name": "GetMedium",
+                  "id": "d042fa6f-2310-4475-b0d7-c374438c2e57",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": {
+                        "token": "{{accessTokenLandlord}}"
+                      }
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "graphql",
+                      "graphql": {
+                        "query": "query GetMedium {\n  getMediums\n}",
+                        "variables": ""
+                      }
+                    },
+                    "url": "{{base_url}}/graphql"
+                  },
+                  "response": []
+                }
+              ],
               "id": "4cedaaf3-fe35-48d1-a052-a748c1f9aecb"
-            },
-            {
-              "name": "GetMedium",
-              "id": "d042fa6f-2310-4475-b0d7-c374438c2e57",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "auth": {
-                  "type": "bearer",
-                  "bearer": {
-                    "token": "{{accessTokenLandlord}}"
-                  }
-                },
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "graphql",
-                  "graphql": {
-                    "query": "query GetMedium {\n  getMediums\n}",
-                    "variables": ""
-                  }
-                },
-                "url": "{{base_url}}/graphql"
-              },
-              "response": []
             },
             {
               "name": "GetSource",
