@@ -804,11 +804,11 @@
               "script": {
                 "id": "fe5a3566-7d37-4c1c-af1a-56296c80a49b",
                 "exec": [
-                  "tests[\"Prepare admin sign in and get token successfully\"] = true",
+                  "tests[\"Prepare processor1 sign in and get token successfully\"] = true",
                   "",
                   "var json = JSON.parse(responseBody);",
                   "",
-                  "postman.setEnvironmentVariable(\"accessTokenAdmin\", json.data.adminLogin.accessToken);",
+                  "postman.setEnvironmentVariable(\"accessTokenProcessor1\", json.data.adminLogin.accessToken);",
                   "",
                   "tests[\"status code is 200\"] = responseCode.code === 200;",
                   "",
