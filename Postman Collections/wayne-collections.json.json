@@ -12588,7 +12588,7 @@
               "response": []
             },
             {
-              "name": "getMedium Copy",
+              "name": "GetSource",
               "id": "f2b95189-0dbc-418a-bef3-648c81428a5e",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
