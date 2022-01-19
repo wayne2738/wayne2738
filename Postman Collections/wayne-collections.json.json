@@ -373,7 +373,7 @@
             "body": {
               "mode": "graphql",
               "graphql": {
-                "query": "mutation {\n  login(data: {\n   email: \"ipmy2021@gmail.com\",\n   password: \"Stg-Admin@instahome-345\"\n  }) {\n accessToken\n  }\n}",
+                "query": "mutation {\n  login(data: {\n   email: \"ipmy2021@gmail.com\",\n   password: \"u2tlm04i\"\n  }) {\n accessToken\n  }\n}",
                 "variables": ""
               }
             },
