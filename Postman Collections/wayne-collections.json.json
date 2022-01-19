@@ -12439,7 +12439,7 @@
                   "mode": "graphql",
                   "graphql": {
                     "query": "mutation register($data: RegisterWithOtpInput!) {\n  register(data: $data) {\n    ...fragmentAuth\n  }\n}\n\nfragment fragmentAuth on Auth {\n  accessToken\n  refreshToken\n  expiresIn\n  refreshExpiresIn\n  isTmpPassword\n}",
-                    "variables": "{\n  \"data\": {\n    \"firstName\": \"Tester2\",\n    \"lastName\": \"345\",\n    \"name\": \"Tester 345\",\n    \"email\": \"tester345@instahome.com\",\n    \"password\": \"99999999\",\n    \"otpToken\": \"\",\n    \"otpChallengeID\": \"{{otpChallengeID}}\",\n    \"phoneNumber\": \"+60163948117\",\n    \"renTag\": \"880298\",\n    \"companyInstitution\": \"\",\n    \"role\": \"Landlord\"\n  }\n}"
+                    "variables": "{\n  \"data\": {\n    \"firstName\": \"Test\",\n    \"lastName\": \"345\",\n    \"name\": \"Test 345\",\n    \"email\": \"test345@instahome.com\",\n    \"password\": \"99999999\",\n    \"otpToken\": \"377557\",\n    \"otpChallengeID\": \"{{otpChallengeID}}\",\n    \"phoneNumber\": \"+60163948117\",\n    \"renTag\": \"880298\",\n    \"companyInstitution\": \"\",\n    \"role\": \"Landlord\"\n  }\n}"
                   }
                 },
                 "url": "{{base_url}}/graphql"
