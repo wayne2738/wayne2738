@@ -6370,6 +6370,8 @@
               "script": {
                 "id": "2f7d33a0-0868-49d8-92bd-690304c362ac",
                 "exec": [
+                  "postman.setNextRequest(\"FilterByProcessorId\");",
+                  "",
                   "tests[\"Filter draft listing by supplier type\"] = true",
                   "",
                   "var json = JSON.parse(responseBody);",
