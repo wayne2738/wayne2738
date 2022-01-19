@@ -5944,7 +5944,7 @@
               "script": {
                 "id": "09a4a242-9dd7-4f7d-9fff-46252eb4406e",
                 "exec": [
-                  "",
+                  "postman.setNextRequest(\"FilterBySupplierInfo&UpdatedAtStartOrEnd\");",
                   "tests[\"Filter by Building Name based on 'pending' payment status and sort its due date by desc\"] = true",
                   "",
                   "var json = JSON.parse(responseBody);",
