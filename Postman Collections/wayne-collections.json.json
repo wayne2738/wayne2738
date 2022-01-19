@@ -5944,7 +5944,7 @@
               "script": {
                 "id": "09a4a242-9dd7-4f7d-9fff-46252eb4406e",
                 "exec": [
-                  "",
+                  "postman.setNextRequest(\"FilterBySupplierInfo&UpdatedAtStartOrEnd\");",
                   "tests[\"Filter by Building Name based on 'pending' payment status and sort its due date by desc\"] = true",
                   "",
                   "var json = JSON.parse(responseBody);",
@@ -10201,7 +10201,7 @@
               "mode": "graphql",
               "graphql": {
                 "query": "query GetPromotionWithCode($code: String!) {\n  getPromotionWithCode(code: $code) {\n    id\n    name\n    promoCodesUrls{\n        key\n        name\n        url\n    }\n    description\n    discounts {\n      discount\n      discountType\n      __typename\n    }\n    __typename\n  }\n}\n",
-                "variables": "{\n  \"code\": \"STAYHOME21\"\n}"
+                "variables": "{\n  \"code\": \"WELCOME2022\"\n}"
               }
             },
             "url": "{{base_url}}/graphql",
