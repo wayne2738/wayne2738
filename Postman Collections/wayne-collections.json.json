@@ -6040,7 +6040,7 @@
               "script": {
                 "id": "12d6598d-c4ca-48ba-acdc-3e0eaa1f995b",
                 "exec": [
-                  "",
+                  "postman.setNextRequest(\"FilterBySupplierInfo&UpdatedAtStartOrEnd\");",
                   "tests[\"Filter by Order Number based on 'paid' payment status and sort its due date by desc\"] = true",
                   "",
                   "var json = JSON.parse(responseBody);",
