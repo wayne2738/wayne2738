@@ -1,0 +1,3204 @@
+type Address {
+  block: String!
+  floor: String!
+  fullUnitNumber: String!
+  unitNo: String!
+}
+
+type AddressDto {
+  area: String
+  block: String
+  buildingName: String
+  country: String
+  countryCode: String
+  floor: String
+  fullUnitNumber: String
+  postcode: String
+  state: String
+  streetLine1: String
+  streetLine2: String
+  subArea: String
+  unitNo: String
+}
+
+input AddressDtoInput {
+  area: String
+  block: String
+  buildingName: String
+  country: String
+  countryCode: String
+  floor: String
+  fullUnitNumber: String
+  postcode: String
+  state: String
+  streetLine1: String
+  streetLine2: String
+  subArea: String
+  unitNo: String
+}
+
+input AddressInput {
+  block: String!
+  floor: String!
+  fullUnitNumber: String!
+  unitNo: String!
+}
+
+type AdminAuth {
+  # JWT access token
+  accessToken: String!
+  expiresIn: Float!
+  isTmpPassword: Boolean
+  refreshExpiresIn: Float!
+
+  # JWT refresh token
+  refreshToken: String!
+}
+
+type AdminUser {
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  email: String
+  id: ID
+  isVerified: Boolean
+  name: String
+  password: String!
+  passwordResetToken: String
+  passwordUpdateAt: DateTime
+  phone: String
+  role: String
+  status: Boolean
+  updatedAt: DateTime!
+  verificationToken: String
+}
+
+enum AdminUserRole {
+  Admin
+  Developer
+  Photographer
+  PhotographerLead
+  Processor
+  ProcessorLead
+}
+
+type AgentProfile {
+  approach: String
+  businessDevelopmentPIC: String
+  campaign: String
+  cobroke: Boolean
+  companyInstitution: String
+  countryCode: String
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  firstName: String
+  focusArea: String
+  focusType: String
+  id: String!
+  lastName: String
+  medium: String
+  nationality: String
+  phone1: String
+  phone2: String
+  referrer: String
+  source: String
+  updatedAt: DateTime!
+}
+
+input ApplyPromoCodeAndPayInput {
+  bankCode: String!
+  bankId: Float!
+  bookingId: Float!
+  promotionCode: PromotionCodeInput
+}
+
+type Auth {
+  # JWT access token
+  accessToken: String!
+  expiresIn: Float!
+  isTmpPassword: Boolean
+  refreshExpiresIn: Float!
+
+  # JWT refresh token
+  refreshToken: String!
+}
+
+type B2bPartnerProfile {
+  approach: String
+  businessDevelopmentPIC: String
+  campaign: String
+  companyInstitution: String
+  countryCode: String
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  firstName: String
+  focusArea: String
+  focusType: String
+  id: String!
+  lastName: String
+  medium: String
+  nationality: String
+  phone1: String
+  phone2: String
+  referrer: String
+  source: String
+  updatedAt: DateTime!
+}
+
+type Bank {
+  code: String!
+  displayName: String!
+  id: Float!
+  logo: String!
+  name: String!
+}
+
+enum BankMethod {
+  instantPay
+  mandate
+}
+
+enum BathroomType {
+  Private
+  Shared
+}
+
+type Booking {
+  additionalDocuments: [Document!]
+  advanceRental: Float
+  advanceRentalDiscount: Float
+  bookingCreditCheck: BookingCreditCheck
+  collectionStatus: Boolean!
+  collectionType: BookingCollectionType
+  companyInstitution: String
+  contractEnd: String!
+  contractLink: String
+  createdAt: DateTime!
+  ctosEntity: String
+  deletedAt: DateTime!
+  depositPaid: Boolean
+  draftListingId: Int
+  emergencyContactName: String
+  emergencyMobile: String
+  emergencyRelationship: String
+  fullName: String
+  id: ID!
+  identificationDocuments: [Document!]
+  identificationNumber: String
+  isDirectDebitEnabled: Boolean!
+  landlordEmail: String
+  landlordIC: String
+  landlordMobile: String
+  landlordName: String
+  landlordSigned: Boolean
+  listing: ListingDto!
+  listingId: Float
+  miscellaneousDeposit: Float
+  moveInEmailSent: Boolean
+  moveInScheduled: Boolean
+  movedInDate: String!
+  movedInEndDate: DateTime!
+  movedInStartDate: DateTime!
+  nationality: String
+  noOfResidents: Float
+  notes: String
+  occupation: String!
+  otherRelationship: String
+  paymentDueDateDay: Float
+  personalDataAccessAgreement: Boolean!
+  price: Float
+  promotionCode: PromotionCode
+  refundAgreement: Boolean!
+  relationship: String
+  rentalDeposit: Float
+  rentalDepositDiscount: Float
+  signatureIds: [SignatureIds!]
+  sstPercent: Float!
+  sstValue: Float!
+  stampingFee: Float
+  status: String!
+  tenancyAgreementFee: Float
+  tenantAgreed: Boolean!
+  tenantPaid: Boolean
+  tenantSigned: Boolean
+  updatedAt: DateTime!
+  user: User!
+  utilityDeposit: Float
+  utilityDepositDiscount: Float
+}
+
+enum BookingCollectionType {
+  DEFAULTED
+  EARLY_TERMINATION
+  MOVE_OUT
+  PASS_LEAD
+  RENTAL_THROUGH_INSTAHOME
+  ROOM_RENTAL
+}
+
+type BookingCreditCheck {
+  bookingId: Float!
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  fullName: String!
+  id: ID!
+  identificationNumber: String!
+  isSuccess: Boolean!
+  reportId: String!
+  response: String
+  statusMessage: String
+  updatedAt: DateTime!
+  url: String
+}
+
+type BookingCreditReport {
+  isSuccess: Boolean!
+  reportId: String
+  statusMessage: String
+  url: String
+  xml: String
+}
+
+type BookingDto {
+  additionalDocuments: [Document!]
+  advanceRental: Float
+  advanceRentalDiscount: Float
+  bookingCreditCheck: BookingCreditCheck
+  collectionStatus: Boolean!
+  collectionType: BookingCollectionType!
+  companyInstitution: String!
+  contractEnd: String!
+  emergencyContactName: String
+  emergencyMobile: String
+  emergencyRelationship: String
+  fullName: String
+  id: Float!
+  identificationDocuments: [Document!]
+  identificationNumber: String
+  isDirectDebitEnabled: Boolean!
+  landlordEmail: String
+  landlordIC: String
+  landlordMobile: String
+  landlordName: String
+  landlordSigned: Boolean
+  listing: ListingDto
+  listingId: Float
+  miscellaneousDeposit: Float
+  movedInDate: String
+  movedInEndDate: DateTime!
+  movedInStartDate: DateTime!
+  nationality: String!
+  noOfResidents: Float!
+  notes: String
+  occupation: String!
+  otherRelationship: String!
+  paymentDueDateDay: Float
+  paymentRecords: [PaymentItem!]
+  personalDataAccessAgreement: Boolean
+  price: Float
+  promotionCode: PromotionCode
+  refundAgreement: Boolean
+  relationship: String!
+  rentalDeposit: Float
+  rentalDepositDiscount: Float
+  stampingFee: Float
+  status: String
+  tenancyAgreementFee: Float
+  tenantSigned: Boolean
+  user: User
+  utilityDeposit: Float
+  utilityDepositDiscount: Float
+}
+
+type BookingPaymentDayDto {
+  paymentDueDateDay: Float!
+}
+
+type BookingPaymentLink {
+  booking: Booking!
+  paymentLink: PaymentLink!
+}
+
+enum BookingStatus {
+  APPROVED
+  BOOKING_PAID
+  CANCELED
+  DEPOSIT_PAID
+  IN_PROGRESS
+  PAID
+  REJECTED
+  TENANT_SIGNED
+}
+
+input CSVUserInput {
+  agency: String
+  approach: String
+  area: String
+  bdPIC: String
+  campaign: String
+  cobroke: Boolean
+  countryCode: String
+  email: String
+  firstName: String!
+  focusArea: String
+  focusType: String
+  landlordBankAccountNumber: String
+  landlordBankName: String
+  landlordPayeeName: String
+  lastName: String
+  medium: String
+  notes: String
+  paymentMethod: String
+  phoneNumber: String!
+  referrer: String
+  renTag: String
+  source: String
+  userType: String!
+  whatsappLink: String
+}
+
+enum CampaignStatus {
+  Active
+  Inactive
+}
+
+type CaptionedUrl {
+  label: String
+  url: String
+}
+
+input CaptionedUrlInput {
+  label: String
+  url: String
+}
+
+enum Category {
+  ADVANCE_RENTAL
+  RENTAL
+  SECURITY_DEPOSIT
+  UTILITY_DEPOSIT
+}
+
+input CompletePaymentRecordAndCreateAdjustmentInput {
+  attachmentUrls: [String!]
+  paidOn: DateTime!
+  paymentId: String!
+  remarks: String
+  source: PaymentSource
+  type: PaymentAdjustmentType
+}
+
+type ContactForm {
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  email: String!
+  id: ID!
+  message: String!
+  name: String!
+  phoneNumber: String!
+  toEmail: String!
+  type: String!
+  updatedAt: DateTime!
+}
+
+input ContactFormDto {
+  email: String!
+  message: String!
+  name: String!
+  phoneNumber: String!
+  toEmail: String!
+  type: String!
+}
+
+input CreateAdminListingInput {
+  address: AddressDtoInput
+  agreementId: Float
+  area: String
+  availableAt: DateISO
+  bathroom: Float
+  bathroomType: BathroomType
+  bedroom: Float
+  captionedPhotoUrls: [CaptionedUrlInput!]
+  captionedVideoUrls: [CaptionedUrlInput!]
+  carpark: Float
+  createdAt: DateTime
+  currency: String
+  depositMonth: Float
+  depositValue: Float
+  electricityBill: UtilityIncluded
+  firstPublish: DateTime
+  floorLevel: FloorLevel
+  furnishType: FurnishType
+  furnishing: [Furnishing!]
+  genderRule: GenderRule
+  houseRules: [HouseRule!]
+  id: ID
+  isDepositAbsolute: Boolean
+  isDuplicated: Boolean
+  isUtilityDepositAbsolute: Boolean
+  lastCheckedOn: DateTime
+  minRentalAmount: Float
+  notes: String
+  ownerId: String
+  photoUrls: [String!]
+  pois: [POIInput!]
+  price: Float
+  propertyId: String
+  rePublish: [DateTime!]
+  roomFurnishing: [Furnishing!]
+  roomType: RoomType
+  scheduledPhotographyDateTime: DateTime
+  scheduledPhotographyDuration: Float
+  sharedFurnishing: [Furnishing!]
+  squareFeet: Float
+  stampingFee: Float
+  status: ListingStatus = Pending
+  tags: [String!] = []
+  tenancyAgreementFee: Float
+  tenancyMonth: Float
+  topFeatures: [TopFeature!]
+  unitPropertyType: UnitPropertyType
+  unitType: UnitType
+  updatedAt: DateTime
+  uriFragment: String
+  utilities: [UtilityType!]
+  utilityDeposit: Float
+  utilityDepositValue: Float
+  verified: Boolean = false
+  videoUrls: [String!]
+  viewingAssistance: String
+  virtualTour: String
+  waterBill: UtilityIncluded
+  wifi: Wifi
+}
+
+input CreateAdminMarketingCampaignInput {
+  buttonTitle: String
+  campaignLink: String
+  description: String
+  endDate: String!
+  name: String!
+  photoUrls: [String!]
+  startDate: String!
+  status: CampaignStatus
+}
+
+input CreateAdminPromotionCodeInput {
+  length: Int
+  name: String!
+  pattern: String
+  postfix: String
+  prefix: String
+  quantity: Int
+  usageLimit: Int
+}
+
+input CreateAdminPromotionInput {
+  description: String
+  discounts: [DiscountInput!]!
+  endDate: String!
+  name: String!
+  slug: String
+  startDate: String!
+  status: PromotionStatus
+}
+
+input CreateBookingInput {
+  additionalDocuments: [DocumentInput!]
+  advanceRental: Float
+  advanceRentalDiscount: Float
+  companyInstitution: String!
+  contractEnd: String
+  emergencyContactName: String
+  emergencyMobile: String
+  emergencyRelationship: String
+  fullName: String!
+  identificationDocuments: [DocumentInput!]
+  identificationNumber: String
+  landlordEmail: String
+  landlordIC: String
+  landlordMobile: String
+  landlordName: String
+  landlordSigned: Boolean
+  listingId: Float!
+  miscellaneousDeposit: Float
+  movedInDate: String!
+  movedInEndDate: DateTime
+  movedInStartDate: DateTime!
+  nationality: String!
+  noOfResidents: Float!
+  notes: String
+  occupation: String!
+  otherRelationship: String!
+  paymentDueDateDay: Float
+  personalDataAccessAgreement: Boolean
+  price: Float
+  promotionCode: PromotionCodeInput
+  refundAgreement: Boolean
+  relationship: String!
+  rentalDeposit: Float
+  rentalDepositDiscount: Float
+  stampingFee: Float
+  status: String
+  tenancyAgreementFee: Float
+  tenancyMonths: Int
+  tenantSigned: Boolean
+  utilityDeposit: Float
+  utilityDepositDiscount: Float
+}
+
+input CreateDraftListingInput {
+  address: AddressDtoInput
+  adminPhotographerId: String
+  adminProcessorId: String
+  agreementId: Float
+  area: String
+  assets: [String!]
+  availableAt: DateISO
+  bathroom: Float
+  bathroomType: BathroomType
+  bedroom: Float
+  carpark: Float
+  createdAt: DateTime
+  currency: String
+  depositMonth: Float
+  depositValue: Float
+  electricityBill: UtilityIncluded
+  floorLevel: FloorLevel
+  furnishType: FurnishType
+  furnishing: [Furnishing!]
+  genderRule: GenderRule
+  houseRules: [HouseRule!]
+  id: ID
+  imageHash: String
+  isDepositAbsolute: Boolean
+  isDuplicated: Boolean
+  isUtilityDepositAbsolute: Boolean
+  lastCheckedOn: DateTime
+  listingId: Int
+  listingStatus: ListingStatus
+  minRentalAmount: Float
+  notes: String
+  ownerId: String
+  photoUrls: [CaptionedUrlInput!]
+  photographerNote: String
+  pois: [POIInput!]
+  price: Float
+  processorNote: String
+  propertyId: String
+  rawVideosUrls: [CaptionedUrlInput!]
+  rawVirtualTourUrls: [CaptionedUrlInput!]
+  rePublish: [DateTime!]
+  roomFurnishing: [Furnishing!]
+  roomType: RoomType
+  scheduledPhotographyDateTime: DateTime
+  scheduledPhotographyDuration: Float
+  sharedFurnishing: [Furnishing!]
+  squareFeet: Float
+  stampingFee: Float
+  status: DraftListingStatus
+  supplierNote: String
+  supplierPhotos: [CaptionedUrlInput!]
+  supplierVideoUrl: String
+  supplierVideos: [CaptionedUrlInput!]
+  tags: [String!] = []
+  tenancyAgreementFee: Float
+  tenancyMonth: Float
+  topFeatures: [TopFeature!]
+  unitPropertyType: UnitPropertyType
+  unitType: UnitType
+  updatedAt: DateTime
+  uriFragment: String
+  utilities: [UtilityType!]
+  utilityDeposit: Float
+  utilityDepositValue: Float
+  verified: Boolean = false
+  videoUrls: [CaptionedUrlInput!]
+  viewingAssistance: String
+  virtualTour: String
+  virtualTourEditUrl: String
+  waterBill: UtilityIncluded
+  wifi: Wifi
+}
+
+input CreateListingInput {
+  address: AddressDtoInput
+  agreementId: Float
+  area: String
+  availableAt: DateISO
+  bathroom: Float
+  bathroomType: BathroomType
+  bedroom: Float
+  captionedPhotoUrls: [CaptionedUrlInput!]
+  captionedVideoUrls: [CaptionedUrlInput!]
+  carpark: Float
+  createdAt: DateTime
+  currency: String
+  depositMonth: Float
+  depositValue: Float
+  electricityBill: UtilityIncluded
+  firstPublish: DateTime
+  floorLevel: FloorLevel
+  furnishType: FurnishType
+  furnishing: [Furnishing!]
+  genderRule: GenderRule
+  houseRules: [HouseRule!]
+  id: ID
+  isDepositAbsolute: Boolean
+  isDuplicated: Boolean
+  isUtilityDepositAbsolute: Boolean
+  lastCheckedOn: DateTime
+  minRentalAmount: Float
+  notes: String
+  ownerId: String
+  photoUrls: [String!]
+  pois: [POIInput!]
+  price: Float
+  propertyId: String
+  rePublish: [DateTime!]
+  roomFurnishing: [Furnishing!]
+  roomType: RoomType
+  scheduledPhotographyDateTime: DateTime
+  scheduledPhotographyDuration: Float
+  sharedFurnishing: [Furnishing!]
+  squareFeet: Float
+  stampingFee: Float
+  status: ListingStatus = Pending
+  tags: [String!] = []
+  tenancyAgreementFee: Float
+  tenancyMonth: Float
+  topFeatures: [TopFeature!]
+  unitPropertyType: UnitPropertyType
+  unitType: UnitType
+  updatedAt: DateTime
+  uriFragment: String
+  utilities: [UtilityType!]
+  utilityDeposit: Float
+  utilityDepositValue: Float
+  verified: Boolean = false
+  videoUrls: [String!]
+  viewingAssistance: String
+  virtualTour: String
+  waterBill: UtilityIncluded
+  wifi: Wifi
+}
+
+input CreateLocationInput {
+  address: String!
+  country: String!
+  countryCode: String!
+  description: String
+  facilities: [Facility!]
+  facilityVideos: [String!]
+  facilityVirtualTour: String
+  hasPublicTransport: Boolean
+  latitude: Float
+  level: String!
+  longitude: Float
+  name: String!
+  parentId: Int
+  photoUrls: [String!]
+  pois: [POIInput!]
+  postcode: String
+  propertyGroupType: PropertyGroupType
+  propertyType: LocationPropertyType
+  publicTransportOptions: [PublicTransportOption!]
+  streetAddress: String
+}
+
+input CreateOrUpdateBookingInput {
+  additionalDocuments: [DocumentInput!]
+  advanceRental: Float
+  advanceRentalDiscount: Float
+  companyInstitution: String!
+  contractEnd: String
+  emergencyContactName: String
+  emergencyMobile: String
+  emergencyRelationship: String
+  fullName: String!
+  identificationDocuments: [DocumentInput!]
+  identificationNumber: String
+  landlordEmail: String
+  landlordIC: String
+  landlordMobile: String
+  landlordName: String
+  landlordSigned: Boolean
+  listingId: Float!
+  miscellaneousDeposit: Float
+  movedInDate: String!
+  movedInEndDate: DateTime
+  movedInStartDate: DateTime!
+  nationality: String!
+  noOfResidents: Float!
+  notes: String
+  occupation: String!
+  otherRelationship: String!
+  paymentDueDateDay: Float
+  personalDataAccessAgreement: Boolean
+  price: Float
+  promotionCode: PromotionCodeInput
+  refundAgreement: Boolean
+  relationship: String!
+  rentalDeposit: Float
+  rentalDepositDiscount: Float
+  stampingFee: Float
+  status: String
+  tenancyAgreementFee: Float
+  tenancyMonths: Int
+  tenantSigned: Boolean
+  utilityDeposit: Float
+  utilityDepositDiscount: Float
+}
+
+input CreateTagInput {
+  description: String
+  name: String!
+}
+
+input CreateUserInput {
+  approach: String
+  area: [Float!]
+  businessDevelopmentPIC: String
+  campaign: String
+  companyInstitution: String
+  country: String
+  countryCode: String
+  email: String!
+  firstName: String
+  focusArea: String
+  focusType: String
+  isOtherBusinessDevelopmentPIC: Boolean
+  isOtherLandlordBankName: Boolean
+  isOtherMedium: Boolean
+  isOtherSource: Boolean
+  isTmpPassword: Boolean
+  landlordBankAccountNumber: String
+  landlordBankName: String
+  landlordPayeeName: String
+  lastName: String
+  medium: String
+  name: String
+  nationality: String
+  notes: String
+  occupation: String
+  password: String!
+  paymentMethod: String
+  phone1: String
+  phone2: String
+  phoneNumber: String
+  referrer: String
+  renTag: String
+  role: UserRole!
+  source: String
+  whatsappLink: String
+}
+
+type CreatedListing {
+  id: Int!
+}
+
+# Date ISO parsing to handle null values
+scalar DateISO
+
+# A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+scalar DateTime
+
+type Discount {
+  category: Category!
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  discount: Float!
+  discountType: DiscountType!
+  id: ID
+  maxDiscount: Float
+  occurance: Float!
+  promotion: Promotion!
+  updatedAt: DateTime!
+}
+
+input DiscountInput {
+  category: Category!
+  discount: Float!
+  discountType: DiscountType!
+  maxDiscount: Float
+  occurance: Float!
+}
+
+enum DiscountType {
+  NUMERIC
+  PERCENTAGE
+}
+
+type Document {
+  type: String!
+  url: String!
+}
+
+input DocumentInput {
+  type: String!
+  url: String!
+}
+
+input DraftListingData {
+  agreementFee: Float = 0
+  agreementId: Float
+  area: String!
+  availableDate: String!
+  batch: String!
+  bathroom: Int!
+  bedroom: Int!
+  block: String!
+  buildingName: String!
+  countryCode: String
+  depositMonth: String!
+  electricityBill: String!
+  facilities: [String!]!
+  floor: String!
+  floorLevel: String!
+  fullAddress: String!
+  fullUnitNo: String!
+  furnishType: String!
+  furnishings: [String!]!
+  hasTransport: Boolean!
+  latitude: Float!
+  listingStatus: ListingStatus = Pending
+  longitude: Float!
+  monthlyRental: Float!
+  nearby: NearbyPlace
+  notes: String!
+  parking: Int!
+  phoneNumber: String
+  photoUrls: [String!]!
+  propertyGroupType: String!
+  propertyType: String!
+  rawVideos: [String!]
+  rawVirtualTourPhotos: [String!]
+  renNumber: String!
+  rules: [String!]!
+  sqft: Float!
+  stampingFee: Float = 0
+  state: String!
+  subArea: String!
+  supplierName: String
+  supplierPhotos: [String!]
+  supplierType: String
+  supplierVideoUrl: String
+  supplierVideos: [String!]
+  transportOptions: [String!]!
+  unitNo: String!
+  unitPropertyType: String!
+  unitType: String = "entire_unit"
+  utilityDeposit: String!
+  videosURL: [String!]!
+  virtualTourEditUrl: String
+  virtualTourUrl: String!
+  waterBill: String!
+  wifi: String!
+}
+
+type DraftListingDto {
+  address: AddressDto!
+  adminPhotographer: AdminUser
+  adminPhotographerId: String
+  adminProcessor: AdminUser
+  adminProcessorId: String
+  agreement: ESignAgreement
+  agreementId: Float
+  area: String
+  assets: [String!]
+  availableAt: DateISO
+  bathroom: Float
+  bathroomType: BathroomType
+  bedroom: Float
+  canPublish: Boolean
+  carpark: Float
+  createdAt: DateTime
+  currency: String
+  depositMonth: Float
+  depositValue: Float
+  electricityBill: UtilityIncluded
+  firstPublish: DateTime
+  floorLevel: FloorLevel
+  furnishType: FurnishType
+  furnishing: [Furnishing!]
+  genderRule: GenderRule
+  houseRules: [HouseRule!]
+  id: ID!
+  imageHash: String
+  isDepositAbsolute: Boolean
+  isDuplicated: Boolean
+  isUtilityDepositAbsolute: Boolean
+  lastCheckedOn: DateTime
+  listing: ListingDto
+  listingId: Int
+  minRentalAmount: Float
+  notes: String
+  owner: User
+  ownerId: String
+  photoIndicator: MediaIndicatorFlags
+  photoUrls: [CaptionedUrl!]
+  photographer: PhotographerDto
+  photographerNote: String
+  pois: [POIDto!]
+  price: Float
+  processorNote: String
+  property: PropertyDto
+  propertyId: String
+  rawVideosUrls: [CaptionedUrl!]
+  rawVirtualTourUrls: [CaptionedUrl!]
+  rePublish: [DateTime!]
+  roomFurnishing: [Furnishing!]
+  roomType: RoomType
+  scheduledPhotographyDateTime: DateTime
+  scheduledPhotographyDuration: Float
+  sharedFurnishing: [Furnishing!]
+  squareFeet: Float
+  stampingFee: Float
+  status: DraftListingStatus
+  supplierNote: String
+  supplierPhotos: [CaptionedUrl!]
+  supplierVideoUrl: String
+  supplierVideos: [CaptionedUrl!]
+  tags: [String!]
+  tenancyAgreementFee: Float
+  tenancyMonth: Float
+  topFeatures: [TopFeature!]
+  unitPropertyType: UnitPropertyType
+  unitType: UnitType
+  updatedAt: DateTime
+  uriFragment: String
+  utilities: [UtilityType!]
+  utilityDeposit: Float
+  utilityDepositValue: Float
+  verified: Boolean!
+  videoIndicator: MediaIndicatorFlags
+  videoUrls: [CaptionedUrl!]
+  viewingAssistance: String
+  virtualTour: String
+  virtualTourEditUrl: String
+  virtualTourIndicator: MediaIndicatorFlags
+  waterBill: UtilityIncluded
+  wifi: Wifi
+}
+
+enum DraftListingSortColumns {
+  Area
+  BathRoom
+  BedRoom
+  CreatedAt
+  ID
+  Photographer
+  PhotographyDate
+  PhotographyTime
+  Price
+  Processor
+  PropertyName
+  Sqft
+  SupplierContact
+  SupplierName
+  SupplierType
+  UnitType
+  UpdatedAt
+}
+
+enum DraftListingStatus {
+  OnHold
+  PhotographyAssigned
+  PhotographyCompleted
+  PhotographyPending
+  ProcessingComplete
+  ProcessingPending
+  ProcessorAssigned
+  SendToPhotography
+}
+
+type ESignAgreement {
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  id: ID!
+  name: String!
+  templateId: String!
+  updatedAt: DateTime!
+}
+
+enum Facility {
+  ATM
+  BBQ
+  BadmintonCourt
+  Cafe
+  Concierge
+  ConvenienceStore
+  Dobby
+  Elevator
+  GYM
+  JoggingTrack
+  LaundryRoom
+  Nursery
+  Parking
+  Playground
+  Pool
+  PublicBallroom
+  PublicEventSpace
+  Restaurant
+  Salon
+  Sauna
+  Security
+  ShuttleBus
+  Tennis
+  VisitorParking
+}
+
+enum FilterAdjustment {
+  adjusted
+  none
+}
+
+enum FilterLatePaymentFee {
+  latePaymentFeeApplied
+  none
+}
+
+enum FilterPaymentStatus {
+  overdue
+  paid
+  pending
+}
+
+enum FloorLevel {
+  HighFloor
+  LowFloor
+  MediumFloor
+}
+
+enum FurnishType {
+  Fully
+  None
+  Partly
+}
+
+enum Furnishing {
+  AirConditioner
+  Balcony
+  Bathtub
+  Bed
+  BedFrame
+  Bookshelf
+  Chairs
+  Curtain
+  Desk
+  DiningTable
+  DishWasher
+  Dryer
+  ElectricStove
+  Fans
+  FireExtinguisher
+  Fridge
+  GasStove
+  InductionStove
+  KitchenCabinet
+  Mattress
+  Microwave
+  Oven
+  Refrigerator
+  Shower
+  SmokeDetector
+  Sofa
+  Table
+  Television
+  Wardrobe
+  WashingMachine
+  WaterFilter
+  WaterHeater
+}
+
+enum GenderRule {
+  FemaleOnly
+  MaleOnly
+  MixedGender
+}
+
+type GenerateCsv {
+  url: String!
+}
+
+type GenerateCsvAsync {
+  text: String!
+}
+
+input GetAdminUsersArgs {
+  role: [AdminUserRole!]
+}
+
+input GetMoveOutDateInput {
+  moveInDate: String!
+  tenancyPeriod: Float!
+  unitType: UnitType!
+}
+
+enum HouseRule {
+  Cooking
+  Pets
+  Smoking
+}
+
+type LandlordProfile {
+  approach: String
+  businessDevelopmentPIC: String
+  campaign: String
+  companyInstitution: String
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  firstName: String
+  focusArea: String
+  focusType: String
+  id: String!
+  isOtherBusinessDevelopmentPIC: Boolean
+  isOtherLandlordBankName: Boolean
+  isOtherMedium: Boolean
+  isOtherSource: Boolean
+  landlordBankAccountNumber: String
+  landlordBankName: String
+  landlordPayeeName: String
+  lastName: String
+  medium: String
+  nationality: String
+  occupation: String
+  referrer: String
+  source: String
+  updatedAt: DateTime!
+}
+
+type Leasing {
+  address: Address!
+  booking: Booking
+  contractEnd: String!
+  contractLink: String
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  depositMonth: Float
+  id: ID!
+  listing: ListingDto!
+  movedInDate: String!
+  price: Float
+  stampedTenancyAgreementUrl: String
+  status: String!
+  updatedAt: DateTime!
+  user: User!
+  utilityDeposit: Float
+}
+
+type LeasingSignedUrl {
+  signedUrl: String!
+}
+
+input LeasingUrl {
+  url: String!
+}
+
+type ListingAnalyticDTO {
+  favourites: Int
+  pageView: Int
+  virtualTourView: Int
+}
+
+input ListingData {
+  agreementFee: Float = 0
+  agreementId: Float
+  area: String!
+  availableDate: String!
+  batch: String!
+  bathroom: Int!
+  bedroom: Int!
+  block: String!
+  buildingName: String!
+  depositMonth: String!
+  electricityBill: String!
+  facilities: [String!]!
+  floor: String!
+  floorLevel: String!
+  fullAddress: String!
+  fullUnitNo: String!
+  furnishType: String!
+  furnishings: [String!]!
+  hasTransport: Boolean!
+  latitude: Float!
+  longitude: Float!
+  monthlyRental: Float!
+  nearby: NearbyPlace
+  notes: String!
+  parking: Int!
+  photoUrls: [String!]!
+  propertyGroupType: String!
+  propertyType: String!
+  renNumber: String!
+  rules: [String!]!
+  sqft: Float!
+  stampingFee: Float = 0
+  state: String!
+  subArea: String!
+  transportOptions: [String!]!
+  unitNo: String!
+  unitPropertyType: String!
+  unitType: String = "entire_unit"
+  utilityDeposit: String!
+  videosURL: [String!]!
+  virtualTourUrl: String!
+  waterBill: String!
+  wifi: String!
+}
+
+type ListingDto {
+  address: AddressDto!
+  agreement: ESignAgreement
+  agreementId: Float
+  analytics: ListingAnalyticDTO
+  area: String
+  availableAt: DateISO
+  bathroom: Float
+  bathroomType: BathroomType
+  bedroom: Float
+  captionedPhotoUrls: [CaptionedUrl!]
+  captionedVideoUrls: [CaptionedUrl!]
+  carpark: Float
+  createdAt: DateTime
+  currency: String
+  depositMonth: Float
+  depositValue: Float
+  electricityBill: UtilityIncluded
+  firstPublish: DateTime
+  floorLevel: FloorLevel
+  furnishType: FurnishType
+  furnishing: [Furnishing!]
+  genderRule: GenderRule
+  houseRules: [HouseRule!]
+  id: ID!
+  isDepositAbsolute: Boolean
+  isDuplicated: Boolean
+  isUtilityDepositAbsolute: Boolean
+  lastCheckedOn: DateTime
+  minRentalAmount: Float
+  notes: String
+  owner: User
+  ownerId: String
+  photoUrls: [String!]
+  photographer: PhotographerDto
+  pois: [POIDto!]
+  price: Float
+  property: PropertyDto
+  propertyId: String
+  rePublish: [DateTime!]
+  roomFurnishing: [Furnishing!]
+  roomType: RoomType
+  scheduledPhotographyDateTime: DateTime
+  scheduledPhotographyDuration: Float
+  sharedFurnishing: [Furnishing!]
+  squareFeet: Float
+  stampingFee: Float
+  status: ListingStatus!
+  supplierPhotos: [CaptionedUrl!]
+  supplierVideoUrl: String
+  tags: [String!]
+  tenancyAgreementFee: Float
+  tenancyMonth: Float
+  topFeatures: [TopFeature!]
+  unitPropertyType: UnitPropertyType
+  unitType: UnitType
+  updatedAt: DateTime
+  uriFragment: String
+  user: User!
+  utilities: [UtilityType!]
+  utilityDeposit: Float
+  utilityDepositValue: Float
+  verified: Boolean!
+  videoUrls: [String!]
+  viewingAssistance: String
+  virtualTour: String
+  waterBill: UtilityIncluded
+  wifi: Wifi
+}
+
+type ListingFavourite {
+  id: ID!
+  listing: ListingDto!
+  user: User!
+}
+
+type ListingPerformanceData {
+  favouriteCount: Int
+  pageView: Int
+  virtualTourView: Int
+}
+
+enum ListingStatus {
+  Expired
+  ExpiredAp
+  ExpiredBp
+  Invalid
+  Live
+  Occupied
+  Pending
+  Reserved
+}
+
+type LocationDto {
+  address: String!
+  country: String!
+  countryCode: String!
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  description: String
+  facilities: [Facility!]
+  facilityVideos: [String!]
+  facilityVirtualTour: String
+  hasPublicTransport: Boolean
+  id: ID!
+  latitude: Float
+  level: String!
+  listingCount: Int
+  longitude: Float
+  name: String!
+  parentId: Int
+  parents: [ParentDto!]!
+  photoUrls: [String!]
+  pois: [POIDto!]
+  postcode: String
+  properties: [PropertyDto!]
+  propertyGroupType: PropertyGroupType
+  propertyId: Int
+  propertyType: LocationPropertyType
+  publicTransportOptions: [PublicTransportOption!]
+  slug: String!
+  state: String
+  streetAddress: String
+  updatedAt: DateTime!
+}
+
+enum LocationLevel {
+  Area
+  Country
+  Property
+  State
+  SubArea
+}
+
+enum LocationPropertyType {
+  Apartment
+  Bungalow
+  Condominium
+  Flat
+  SemiDetached
+  ServicedResidence
+  TerraceHouse
+  Townhouse
+}
+
+input LoginAdminUserDto {
+  password: String!
+  username: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type MarketingCampaign {
+  buttonTitle: String
+  campaignLink: String
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  description: String
+  endDate: String!
+  id: ID!
+  name: String!
+  photoUrls: [String!]
+  slug: String!
+  startDate: String!
+  status: CampaignStatus!
+  updatedAt: DateTime!
+}
+
+type MarketingCampaignDto {
+  buttonTitle: String
+  campaignLink: String
+  createdAt: DateTime
+  deletedAt: DateTime
+  description: String
+  endDate: String
+  id: ID
+  name: String
+  photoUrls: [String!]
+  slug: String
+  startDate: String
+  status: CampaignStatus
+  updatedAt: DateTime
+}
+
+enum MediaIndicatorFlags {
+  Blue
+  Green
+  Grey
+  Orange
+}
+
+type Mutation {
+  addFavouriteListing(id: Float!): ListingFavourite!
+  adminLogin(data: LoginAdminUserDto!): AdminAuth!
+  applyPromoCodeAndPay(data: ApplyPromoCodeAndPayInput!): BookingPaymentLink!
+  approveBooking(
+    bookingId: Int!
+    sendLandlordEmail: Boolean = false
+    sendTenantEmail: Boolean = false
+  ): Booking!
+  bulkUpdate(
+    data: UpdateDraftListingInput!
+    ids: [Int!]
+    listingIds: [Int!]
+  ): [DraftListingDto!]!
+  calculateBookingInitalPrices(
+    bookingId: Float!
+    price: Float!
+  ): [PaymentItem!]!
+  changeAdminPassword(sub: String!): AdminAuth!
+  completeAdminPaymentRecord(
+    data: CompletePaymentRecordAndCreateAdjustmentInput!
+  ): PaymentDto!
+  createAdminDraftListing(data: CreateDraftListingInput!): DraftListingDto!
+  createAdminListing(data: CreateAdminListingInput!): ListingDto!
+  createAdminMarketingCampaign(
+    data: CreateAdminMarketingCampaignInput!
+  ): MarketingCampaign!
+  createAdminPromotion(data: CreateAdminPromotionInput!): Promotion!
+  createBooking(data: CreateBookingInput!): Booking!
+  createContactForm(data: ContactFormDto!): ContactForm!
+  createDraftListing(data: CreateDraftListingInput!): DraftListingDto!
+  createListing(data: CreateListingInput!): ListingDto!
+  createLocation(data: CreateLocationInput!): LocationDto!
+  createOrUpdateBooking(data: CreateOrUpdateBookingInput!): Booking!
+  createOtpChallenge(countryCode: String!, phoneNumber: String!): OtpFragment!
+  createSearchRequestForm(data: SearchRequestFormDto!): SearchRequestForm!
+  createTag(data: CreateTagInput!): TagDto!
+  createUser(data: CreateUserInput!): User!
+  createUserFromCSV(data: CSVUserInput!): User!
+  csvUpload(data: ListingData!): CreatedListing!
+  csvUploadV2(data: DraftListingData!): DraftListingDto!
+  deleteAdminPaymentAdjustment(id: String!): PaymentAdjustmentDto!
+  deleteLateCharge(id: String!): PaymentAdjustmentDto!
+  deleteLocation(id: Float!): LocationDto!
+  deleteTag(id: Float!): TagDto!
+  deleteUser(id: String!): Boolean!
+  downloadPromotionCode(data: PromoCodeInputUrl!): PromoCodeSignedUrl!
+  forgotAdminPassword(email: String!): StatusResponse!
+  forgotPassword(email: String!): StatusResponse!
+  generateAdminPromoCodes(
+    data: CreateAdminPromotionCodeInput!
+    promotionID: Float!
+  ): Promotion!
+  generateAllCsv: GenerateCsv!
+  generateLocationCsvAsync(email: String!): GenerateCsvAsync!
+  generateSignedUrl(input: UploadFileInput!): SignedUrl!
+  getBookingCreditCheck(id: Float!): BookingCreditReport!
+  getLeasingSignedUrl(data: LeasingUrl!): LeasingSignedUrl!
+  initMandatePayment(PaymentMandateInput: PaymentMandateInput!): PaymentLink!
+  initOneOffPayment(PaymentInput: PaymentInput!): PaymentLink!
+  login(data: LoginInput!): Auth!
+  logout: StatusResponse!
+  publishDraftListing(id: Float, listingId: Float): DraftListingDto!
+  refreshToken(token: String!): Auth!
+  register(data: RegisterWithOtpInput!): Auth!
+  rejectBooking(id: Float!): Booking!
+  removeFavouriteListing(id: Float!): StatusResponse!
+  resetAdminPassword(forgotToken: String!, newPassword: String!): AdminAuth!
+  resetPassword(
+    forgotToken: String!
+    newPassword: String!
+    resetType: String!
+  ): Auth!
+  submitOtpChallenge(
+    countryCode: String!
+    id: String!
+    otpToken: String!
+    phoneNumber: String!
+  ): OtpFragment!
+  updateAdminBooking(data: UpdateBookingInput!, id: Float!): Booking!
+  updateAdminDraftListing(
+    data: UpdateDraftListingInput!
+    id: Float
+    listingId: Float
+  ): DraftListingDto!
+  updateAdminListing(data: UpdateAdminListingInput!, id: Float!): ListingDto!
+  updateAdminMarketingCampaign(
+    data: UpdateAdminMarketingCampaignInput!
+    id: Float!
+  ): MarketingCampaign!
+  updateAdminPaymentAdjustment(
+    data: UpdatePaymentAdjustmentInput!
+    id: String!
+  ): PaymentAdjustmentDto!
+  updateAdminPaymentRecord(
+    data: UpdatePaymentRecordAndCreateAdjustmentInput!
+  ): PaymentDto!
+  updateAdminPromotion(data: UpdateAdminPromotionInput!, id: Float!): Promotion!
+  updateBookingCollection(
+    bookingId: Int!
+    collectionStatus: Boolean!
+    collectionType: BookingCollectionType!
+  ): Booking!
+  updateBookingMoveInTime(date: DateTime!, id: Float!): Booking!
+  updateLeasing(data: UpdateLeasingInput!, id: Float!): Leasing!
+  updateListing(data: UpdateListingInput!, id: Float!): ListingDto!
+  updateLocation(data: UpdateLocationInput!, id: Float!): LocationDto!
+  updatePaymentDueDateDay(data: UpdatePaymentDueDateDayInput!): [PaymentDto!]!
+  updateSearchRequestForm(
+    data: SearchRequestFormDto!
+    id: Float!
+  ): SearchRequestForm!
+  updateTag(data: UpdateTagInput!, id: Float!): TagDto!
+  updateUser(user: UpdateUserInput!): User!
+  updateUserForAdmin(data: UpdateUserInput!, id: String!): User!
+  updateUserPassword(id: String!, newPassword: String!): User!
+}
+
+input NearbyPlace {
+  distance: String!
+  name: String!
+  type: String!
+}
+
+type OtpFragment {
+  id: ID!
+  status: OtpStatus!
+}
+
+enum OtpStatus {
+  fail
+  pending
+  success
+}
+
+type POIDto {
+  distance: Float
+  duration: Float
+  latitude: Float
+  longitude: Float
+  name: String!
+  type: POIType!
+}
+
+input POIInput {
+  distance: Float
+  duration: Float
+  latitude: Float
+  longitude: Float
+  name: String!
+  type: POIType!
+}
+
+enum POIType {
+  Accessibility
+  Bank
+  Monorail
+  Park
+  PetrolStation
+  School
+  ShoppingMall
+  Supermarket
+  Train
+}
+
+type PaginatationMetadata {
+  currentPage: Int!
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  itemCount: Int!
+  pageCount: Int!
+  perPage: Int!
+}
+
+type PaginatedAdminListing {
+  items: [ListingDto!]
+  metadata: PaginatationMetadata!
+}
+
+type PaginatedAdminPromotion {
+  items: [Promotion!]
+  metadata: PaginatationMetadata!
+}
+
+type PaginatedAdminTag {
+  items: [TagDto!]
+  metadata: PaginatationMetadata!
+}
+
+type PaginatedBooking {
+  items: [Booking!]
+  metadata: PaginatationMetadata!
+}
+
+type PaginatedDraftListing {
+  items: [DraftListingDto!]
+  metadata: PaginatationMetadata!
+}
+
+type PaginatedLeasing {
+  items: [Leasing!]
+  metadata: PaginatationMetadata!
+}
+
+type PaginatedLocation {
+  items: [LocationDto!]
+  metadata: PaginatationMetadata!
+}
+
+type PaginatedMarketingCampaignListing {
+  items: [MarketingCampaign!]
+  metadata: PaginatationMetadata!
+}
+
+type PaginatedPayment {
+  items: [PaymentRecordDto!]
+  metadata: PaginatationMetadata!
+}
+
+type PaginatedUser {
+  items: [User!]
+  metadata: PaginatationMetadata!
+}
+
+type ParentDto {
+  country: String!
+  countryCode: String!
+  id: ID!
+  level: Int!
+  name: String!
+  parentId: Int!
+  slug: String!
+}
+
+enum PaymentAdjustmentAction {
+  adjustment
+  complete
+}
+
+type PaymentAdjustmentDto {
+  action: PaymentAdjustmentAction
+  amount: Float
+  attachmentUrls: [String!]
+  bookingId: Float
+  createdAt: DateTime
+  deletedAt: DateTime
+  id: String!
+  operations: PaymentAdjustmentOperation
+  payment: PaymentDto
+  paymentId: String
+  remarks: String
+  source: PaymentSource
+  toDisplayAlteration: String
+  toDisplayAmount: String
+  toDisplaySource: String
+  type: PaymentAdjustmentType!
+  updatedAt: DateTime
+  userId: String
+}
+
+enum PaymentAdjustmentOperation {
+  add
+  deduct
+}
+
+enum PaymentAdjustmentType {
+  deposit
+  initial
+  lateFee
+  rental
+}
+
+type PaymentDto {
+  amount: Float!
+  booking: Booking
+  createdAt: DateTime
+  currency: String!
+  discountAmount: Float!
+  dueDate: DateTime
+  id: String!
+  initialAmount: Float!
+  isProrated: Boolean
+  lateCharge: Boolean!
+  lateChargeAmount: Float!
+  paidOn: DateTime
+  paymentAdjustments: [PaymentAdjustmentDto!]!
+  paymentFpxs: [PaymentFpxDto!]
+  promotionCode: PromotionCode!
+  proratedAmount: Float
+  purpose: PaymentPurpose!
+  source: PaymentSource
+  status: PaymentStatus!
+  toDisplaySource: String
+  updatedAt: DateTime
+}
+
+type PaymentFpxDto {
+  createdAt: DateTime
+  id: String!
+  payment: PaymentDto!
+  referenceCode: String!
+  responseMessage: String
+  status: PaymentStatus!
+  updatedAt: DateTime
+}
+
+input PaymentInput {
+  bankCode: String!
+  bankId: Float!
+  paymentId: String!
+}
+
+type PaymentItem {
+  amount: Float!
+  discountAmount: Float!
+  dueDate: DateTime
+  initialAmount: Float
+  isProrated: Boolean
+  lateCharge: Boolean!
+  lateChargeAmount: Float!
+  paidOn: DateTime
+  paymentAdjustments: [PaymentAdjustmentDto!]
+  paymentId: String
+  paymentStep: Float
+  proratedAmount: Float
+  proratedItem: ProratedDto
+  status: PaymentStatus!
+  toDisplayAmount: String
+  toDisplayInitialAmount: String
+  type: PaymentItemType!
+}
+
+enum PaymentItemType {
+  advanceRental
+  depositFee
+  endRental
+  miscellaneousDeposit
+  rental
+  rentalDeposit
+  sstAmount
+  sstPercent
+  stampingFee
+  tenancyAgreementFee
+  tenancyAgreementFeeAndStampingFee
+  utilityDeposit
+}
+
+type PaymentLink {
+  url: String!
+}
+
+input PaymentMandateInput {
+  bankCode: String!
+  bankId: Float!
+  bookingId: Float!
+}
+
+enum PaymentPurpose {
+  deposit
+  initial
+  mandate
+  rental
+}
+
+type PaymentRecordDto {
+  beforeDiscountAmount: Float!
+  booking: Booking
+  completePaymentAdjustment: PaymentAdjustmentDto
+  createdAt: DateTime
+  discountAmount: Float!
+  dueDate: DateTime
+  id: String!
+  initialAmount: Float!
+  lateCharge: Boolean!
+  lateChargeAmount: Float!
+  lateFeeAdjustment: PaymentAdjustmentDto
+  latestPaymentAdjustment: PaymentAdjustmentDto
+  netAmount: Float
+  paidOn: DateTime
+  paymentAdjustments: [PaymentAdjustmentDto!]
+  paymentFpxs: [PaymentFpxDto!]
+  purpose: PaymentPurpose!
+  source: PaymentSource
+  status: PaymentStatus!
+  toDisplayBeforeDiscountAmount: String!
+  toDisplayDiscountAmount: String!
+  toDisplayInitialAmount: String
+  toDisplayLateChargeAmount: String
+  toDisplayNetAmount: String
+  toDisplaySource: String
+  toDisplayTotalAmount: String
+  totalAmount: Float
+  updatedAt: DateTime
+}
+
+enum PaymentSource {
+  directDebit
+  fpx
+  manual
+  manualToInstahome
+  manualToLandlord
+}
+
+enum PaymentStatus {
+  cancel
+  fail
+  pending
+  success
+}
+
+type PhotographerDto {
+  avatarUrl: String!
+  id: ID!
+  name: String!
+}
+
+input PromoCodeInputUrl {
+  key: String!
+  name: String!
+  url: String!
+}
+
+type PromoCodeSignedUrl {
+  signedUrl: String!
+}
+
+type PromoCodesUrl {
+  key: String!
+  name: String!
+  url: String!
+}
+
+type Promotion {
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  description: String
+  discounts: [Discount!]!
+  endDate: String!
+  id: ID!
+  name: String!
+  promoCodesUrls: [PromoCodesUrl!]
+  slug: String!
+  startDate: String!
+  status: PromotionStatus!
+  updatedAt: DateTime!
+}
+
+type PromotionCode {
+  booking: Booking!
+  code: String!
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  id: ID!
+  promotion: Promotion!
+  status: PromotionCodeStatus!
+  updatedAt: DateTime!
+  usageCount: Float!
+  usageLimit: Float!
+}
+
+input PromotionCodeInput {
+  code: String
+}
+
+enum PromotionCodeStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum PromotionStatus {
+  ACTIVE
+  INACTIVE
+  PENDING
+}
+
+type PropertyDto {
+  createdAt: DateTime
+  deletedAt: DateTime
+  facilities: [Facility!]
+  facilityVideos: [String!]
+  facilityVirtualTour: String
+  hasPublicTransport: Boolean!
+  id: ID!
+  listings: [ListingDto!]
+  location: LocationDto
+  locationId: String
+  pois: [POIDto!]
+  publicTransportOptions: [PublicTransportOption!]
+  updatedAt: DateTime
+}
+
+enum PropertyGroupType {
+  Highrise
+  Landed
+}
+
+type ProratedDto {
+  amount: Float
+  remarks: String
+  toDisplayAlteration: String
+  toDisplayAmount: String
+}
+
+enum PublicTransportOption {
+  LRT
+  MRT
+  Monorail
+  None
+}
+
+type Query {
+  getActiveMarketingCampaign(countryCode: String!): MarketingCampaignDto!
+  getAdminBooking(id: Float!): Booking!
+  getAdminBookingPaymentDay(id: Float!): BookingPaymentDayDto!
+  getAdminBookings(
+    bookingType: [BookingCollectionType!]
+    id: String
+    moveInDateEnd: DateTime
+    moveInDateSort: SortOrder
+    moveInDateStart: DateTime
+    page: Int
+    perPage: Int = 30
+    phoneNumber: String
+    status: [BookingStatus!]
+    submittedSort: SortOrder
+    tenantName: String
+  ): PaginatedBooking!
+  getAdminDraftListingDetail(id: Float, listingId: Float): DraftListingDto!
+  getAdminDraftListings(
+    adminPhotographerId: String
+    adminProcessorId: String
+    area: String
+    bedrooms: Int
+    canPublish: Boolean
+    dateEnd: DateTime
+    dateStart: DateTime
+    fullUnitNumber: String
+    id: String
+    listingId: Int
+    listingStatus: ListingStatus
+    mediaStatus: DraftListingStatus
+    name: String
+    page: Int = 1
+    perPage: Int = 30
+    photoIndicator: [MediaIndicatorFlags!]
+    sortColumn: DraftListingSortColumns
+    sortDirection: SortDirections = Desc
+    supplierContact: String
+    supplierName: String
+    unitNo: String
+    updatedAtEnd: DateTime
+    updatedAtStart: DateTime
+    user: String
+    videoIndicator: [MediaIndicatorFlags!]
+    virtualTourIndicator: [MediaIndicatorFlags!]
+  ): PaginatedDraftListing!
+  getAdminListingDetail(id: Float!): ListingDto!
+  getAdminListings(
+    area: String
+    bedrooms: Int
+    dateEnd: DateTime
+    dateStart: DateTime
+    fullUnitNumber: String
+    id: String
+    name: String
+    page: Int
+    perPage: Int = 30
+    status: ListingStatus
+    unitNo: String
+    user: String
+  ): PaginatedAdminListing!
+  getAdminMarketingCampaign(id: Float!): MarketingCampaign!
+  getAdminMarketingCampaigns(
+    page: Int
+    perPage: Int = 30
+  ): PaginatedMarketingCampaignListing!
+  getAdminMe: AdminUser!
+  getAdminPaymentRecordByPayment(paymentId: String!): PaymentRecordDto!
+  getAdminPaymentRecords(
+    adjustment: FilterAdjustment
+    bookingId: Float
+    bookingType: [BookingCollectionType!]
+    buildingName: String
+    dueDateEnd: DateTime
+    dueDateStart: DateTime
+    latePaymentFee: FilterLatePaymentFee
+    orderNumber: String
+    page: Int
+    paymentStatus: FilterPaymentStatus!
+    perPage: Int = 30
+    sortDueDate: SortOrder
+    sortPaidOn: SortOrder
+    tenantContact: String
+    tenantName: String
+    unitNo: String
+  ): PaginatedPayment!
+  getAdminPaymentRecordsByBooking(bookingId: Float!): [PaymentRecordDto!]!
+  getAdminPromoCodeUrls(id: Float!): [PromoCodesUrl!]!
+  getAdminPromotion(id: Float!): Promotion!
+  getAdminPromotions(page: Int, perPage: Int = 30): PaginatedAdminPromotion!
+  getAdminUsers(args: GetAdminUsersArgs!): [AdminUser!]!
+  getAgentDraftListingsPaginated(
+    page: Int
+    perPage: Int = 30
+    user: String
+  ): PaginatedDraftListing!
+  getAgentListingPerformance: ListingPerformanceData!
+  getAgentListingsPaginated(
+    page: Int
+    perPage: Int = 30
+    user: String
+  ): PaginatedAdminListing!
+  getApproaches: [String!]!
+  getAreaBySlug(area: String!, state: String!): LocationDto!
+  getAreas(stateId: Int): [LocationDto!]!
+  getAreasByState(state: String!): [LocationDto!]!
+  getAvailableAreas: [LocationDto!]!
+  getBDPersonsInCharge: [String!]!
+  getBanks(method: BankMethod!): [Bank!]!
+  getBooking(id: Float!): Booking!
+  getBookingDepositPayment(
+    bookingId: Float!
+    promotionCode: String
+  ): [PaymentItem!]!
+  getBookingInitialPayment(
+    bookingId: Float!
+    promotionCode: String
+  ): [PaymentItem!]!
+  getBookings: [BookingDto!]!
+  getCountries: [LocationDto!]!
+  getCountryBySlug(country: String!): LocationDto!
+  getFavouriteListings: [ListingFavourite!]!
+  getLandlordBankNames: [String!]!
+  getLanlordSigningDetails(token: String!): SigningDetails!
+  getLeasingByBookingnListing(bookingId: Float!, listingId: Float!): Leasing!
+  getLeasings(page: Int, perPage: Int = 30): PaginatedLeasing!
+  getListingByType(propertyType: String!): [ListingDto!]!
+  getListingInitialPayment(
+    listingId: Float!
+    moveInDate: String!
+    promotionCode: String
+  ): [PaymentItem!]!
+  getListings: [ListingDto!]!
+  getLocation(id: Float!): LocationDto!
+  getLocationAreasPagination(
+    id: String
+    name: String
+    page: Int
+    perPage: Int = 30
+    propertyType: PropertyGroupType
+  ): PaginatedLocation!
+  getLocationCountriesPagination(
+    id: String
+    name: String
+    page: Int
+    perPage: Int = 30
+    propertyType: PropertyGroupType
+  ): PaginatedLocation!
+  getLocationProperties: [LocationDto!]!
+  getLocationPropertiesPagination(
+    id: String
+    name: String
+    page: Int
+    perPage: Int = 30
+    propertyType: PropertyGroupType
+  ): PaginatedLocation!
+  getLocationStatesPagination(
+    id: String
+    name: String
+    page: Int
+    perPage: Int = 30
+    propertyType: PropertyGroupType
+  ): PaginatedLocation!
+  getLocationSubAreasPagination(
+    id: String
+    name: String
+    page: Int
+    perPage: Int = 30
+    propertyType: PropertyGroupType
+  ): PaginatedLocation!
+  getMediums: [String!]!
+  getMoveOutDate(data: GetMoveOutDateInput!): String!
+  getPromotionWithCode(code: String!): Promotion!
+  getPropertiesByArea(area: String!, state: String!): [PropertyDto!]!
+  getPropertyByName(propertyName: String!, propertyType: String!): PropertyDto!
+  getRentalPayments(bookingId: Float!, status: PaymentStatus): [PaymentItem!]!
+  getSources: [String!]!
+  getSpecificDraftListing(id: Float, listingId: Float): DraftListingDto!
+  getSpecificListing(id: Float!): ListingDto!
+  getStateBySlug(state: String!): LocationDto!
+  getStates: [LocationDto!]!
+  getStatesByCountry(country: String!): [LocationDto!]!
+  getSubAreas(areaId: Int): [LocationDto!]!
+  getTag(id: Float!): TagDto!
+  getTags: [TagDto!]!
+  getTagsPaginated(
+    id: String
+    name: String
+    page: Int
+    perPage: Int = 30
+  ): PaginatedAdminTag!
+  getTenancyAgreements: [ESignAgreement!]!
+  getUser(id: String!): UserProfileOutput!
+  getUserProfile: User!
+  getUserResume(id: Float!): UserResumeDto!
+  getUsers(
+    dateEnd: DateTime
+    dateStart: DateTime
+    email: String
+    name: String
+    page: Int
+    perPage: Int = 30
+    phone: String
+    renTag: String
+    role: UserRole
+  ): PaginatedUser!
+  getUsersForDropDown(
+    email: String
+    name: String
+    phone: String
+    renTag: String
+  ): [User!]!
+  landlordListingSearchFromIndex(
+    area: String
+    furnishing: [FurnishType!]
+    hasPublicTransport: Boolean
+    hasVirtualTour: Boolean
+    houseRules: [HouseRule!]
+    latitude: Float
+    locationId: String
+    locationType: LocationLevel = Property
+    longitude: Float
+    maxPrice: Int
+    minPrice: Int
+    numBathroom: [RoomCount!]
+    numBedroom: [RoomCount!]
+    page: Int
+    perPage: Int = 30
+    propertyGroupType: [PropertyGroupType!]
+    propertyType: [LocationPropertyType!]
+    publicTransportOptions: [PublicTransportOption!]
+    requiredDeposit: [RequiredDeposit!]
+    searchNameQuery: String
+    sort: Sort
+    unitPropertyType: [UnitPropertyType!]
+    unitType: [UnitType!]
+    utilityDeposit: [RequiredDeposit!]
+  ): SearchPaginatedListing!
+  listingSearchFromIndex(
+    area: String
+    furnishing: [FurnishType!]
+    hasPublicTransport: Boolean
+    hasVirtualTour: Boolean
+    houseRules: [HouseRule!]
+    latitude: Float
+    locationId: String
+    locationType: LocationLevel = Property
+    longitude: Float
+    maxPrice: Int
+    minPrice: Int
+    numBathroom: [RoomCount!]
+    numBedroom: [RoomCount!]
+    page: Int
+    perPage: Int = 30
+    propertyGroupType: [PropertyGroupType!]
+    propertyType: [LocationPropertyType!]
+    publicTransportOptions: [PublicTransportOption!]
+    requiredDeposit: [RequiredDeposit!]
+    searchNameQuery: String
+    sort: Sort
+    unitPropertyType: [UnitPropertyType!]
+    unitType: [UnitType!]
+    utilityDeposit: [RequiredDeposit!]
+  ): SearchPaginatedListing!
+  locationKeywordSuggestion(
+    page: Int
+    perPage: Int = 30
+    search: String
+  ): SearchPaginatedLocation!
+}
+
+input RegisterWithOtpInput {
+  companyInstitution: String
+  countryCode: String!
+  email: String!
+  firstName: String
+  lastName: String
+  name: String
+  otpChallengeID: String!
+  otpToken: String!
+  password: String!
+  phoneNumber: String!
+  renTag: String
+  role: UserRole!
+}
+
+enum RequiredDeposit {
+  HalfMonth
+  OneMonth
+  ThreeMonths
+  TwoMonths
+}
+
+enum RoomCount {
+  Five
+  Four
+  MoreThan5
+  One
+  Three
+  Two
+}
+
+enum RoomType {
+  Master
+  Medium
+  Private
+  Shared
+  Small
+}
+
+type SearchListing {
+  _geoloc: Vector
+  address: AddressDto!
+  area: String
+  availableAt: DateTime
+  bathroom: Float
+  bedroom: Float
+  carpark: Float
+  currency: String
+  depositMonth: Float
+  electricityBill: String
+  facilities: [Facility!]
+  floorLevel: FloorLevel
+  furnishType: String
+  furnishing: [Furnishing!]
+  genderRule: String
+  hasPublicTransport: Boolean!
+  houseRules: [HouseRule!]
+  id: ID!
+  latitude: Float
+  location: LocationDto
+  longitude: Float
+  notes: String
+  objectID: ID
+  ownerId: String
+  photoUrls: [String!]
+  pois: [POIDto!]
+  price: Float
+  propertyType: String
+  publicTransportOptions: [PublicTransportOption!]
+  roomFurnishing: [Furnishing!]
+  roomType: String
+  squareFeet: Float
+  status: ListingStatus!
+  tenancyMonth: Float
+  unitPropertyType: String
+  unitType: UnitType
+  uriFragment: String
+  utilities: [UtilityType!]
+  utilityDeposit: Float
+  videoUrls: [String!]
+  viewingAssistance: String
+  waterBill: String
+  wifi: Wifi
+}
+
+type SearchListingES {
+  _geoloc: Vector
+  address: AddressDto!
+  agreement: ESignAgreement
+  agreementId: Float
+  analytics: ListingAnalyticDTO
+  area: String
+  availableAt: DateISO
+  bathroom: Float
+  bathroomType: BathroomType
+  bedroom: Float
+  captionedPhotoUrls: [CaptionedUrl!]
+  captionedVideoUrls: [CaptionedUrl!]
+  carpark: Float
+  createdAt: DateTime
+  currency: String
+  depositMonth: Float
+  depositValue: Float
+  electricityBill: UtilityIncluded
+  firstPublish: DateTime
+  floorLevel: FloorLevel
+  furnishType: FurnishType
+  furnishing: [Furnishing!]
+  genderRule: GenderRule
+  houseRules: [HouseRule!]
+  id: ID!
+  isDepositAbsolute: Boolean
+  isDuplicated: Boolean
+  isUtilityDepositAbsolute: Boolean
+  lastCheckedOn: DateTime
+  minRentalAmount: Float
+  notes: String
+  owner: User
+  ownerId: String
+  photoUrls: [String!]
+  photographer: PhotographerDto
+  pois: [POIDto!]
+  price: Float
+  property: PropertyDto
+  propertyId: String
+  rePublish: [DateTime!]
+  roomFurnishing: [Furnishing!]
+  roomType: RoomType
+  scheduledPhotographyDateTime: DateTime
+  scheduledPhotographyDuration: Float
+  sharedFurnishing: [Furnishing!]
+  squareFeet: Float
+  stampingFee: Float
+  status: ListingStatus!
+  supplierPhotos: [CaptionedUrl!]
+  supplierVideoUrl: String
+  tags: [String!]
+  tenancyAgreementFee: Float
+  tenancyMonth: Float
+  topFeatures: [TopFeature!]
+  unitPropertyType: UnitPropertyType
+  unitType: UnitType
+  updatedAt: DateTime
+  uriFragment: String
+  user: User!
+  utilities: [UtilityType!]
+  utilityDeposit: Float
+  utilityDepositValue: Float
+  verified: Boolean!
+  videoUrls: [String!]
+  viewingAssistance: String
+  virtualTour: String
+  waterBill: UtilityIncluded
+  wifi: Wifi
+}
+
+type SearchLocation {
+  _geoloc: Vector
+  address: String!
+  country: String!
+  countryCode: String!
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  description: String
+  facilities: [Facility!]
+  facilityVideos: [String!]
+  facilityVirtualTour: String
+  hasPublicTransport: Boolean
+  id: ID!
+  latitude: Float
+  level: String!
+  listingCount: Int
+  longitude: Float
+  name: String!
+  parentId: Int
+  parents: [ParentDto!]!
+  photoUrls: [String!]
+  pois: [POIDto!]
+  postcode: String
+  properties: [PropertyDto!]
+  propertyGroupType: PropertyGroupType
+  propertyId: Int
+  propertyType: LocationPropertyType
+  publicTransportOptions: [PublicTransportOption!]
+  slug: String!
+  state: String
+  streetAddress: String
+  updatedAt: DateTime!
+}
+
+type SearchPaginatedListing {
+  currentPage: Int!
+  data: [SearchListingES!]
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  itemCount: Int!
+  nearbyAreas: [LocationDto!]
+  nearbyListings: [SearchListingES!]
+  nearbyProperties: [LocationDto!]
+  pageCount: Int!
+  perPage: Int!
+}
+
+type SearchPaginatedLocation {
+  currentPage: Int!
+  data: [SearchLocation!]
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  itemCount: Int!
+  pageCount: Int!
+  perPage: Int!
+}
+
+type SearchRequestForm {
+  additionalInfo: String
+  areaName: String
+  companyOrUniversity: String
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  furnishing: String
+  id: ID!
+  maxBudget: Float
+  movedInDate: String
+  name: String
+  nationality: String
+  noOfBedrooms: String
+  noOfPeopleStaying: Float
+  occupation: String
+  phoneNumber: String
+  propertyName: String
+  tenancyPeriod: String
+  type: String
+  updatedAt: DateTime!
+  user: User
+}
+
+input SearchRequestFormDto {
+  additionalInfo: String
+  areaName: String
+  companyOrUniversity: String
+  furnishing: String
+  maxBudget: Float
+  movedInDate: String
+  name: String
+  nationality: String
+  noOfBedrooms: String
+  noOfPeopleStaying: Float
+  occupation: String
+  phoneNumber: String
+  propertyName: String
+  tenancyPeriod: String
+  type: String
+}
+
+type SignatureIds {
+  role: String!
+  signatureId: String!
+}
+
+input SignatureIdsInput {
+  role: String!
+  signatureId: String!
+}
+
+type SignedUrl {
+  fileName: String!
+  fileUrl: String!
+  signedUrl: String!
+}
+
+type SigningDetails {
+  booking: Booking
+  requiresSigning: Boolean!
+  signUrl: String
+}
+
+enum Sort {
+  priceHighLow
+  priceLowHigh
+}
+
+enum SortDirections {
+  Asc
+  Desc
+}
+
+enum SortOrder {
+  ASC
+  DESC
+}
+
+type StatusResponse {
+  message: String!
+  success: Boolean!
+}
+
+type TagDto {
+  createdAt: DateTime
+  description: String
+  id: ID!
+  name: String!
+  slug: String!
+  updatedAt: DateTime
+}
+
+input TagInput {
+  createdAt: DateTime
+  description: String
+  id: ID!
+  name: String!
+  slug: String!
+  updatedAt: DateTime
+}
+
+type TenantProfile {
+  approach: String
+  businessDevelopmentPIC: String
+  campaign: String
+  companyInstitution: String
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  firstName: String
+  focusArea: String
+  focusType: String
+  id: String!
+  lastName: String
+  medium: String
+  nationality: String
+  occupation: String
+  referrer: String
+  source: String
+  updatedAt: DateTime!
+}
+
+enum TopFeature {
+  HalalFriendlyUnit
+  NonSmoking
+  WithWindow
+  ZeroDeposit
+}
+
+enum UnitPropertyType {
+  Duplex
+  Studio
+}
+
+enum UnitType {
+  EntireUnit
+  Room
+}
+
+input UpdateAdminListingInput {
+  address: AddressDtoInput
+  agreementId: Float
+  area: String
+  availableAt: DateISO
+  bathroom: Float
+  bathroomType: BathroomType
+  bedroom: Float
+  captionedPhotoUrls: [CaptionedUrlInput!]
+  captionedVideoUrls: [CaptionedUrlInput!]
+  carpark: Float
+  createdAt: DateTime
+  currency: String
+  depositMonth: Float
+  depositValue: Float
+  electricityBill: UtilityIncluded
+  firstPublish: DateTime
+  floorLevel: FloorLevel
+  furnishType: FurnishType
+  furnishing: [Furnishing!]
+  genderRule: GenderRule
+  houseRules: [HouseRule!]
+  id: ID
+  isDepositAbsolute: Boolean
+  isDuplicated: Boolean
+  isUtilityDepositAbsolute: Boolean
+  lastCheckedOn: DateTime
+  minRentalAmount: Float
+  notes: String
+  ownerId: String
+  photoUrls: [String!]
+  pois: [POIInput!]
+  price: Float
+  propertyId: String
+  rePublish: [DateTime!]
+  roomFurnishing: [Furnishing!]
+  roomType: RoomType
+  scheduledPhotographyDateTime: DateTime
+  scheduledPhotographyDuration: Float
+  sharedFurnishing: [Furnishing!]
+  squareFeet: Float
+  stampingFee: Float
+  status: ListingStatus = Pending
+  tags: [String!] = []
+  tenancyAgreementFee: Float
+  tenancyMonth: Float
+  topFeatures: [TopFeature!]
+  unitPropertyType: UnitPropertyType
+  unitType: UnitType
+  updatedAt: DateTime
+  uriFragment: String
+  utilities: [UtilityType!]
+  utilityDeposit: Float
+  utilityDepositValue: Float
+  verified: Boolean = false
+  videoUrls: [String!]
+  viewingAssistance: String
+  virtualTour: String
+  waterBill: UtilityIncluded
+  wifi: Wifi
+}
+
+input UpdateAdminMarketingCampaignInput {
+  buttonTitle: String
+  campaignLink: String
+  description: String
+  endDate: String
+  name: String
+  photoUrls: [String!]
+  startDate: String
+  status: CampaignStatus
+}
+
+input UpdateAdminPromotionInput {
+  description: String
+  discounts: [DiscountInput!]
+  endDate: String
+  name: String
+  startDate: String
+  status: PromotionStatus
+}
+
+input UpdateBookingInput {
+  additionalDocuments: [DocumentInput!]
+  advanceRental: Float
+  advanceRentalDiscount: Float
+  companyInstitution: String
+  contractEnd: String
+  emergencyContactName: String
+  emergencyMobile: String
+  emergencyRelationship: String
+  fullName: String
+  identificationDocuments: [DocumentInput!]
+  identificationNumber: String
+  landlordEmail: String
+  landlordIC: String
+  landlordMobile: String
+  landlordName: String
+  landlordSigned: Boolean
+  listingId: Float
+  miscellaneousDeposit: Float
+  movedInDate: String
+  movedInEndDate: DateTime
+  movedInStartDate: DateTime
+  nationality: String
+  noOfResidents: Float
+  notes: String
+  occupation: String
+  otherRelationship: String
+  paymentDueDateDay: Float
+  personalDataAccessAgreement: Boolean
+  price: Float
+  promotionCode: PromotionCodeInput
+  refundAgreement: Boolean
+  relationship: String
+  rentalDeposit: Float
+  rentalDepositDiscount: Float
+  sendLandlordEmail: Boolean = false
+  sendTenantEmail: Boolean = false
+  stampingFee: Float
+  status: String
+  tenancyAgreementFee: Float
+  tenancyMonths: Int
+  tenantSigned: Boolean
+  utilityDeposit: Float
+  utilityDepositDiscount: Float
+}
+
+input UpdateDraftListingInput {
+  address: AddressDtoInput
+  adminPhotographerId: String
+  adminProcessorId: String
+  agreementId: Float
+  area: String
+  assets: [String!]
+  availableAt: DateISO
+  bathroom: Float
+  bathroomType: BathroomType
+  bedroom: Float
+  carpark: Float
+  createdAt: DateTime
+  currency: String
+  depositMonth: Float
+  depositValue: Float
+  electricityBill: UtilityIncluded
+  floorLevel: FloorLevel
+  furnishType: FurnishType
+  furnishing: [Furnishing!]
+  genderRule: GenderRule
+  houseRules: [HouseRule!]
+  id: ID
+  imageHash: String
+  isDepositAbsolute: Boolean
+  isDuplicated: Boolean
+  isUtilityDepositAbsolute: Boolean
+  lastCheckedOn: DateTime
+  listingId: Int
+  listingStatus: ListingStatus
+  minRentalAmount: Float
+  notes: String
+  ownerId: String
+  photoUrls: [CaptionedUrlInput!]
+  photographerNote: String
+  pois: [POIInput!]
+  price: Float
+  processorNote: String
+  propertyId: String
+  rawVideosUrls: [CaptionedUrlInput!]
+  rawVirtualTourUrls: [CaptionedUrlInput!]
+  rePublish: [DateTime!]
+  roomFurnishing: [Furnishing!]
+  roomType: RoomType
+  scheduledPhotographyDateTime: DateTime
+  scheduledPhotographyDuration: Float
+  sharedFurnishing: [Furnishing!]
+  squareFeet: Float
+  stampingFee: Float
+  status: DraftListingStatus
+  supplierNote: String
+  supplierPhotos: [CaptionedUrlInput!]
+  supplierVideoUrl: String
+  supplierVideos: [CaptionedUrlInput!]
+  tags: [String!] = []
+  tenancyAgreementFee: Float
+  tenancyMonth: Float
+  topFeatures: [TopFeature!]
+  unitPropertyType: UnitPropertyType
+  unitType: UnitType
+  updatedAt: DateTime
+  uriFragment: String
+  utilities: [UtilityType!]
+  utilityDeposit: Float
+  utilityDepositValue: Float
+  verified: Boolean = false
+  videoUrls: [CaptionedUrlInput!]
+  viewingAssistance: String
+  virtualTour: String
+  virtualTourEditUrl: String
+  waterBill: UtilityIncluded
+  wifi: Wifi
+}
+
+input UpdateLeasingInput {
+  address: AddressInput
+  contractEnd: String
+  contractLink: String
+  createdAt: DateTime
+  deletedAt: DateTime
+  depositMonth: Float
+  id: ID
+  movedInDate: String
+  price: Float
+  stampedTenancyAgreementUrl: String
+  status: String
+  updatedAt: DateTime
+  utilityDeposit: Float
+}
+
+input UpdateListingInput {
+  address: AddressDtoInput
+  agreementId: Float
+  area: String
+  availableAt: DateISO
+  bathroom: Float
+  bathroomType: BathroomType
+  bedroom: Float
+  captionedPhotoUrls: [CaptionedUrlInput!]
+  captionedVideoUrls: [CaptionedUrlInput!]
+  carpark: Float
+  createdAt: DateTime
+  currency: String
+  depositMonth: Float
+  depositValue: Float
+  electricityBill: UtilityIncluded
+  firstPublish: DateTime
+  floorLevel: FloorLevel
+  furnishType: FurnishType
+  furnishing: [Furnishing!]
+  genderRule: GenderRule
+  houseRules: [HouseRule!]
+  id: ID
+  isDepositAbsolute: Boolean
+  isDuplicated: Boolean
+  isUtilityDepositAbsolute: Boolean
+  lastCheckedOn: DateTime
+  minRentalAmount: Float
+  notes: String
+  ownerId: String
+  photoUrls: [String!]
+  pois: [POIInput!]
+  price: Float
+  propertyId: String
+  rePublish: [DateTime!]
+  roomFurnishing: [Furnishing!]
+  roomType: RoomType
+  scheduledPhotographyDateTime: DateTime
+  scheduledPhotographyDuration: Float
+  sharedFurnishing: [Furnishing!]
+  squareFeet: Float
+  stampingFee: Float
+  status: ListingStatus = Pending
+  tags: [String!] = []
+  tenancyAgreementFee: Float
+  tenancyMonth: Float
+  topFeatures: [TopFeature!]
+  unitPropertyType: UnitPropertyType
+  unitType: UnitType
+  updatedAt: DateTime
+  uriFragment: String
+  utilities: [UtilityType!]
+  utilityDeposit: Float
+  utilityDepositValue: Float
+  verified: Boolean = false
+  videoUrls: [String!]
+  viewingAssistance: String
+  virtualTour: String
+  waterBill: UtilityIncluded
+  wifi: Wifi
+}
+
+input UpdateLocationInput {
+  address: String
+  country: String
+  countryCode: String
+  description: String
+  facilities: [Facility!]
+  facilityVideos: [String!]
+  facilityVirtualTour: String
+  hasPublicTransport: Boolean
+  latitude: Float
+  level: String
+  longitude: Float
+  name: String
+  parentId: Int
+  photoUrls: [String!]
+  pois: [POIInput!]
+  postcode: String
+  propertyGroupType: PropertyGroupType
+  propertyType: LocationPropertyType
+  publicTransportOptions: [PublicTransportOption!]
+  streetAddress: String
+}
+
+input UpdatePaymentAdjustmentInput {
+  amount: Float
+  attachmentUrls: [String!]
+  operations: PaymentAdjustmentOperation
+  remarks: String
+  source: PaymentSource
+}
+
+input UpdatePaymentDueDateDayInput {
+  bookingId: Float!
+  newDueDay: Float
+}
+
+input UpdatePaymentRecordAndCreateAdjustmentInput {
+  amount: Float
+  attachmentUrls: [String!]
+  operations: PaymentAdjustmentOperation
+  paymentId: String!
+  remarks: String
+  type: PaymentAdjustmentType
+}
+
+input UpdateTagInput {
+  createdAt: DateTime
+  description: String
+  id: ID
+  name: String
+  slug: String
+  updatedAt: DateTime
+}
+
+input UpdateUserInput {
+  approach: String
+  area: [Float!]
+  businessDevelopmentPIC: String
+  campaign: String
+  companyInstitution: String
+  country: String
+  countryCode: String
+  crmUserId: String
+  email: String
+  firstName: String
+  focusArea: String
+  focusType: String
+  isOtherBusinessDevelopmentPIC: Boolean
+  isOtherLandlordBankName: Boolean
+  isOtherMedium: Boolean
+  isOtherSource: Boolean
+  isTmpPassword: Boolean
+  landlordBankAccountNumber: String
+  landlordBankName: String
+  landlordPayeeName: String
+  lastName: String
+  medium: String
+  name: String
+  nationality: String
+  notes: String
+  occupation: String
+  password: String
+  paymentMethod: String
+  phone1: String
+  phone2: String
+  phoneNumber: String
+  profileId: String
+  referrer: String
+  renTag: String
+  role: UserRole
+  source: String
+  suspended: Boolean
+  verified: Boolean
+  whatsappLink: String
+}
+
+input UploadFileInput {
+  # The file name, will be passed back at response
+  fileName: String!
+  metaDraftListingId: String
+  metaImageOwner: String
+  metaListingId: String
+
+  # The mime type of a file, such as: image/png, image/jpg, image/gif, ...
+  mimeType: String!
+
+  # The purpose of the upload, such as: profile_picture, listing_images, ...
+  purpose: String!
+}
+
+type User {
+  companyInstitution: String
+  country: String
+  countryCode: String
+  createdAt: DateTime!
+  crmUserId: String
+  deletedAt: DateTime!
+  email: String
+  firstName: String
+  focusArea: String
+  focusType: String
+  id: ID!
+  isTmpPassword: Boolean
+  lastName: String
+  name: String
+  nationality: String
+  notes: String
+  occupation: String
+  password: String!
+  passwordUpdateAt: DateTime
+  paymentMethod: String
+  phoneNumber: String
+  profile: UserRoleProfiles
+  profileId: String!
+  referrer: String
+  renTag: String
+  role: UserRole
+  source: String
+  suspended: Boolean
+  updatedAt: DateTime!
+  verified: Boolean
+  whatsappLink: String
+}
+
+type UserProfileOutput {
+  approach: String
+  area: [Float!]
+  businessDevelopmentPIC: String
+  campaign: String
+  companyInstitution: String
+  country: String
+  countryCode: String
+  crmUserId: String
+  email: String
+  firstName: String
+  focusArea: String
+  focusType: String
+  id: ID!
+  isOtherBusinessDevelopmentPIC: Boolean
+  isOtherLandlordBankName: Boolean
+  isOtherMedium: Boolean
+  isOtherSource: Boolean
+  isTmpPassword: Boolean
+  landlordBankAccountNumber: String
+  landlordBankName: String
+  landlordPayeeName: String
+  lastName: String
+  medium: String
+  name: String
+  nationality: String
+  notes: String
+  occupation: String
+  password: String
+  paymentMethod: String
+  phone1: String
+  phone2: String
+  phoneNumber: String
+  profileId: String
+  referrer: String
+  renTag: String
+  role: UserRole
+  source: String
+  suspended: Boolean
+  verified: Boolean
+  whatsappLink: String
+}
+
+type UserResumeDto {
+  additionalDocuments: [Document!]
+  advanceRental: Float
+  advanceRentalDiscount: Float
+  bookingCreditCheck: BookingCreditCheck
+  collectionStatus: Boolean
+  collectionType: BookingCollectionType
+  companyInstitution: String
+  contractEnd: String
+  emergencyContactName: String
+  emergencyMobile: String
+  emergencyRelationship: String
+  exportDate: DateTime!
+  fullName: String
+  id: Float
+  identificationDocuments: [Document!]
+  identificationNumber: String
+  isDirectDebitEnabled: Boolean
+  landlordEmail: String
+  landlordIC: String
+  landlordMobile: String
+  landlordName: String
+  landlordSigned: Boolean
+  listing: ListingDto
+  listingId: Float
+  miscellaneousDeposit: Float
+  movedInDate: String
+  movedInEndDate: DateTime
+  movedInStartDate: DateTime
+  nationality: String
+  noOfResidents: Float
+  notes: String
+  occupation: String
+  otherRelationship: String
+  paymentDueDateDay: Float
+  paymentRecords: [PaymentItem!]
+  personalDataAccessAgreement: Boolean
+  price: Float
+  promotionCode: PromotionCode
+  refundAgreement: Boolean
+  relationship: String
+  rentalDeposit: Float
+  rentalDepositDiscount: Float
+  stampingFee: Float
+  status: String
+  tenancyAgreementFee: Float
+  tenantSigned: Boolean
+  user: User
+  userResumePaymentRecords: [UserResumePaymentRecordsDto!]!
+  utilityDeposit: Float
+  utilityDepositDiscount: Float
+}
+
+type UserResumePaymentRecordsDto {
+  amount: Float
+  discountAmount: Float
+  dueDate: DateTime
+  initialAmount: Float
+  isProrated: Boolean
+  lateCharge: Boolean
+  lateChargeAmount: Float
+  paidOn: DateTime
+  paymentAdjustments: [PaymentAdjustmentDto!]
+  paymentId: String
+  paymentStep: Float
+  proratedAmount: Float
+  proratedItem: ProratedDto
+  status: PaymentStatus
+  toDisplayAmount: String
+  toDisplayInitialAmount: String
+  type: PaymentItemType
+  userResumePaymentStatus: UserResumePaymentStatus!
+}
+
+enum UserResumePaymentStatus {
+  paid
+  paid_early
+  paid_late
+  pending
+}
+
+enum UserRole {
+  Agent
+  B2BPartner
+  Landlord
+  Prospects
+  Tenant
+}
+
+union UserRoleProfiles =
+    AgentProfile
+  | B2bPartnerProfile
+  | LandlordProfile
+  | TenantProfile
+
+enum UtilityIncluded {
+  Included
+  NotAvailable
+  NotIncluded
+}
+
+enum UtilityType {
+  Electricity
+  Water
+  Wifi
+}
+
+type Vector {
+  lat: Float
+  lng: Float
+}
+
+enum Wifi {
+  InclusiveOnRent
+  NotAvailable
+  NotInclusiveOnRent
+}
+
+type signature_requests {
+  bookingId: Float!
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  detailsUrl: String!
+  filesUrl: String!
+  hasError: Boolean!
+  id: ID!
+  isComplete: Boolean!
+  isDeclined: Boolean!
+  message: String!
+  metadata: String!
+  originalTitle: String!
+  requesterEmailAddress: String!
+  signatureRequestId: String!
+  signatures: [signature_signer_completed!]!
+  signingRedirectUrl: String!
+  signingUrl: String!
+  subject: String!
+  testMode: Float!
+  title: String!
+  updatedAt: DateTime!
+}
+
+type signature_signer_completed {
+  createdAt: DateTime!
+  declineReason: String!
+  deletedAt: DateTime!
+  error: String!
+  hasPin: Boolean!
+  helloSignRequest: signature_requests!
+  id: ID!
+  lastRemindedAt: DateTime!
+  lastViewedAt: DateTime!
+  order: String!
+  reassignedBy: String!
+  reassignmentReason: String!
+  signatureId: String!
+  signedAt: DateTime!
+  signerEmailAddress: String!
+  signerName: String!
+  signerRole: String!
+  statusCode: String!
+  updatedAt: DateTime!
+}
